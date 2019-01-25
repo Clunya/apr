@@ -14,23 +14,26 @@
 <br>
 <div class="spr">
     <ol>
-        <li class="point"><span class="sprTarget">{{ sprTarget }}</span> Получить текущий год и сверить дату Пасхи в этом году; была ли Пасха в этом году или нет?<br><span class="sprAction">{{ sprAction }}</span> Получаем текущий год и вычисляем разницу с датой из массиве
+        <li class="point"><span class="sprTarget" title="spr 1">{{ sprTarget }}</span> Получить текущий год и сверить дату Пасхи в этом году; была ли Пасха в этом году или нет?<br><span class="sprAction">{{ sprAction }}</span> Получаем текущий год и вычисляем разницу с
+            датой из массиве
             <b>pashalia</b> по ключу года. Если разница положительная - то Пасхи не было, отрицательная - была. Разницы нет - Пасха. Это требуется для вычисления седмиц и определения Пасхального года и соотношения его к современному году календаря.
+            <p>Зачем это нужно?</p>
+            <p>При вычислении седмиц нужно использовать текущий год календаря <b>getFullYear()</b>, а в одном Пасхальном году присутствуют всегда две даты года. В таком случае становиться сложно оперировать двумя временами. Выполнив проверку один раз, мы
+                имеем два блока действий. Первый от Гражданского Нового года до ПАСХИ, и от ПАХСИ до Нового года. В сущности это всего один Богослужебный Пасхальный год. Пасхальные же годы имеют разное кол-во седмиц и отступки в чтениях Евангелий.</p>
         </li>
-        <!-- <li class="point"><span class="sprTarget">{{sprTarget}}</span><br><span class="sprAction">{{ sprAction }}</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus a voluptatem sunt dolore aperiam, illo assumenda vitae porro eaque nihil sed nulla autem quia odit reiciendis hic culpa mollitia
-            ab?
-        </li> -->
-        <li class="point"><span class="sprTarget">{{sprTarget}}</span>Разобраться с роутингом в системе Angular 7.<br>
-            <span class="sprAction">{{ sprAction }}</span>Выучить правила маршрутизации фреймворка Angular.
+        <li class="point"><span class="sprTarget" title="spr 2">{{sprTarget}}</span> Вычислить количество седмиц Пасхального года и кл-во промежуточных седмиц.<br><span class="sprAction">{{ sprAction }}</span>Вычисляем даты Пасх и разницу между их датами, делим на семь
+            и далее вычитаем 50 иполучаем Крещенскую отступку.
+            <p>Промежуточные седмицы.</p>
+            <p>Промежуточными называются седмицы которые бывают в года с числом седмиц более 50. Эти седмицы находятся пред Неделей (Воскресеньем) Мытаря и Фарисея.</p>
         </li>
-        <li class="point"><span class="sprTarget">{{sprTarget}}</span><br><span class="sprAction">{{ sprAction }}</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus a voluptatem sunt dolore aperiam, illo assumenda vitae porro eaque nihil sed nulla
-            autem quia odit reiciendis hic culpa mollitia ab?
+        <li class="point"><span class="sprTarget" title="spr 3">{{sprTarget}}</span>Разобраться с роутингом в системе Angular 7.<br>
+            <span class="sprAction">{{ sprAction }}</span> Выучить правила маршрутизации фреймворка Angular.
         </li>
-        <li class="point"><span class="sprTarget">{{sprTarget}}</span><br><span class="sprAction">{{ sprAction }}</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus a voluptatem sunt dolore aperiam, illo assumenda vitae porro eaque nihil sed nulla
-            autem quia odit reiciendis hic culpa mollitia ab?
+        <li class="point"><span class="sprTarget" title="spr ">{{sprTarget}}</span> TTTTTTTTTTTT<br><span class="sprAction">{{ sprAction }}</span> AAAAAAAAAAAA
         </li>
-        <li class="point"><span class="sprTarget">{{sprTarget}}</span><br><span class="sprAction">{{ sprAction }}</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus a voluptatem sunt dolore aperiam, illo assumenda vitae porro eaque nihil sed nulla
-            autem quia odit reiciendis hic culpa mollitia ab?
+        <li class="point"><span class="sprTarget" title="spr ">{{sprTarget}}</span> TTTTTTTTTTTT<br><span class="sprAction">{{ sprAction }}</span> AAAAAAAAAAAA
+        </li>
+        <li class="point"><span class="sprTarget" title="spr ">{{sprTarget}}</span> TTTTTTTTTTTT<br><span class="sprAction">{{ sprAction }}</span> AAAAAAAAAAAA
         </li>
     </ol>
 

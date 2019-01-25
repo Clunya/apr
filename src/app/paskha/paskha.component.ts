@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaskhaComponent implements OnInit {
 
+  keyYear: number; // Главный ключ
   timeBox: any;
   lastEaster: any;
   nextEaster: any;
@@ -34,29 +35,59 @@ export class PaskhaComponent implements OnInit {
     2036: [3, 20],
     2037: [3, 5],
     2038: [3, 25]
-  }
+  };
+
+  months = [
+    "января",
+    "февраля",
+    "марта",
+    "апреля",
+    "май",
+    "июня",
+    "июля",
+    "августа",
+    "сентября",
+    "октября",
+    "ноября",
+    "декабря"
+  ]
 
 
 
   constructor() {
 
-    { // spr 1
+    
+    { // spr1
       this.timeBox = new Date();
       var currentYear = this.timeBox.getFullYear();
       this.paskhaCurrentYear = new Date(this.timeBox.getFullYear(), this.pashalia[currentYear][0], this.pashalia[currentYear][1])
-      var deferentsDates = this.paskhaCurrentYear-this.timeBox;
-      
-      if(deferentsDates > 0) {
-        
-        // Здесь код для года следующей Пасхи
-        this.nextEaster = deferentsDates;
 
-      }
-      else {
 
+      // Вычисление разницы времен
+      var dateDeference = this.paskhaCurrentYear - this.timeBox;
+
+      if (dateDeference < 0)
+      {
+
+    // ---------------------------
+        this.keyYear = 1;
+    // ---------------------------
         var key = (this.timeBox.getFullYear() - 1);
-        this.lastEaster = 'ПАСХА БЫЛА ' + (this.timeBox.getFullYear() - 1) + "/" + (this.pashalia[key][0]) + "/" + (this.pashalia[key][1]);
-        this.nextEaster = deferentsDates;
+        this.lastEaster = 'ПАСХА БЫЛА: ' + this.pashalia[key][1] + " " + this.months[this.pashalia[currentYear][0]];
+
+        this.nextEaster = "ПАСХА БУДЕТ: " + this.pashalia[currentYear][1] + " " + this.months[this.pashalia[currentYear][0]];
+        
+      }
+      
+      else
+      {
+    // ---------------------------
+        this.keyYear = 0;
+    // ---------------------------
+    var key = (this.timeBox.getFullYear() - 1);
+        this.lastEaster = 'ПАСХА БЫЛА: ' + this.pashalia[key][1] + " " + this.months[this.pashalia[currentYear][0]];
+
+    this.nextEaster = "ПАСХА БУДЕТ: " + this.pashalia[currentYear][1] + " " + this.months[this.pashalia[currentYear][0]];
 
       }
 
