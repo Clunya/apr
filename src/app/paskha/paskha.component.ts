@@ -10,30 +10,30 @@ export class PaskhaComponent implements OnInit {
   timeBox: any;
   lastEaster: any;
   nextEaster: any;
-  rrr: any;
+  paskhaCurrentYear: any;
 
   pashalia: any = {
-    'year2018': ["апрель", 8],
-    'year2019': ["апрель", 28],
-    'year2020': ["апрель", 19],
-    'year2021': ["май", 2],
-    'year2022': ["апрель", 24],
-    'year2023': ["апрель", 16],
-    'year2024': ["май", 5],
-    'year2025': ["апрель", 20],
-    'year2026': ["апрель", 12],
-    'year2027': ["май", 2],
-    'year2028': ["апрель", 16],
-    'year2029': ["апрель", 8],
-    'year2030': ["апрель", 28],
-    'year2031': ["апрель", 13],
-    'year2032': ["май", 2],
-    'year2033': ["апрель", 24],
-    'year2034': ["апрель", 9],
-    'year2035': ["апрель", 29],
-    'year2036': ["апрель", 20],
-    'year2037': ["апрель", 5],
-    'year2038': ["апрель", 25]
+    2018: [3, 8],
+    2019: [3, 28],
+    2020: [3, 19],
+    2021: [4, 2],
+    2022: [3, 24],
+    2023: [3, 16],
+    2024: [4, 5],
+    2025: [3, 20],
+    2026: [3, 12],
+    2027: [4, 2],
+    2028: [3, 16],
+    2029: [3, 8],
+    2030: [3, 28],
+    2031: [3, 13],
+    2032: [4, 2],
+    2033: [3, 24],
+    2034: [3, 9],
+    2035: [3, 29],
+    2036: [3, 20],
+    2037: [3, 5],
+    2038: [3, 25]
   }
 
 
@@ -42,17 +42,22 @@ export class PaskhaComponent implements OnInit {
 
     { // spr 1
       this.timeBox = new Date();
-      var currentYear = 'year' + this.timeBox.getFullYear();
-      this.rrr = new Date(this.timeBox.getFullYear(), this.pashalia[currentYear][0], this.pashalia[currentYear][1])
-
-      if (Math.trunc(this.timeBox - this.rrr) > 0) {
-
+      var currentYear = this.timeBox.getFullYear();
+      this.paskhaCurrentYear = new Date(this.timeBox.getFullYear(), this.pashalia[currentYear][0], this.pashalia[currentYear][1])
+      var deferentsDates = this.paskhaCurrentYear-this.timeBox;
+      
+      if(deferentsDates > 0) {
+        
         // Здесь код для года следующей Пасхи
+        this.nextEaster = deferentsDates;
 
       }
       else {
-        var key = 'year' + (this.timeBox.getFullYear() - 1);
-        this.lastEaster = 'ПАСХА БЫЛА ' + (this.timeBox.getFullYear() - 1) + "/" + (this.pashalia[key][0]) + "/" + (this.pashalia[key][1])
+
+        var key = (this.timeBox.getFullYear() - 1);
+        this.lastEaster = 'ПАСХА БЫЛА ' + (this.timeBox.getFullYear() - 1) + "/" + (this.pashalia[key][0]) + "/" + (this.pashalia[key][1]);
+        this.nextEaster = deferentsDates;
+
       }
 
     }
