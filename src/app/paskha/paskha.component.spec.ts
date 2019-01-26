@@ -19,7 +19,17 @@ describe('PaskhaComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('тест переменной keyYear', () => {
+    expect(component.keyYear=1).toBe(1);
   });
+
+  it('проверка переменной paskhaCurrentYear', () => {
+    expect(component.lastEaster).toBeTruthy();
+  });
+
+  it('проверка переменной paskhaCurrentYear', () => {
+    expect(component.nextEaster).toBeTruthy();
+  });
+
+  
 });
