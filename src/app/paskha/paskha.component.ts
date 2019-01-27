@@ -14,6 +14,7 @@ export class PaskhaComponent implements OnInit {
   paskhaCurrentYear: any;
   timeBox2: any;
   currentYear: any;
+  rrr: string;
 
   pashalia: any = {
     2015: [3, 12],
@@ -52,7 +53,7 @@ export class PaskhaComponent implements OnInit {
   constructor() {
 
         // spr1 (spravka 1 http://localhost:4200/spr)
-        this.timeBox = new Date();
+    this.timeBox = new Date();
         
         // prb1 (problema 1, смотри видео prb-1.mov)
         // this.timeBox = new Date(2018, 11, 31);
@@ -65,19 +66,20 @@ export class PaskhaComponent implements OnInit {
   ngOnInit() {
     
     this.keyNewYear();
+    // this.rrr = JSON.parse();
     
   }
   
   
-  keyNewYear() { // Вычисление разницы времен
+  keyNewYear() { // Вычисление разницы времен, которая показывает состояние Праздника Новый год (был или нет)
       var dateDeference = this.paskhaCurrentYear - this.timeBox;
-      
+
       if (dateDeference < 0) {
         
         // ---------------------------
-        this.keyYear = 1; // если Нового года еще небыло
+        this.keyYear = 1; // если Нового года еще небыло в Пасхальном году
         // ---------------------------
-        var lastYear = (this.timeBox.getFullYear() - this.keyYear);
+        var lastYear = (this.timeBox.getFullYear() -1);
         console.log("Задан год: ", lastYear );
         console.log("Разность дат между текущим и заданным годами составляет:", dateDeference, "миллисекунды");
 
@@ -89,8 +91,8 @@ export class PaskhaComponent implements OnInit {
       }
   
       else {
-        // ---------------------------
-        this.keyYear = 2;
+        // ---------- НГ был -----------------
+        this.keyYear = 0;
         // ---------------------------
         var key = (this.timeBox.getFullYear() -1);
         this.lastEaster = 'ПРОШЕДШАЯ ПАСХА: ' + this.pashalia[key][1] + " " + this.monthsArray[this.pashalia[this.currentYear][0]];

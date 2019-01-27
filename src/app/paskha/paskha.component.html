@@ -2,7 +2,14 @@
 
     <p class="pashaLastDate">{{ lastEaster }}</p>
     <p class="pashaNextDate"> {{ nextEaster }} </p>
-    <p> Пасха текущего года - {{ paskhaCurrentYear }}</p>
+    <p> Пасха текущего года - {{ paskhaCurrentYear | date:"MM/dd yyyy" }}</p>
     <p> Значение ключа - {{keyYear}}</p>
     <p> Текщий год - {{currentYear}}</p>
 </div>
+
+<!-- <div *ngFor="let hero of ('assets/paskhalia.json' | fetch) ">
+    {{paskhalia}}
+</div> -->
+
+<!-- <p>Heroes as JSON: {{'assets/paskhalia.json' | fetch | json}}
+</p> -->
