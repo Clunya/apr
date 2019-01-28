@@ -1,10 +1,17 @@
 <div class="pashaDate">
+    
+    <!-- <ng-content select="h1, h2, h3, p"></ng-content> -->
+
 
     <p class="pashaLastDate">{{ lastEaster }}</p>
-    <p class="pashaNextDate"> {{ nextEaster }} </p>
-    <p> Пасха текущего года - {{ paskhaCurrentYear | date:"MM/dd yyyy" }}</p>
-    <p> Значение ключа - {{keyYear}}</p>
-    <p> Текщий год - {{currentYear}}</p>
+    <p class="we">Здесь Богослужебный год (далее БГ)</p>
+    <p class="pashaNextDate">{{ nextEaster }}</p>
+
+    <!-- Пример форматирования даты (pipe) -->
+    <!-- <p>{{ paskhaCurrentYear | date:"MM/dd yyyy" }}</p> -->
+
+    <p> Значение ключа - {{keyNewYearKey}}</p>
+    <p> Текщий год -     {{currentYear}}</p>
 </div>
 
 <!-- <div *ngFor="let hero of ('assets/paskhalia.json' | fetch) ">

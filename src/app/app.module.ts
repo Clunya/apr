@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PaskhaComponent } from './paskha/paskha.component';
 import { SprComponent } from './spr/spr.component';
 import { SedComponent } from './sed/sed.component';
+import { XxxService } from './xxx.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { SedComponent } from './sed/sed.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [XxxService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
