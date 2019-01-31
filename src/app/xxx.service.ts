@@ -1,11 +1,18 @@
-// import { Injectable } from '@angular/core';                          
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
+
+@Injectable({
+  providedIn: 'root'
+})
+
+
 export class XxxService {
-
+  
   private paskhalia = {
+    
     2015: [3, 12],
     2016: [4, 1],
     2017: [3, 16],
@@ -32,11 +39,16 @@ export class XxxService {
     2038: [3, 25]
   };
 
- constructor() { }
+ constructor(private http: HttpClient) { }
 
-  public getPaskhalia() {
 
+  public getPaskhaliaFromJSON(){
+    // return this.paskhalia;
+    return this.http.get<any>('./assets/paskhalia.json');
+    
+  }
+  
+  paskhaliaArray() {
     return this.paskhalia
-
   }
 }

@@ -4,7 +4,7 @@
 
 
     <p class="pashaLastDate">{{ lastEaster }}</p>
-    <p class="we">Здесь Богослужебный год (далее БГ)</p>
+    <p class="we">Здесь Богослужебный год в седмицах. {{sedAll}}</p>
     <p class="pashaNextDate">{{ nextEaster }}</p>
 
     <!-- Пример форматирования даты (pipe) -->
@@ -14,9 +14,19 @@
     <p> Текщий год -     {{currentYear}}</p>
 </div>
 
-<!-- <div *ngFor="let hero of ('assets/paskhalia.json' | fetch) ">
-    {{paskhalia}}
-</div> -->
+<p>----------------------</p>
 
-<!-- <p>Heroes as JSON: {{'assets/paskhalia.json' | fetch | json}}
-</p> -->
+<!-- {{paskhalia | json}} -->
+
+<div>
+    <!-- =-=-=-=-{{paskhalia}} -->
+    <ul style="list-style-type:none">
+        <li *ngFor="let item  of paskhalia; let i=index">{{item.year}}/{{item.month}}/<b>{{item.number}}</b></li>
+    </ul>
+
+</div>
+
+<p>----------------------</p>
+
+
+

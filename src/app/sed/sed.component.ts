@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { PaskhaComponent } from '../paskha/paskha.component';
+
+@Input()
 
 @Component({
   selector: 'app-sed',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SedComponent implements OnInit {
 
+  sedAll: number;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
+  // spr3 --- получить значения переменных lastEaster и  nextEaster
+  // выичслить количество седмиц бгода
+
+  seddAll = nextEaster - lastEaster;
+  
+  
+  
 
 }
