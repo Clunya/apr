@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { PaskhaComponent } from '../paskha/paskha.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { XxxService } from '../xxx.service';
 
-@Input()
+// компонент вычисленияс седмиц всего Пасхального года
 
 @Component({
   selector: 'app-sed',
@@ -9,20 +9,39 @@ import { PaskhaComponent } from '../paskha/paskha.component';
   styleUrls: ['./sed.component.css']
 })
 export class SedComponent implements OnInit {
+  
+  @Input() datesEasterYear: object;
 
-  sedAll: number;
+  // ??? вычисление седмиц Бгода 
+  sedmica: number;
+  // timebox1: number; timebox2: number;
+  
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(public _xxxService: XxxService) {
   }
+  ngOnInit() {
+    
+    this.sedmica = (Math.trunc(( this.datesEasterYear.nextEaster - this.datesEasterYear.lastEaster) / 864E5 / 7)) + 1;
+    console.log("Кол-во седмиц в Пгоду ", this.sedmica);
 
+    // ??? добавить описание в SPR
+
+  }
+  
 
   // spr3 --- получить значения переменных lastEaster и  nextEaster
   // выичслить количество седмиц бгода
 
-  seddAll = nextEaster - lastEaster;
-  
+  /* 
+    Вычисление разницы между текущем временем
+    и датой прошедшей Пасхи. Обрезка значения до целого.
+    ----------------------------------------------------
+*/
+
+  // sedmica() {
+    
+
+  // }
   
   
 

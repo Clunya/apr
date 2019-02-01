@@ -4,8 +4,14 @@
 
 
     <p class="pashaLastDate">{{ lastEaster }}</p>
-    <p class="we">Здесь Богослужебный год в седмицах. {{sedAll}}</p>
+    -----------
+    <app-sed [datesEasterYear]=datesEasterYear></app-sed>
+-------------
     <p class="pashaNextDate">{{ nextEaster }}</p>
+
+
+
+    <!-- <p class="we">Здесь Богослужебный год в седмицах. {{sedAll}}</p> -->
 
     <!-- Пример форматирования даты (pipe) -->
     <!-- <p>{{ paskhaCurrentYear | date:"MM/dd yyyy" }}</p> -->
