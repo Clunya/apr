@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-// import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -12,8 +10,10 @@ import { Observable } from 'rxjs';
 export class XxxService {
 
   
-  
-  private paskhalia = {
+  /**
+   * Readonly для свойств и допускает инициализацию только в первый раз.
+   */
+  readonly paskhalia = {
     
     2015: [3, 12],
     2016: [4, 1],

@@ -75,15 +75,21 @@ STOP: NEXT -----------------------------
 function otstupkaVozdvijjenie() {
     timeBoxVozdvijjenie = new Date(timeBox.getFullYear(), 8, 27);
     sedmicaVozdvijjenie = (Math.trunc((timeBoxVozdvijjenie - dataPashi) / 864E5 / 7) - 6);
+
+    /**
+     * Значение переменной otstupkaV получает число, которое равно количеству седмиц превыщающих число 17. 
+     * Чтения Евангелия после Пасхи расчитано на 17-седмиц и далее должно быть начато Евангелие от Луки в первую неделю (воскресение) после праздника Воздвижения Креста. Переменная otstupkaV показывает превышение числа 17. Этот аргумент и будет отступкой для повторных чтений до праздника Воздвижения.
+     * 
+     */
     var otstupkaV = sedmica - (sedmicaVozdvijjenie - 17);
     var prestupkaV = sedmica;
     var norm = sedmicaVozdvijjenie + (17 - sedmicaVozdvijjenie);
 
 
-    // if (timeBox >= timeBoxVozdvijjenie & sedmica <= 17 & sedmicaVozdvijjenie < 17) {
-    //     return norm;
-    // }
-
+  /**
+   * 
+   * 
+   */
     if (timeBox >= timeBoxVozdvijjenie & sedmica > sedmicaVozdvijjenie & sedmica > 17) {
         return otstupkaV;
 

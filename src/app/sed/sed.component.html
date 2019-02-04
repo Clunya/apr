@@ -3,6 +3,13 @@
 </p>
 
 <div class="rrr">
-    {{ datesEasterYear.lastEaster | date }} и {{ datesEasterYear.nextEaster | date }}
+    <!-- конвертирование миллисекунд в дату -->
+    {{ datesEasterYear.lastEaster | date }} 
+    <br>
+    {{ datesEasterYear.nextEaster | date }}
+<br>
+<p>Богослужебный год составляет - {{ allWeaks }} седмиц.</p>
+<p>Воздвижеская отступка составляет - {{otstupkaV}} седмицу.</p>
+
 
 </div>
