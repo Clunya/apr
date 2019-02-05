@@ -39,15 +39,26 @@ export class SedComponent implements OnInit {
    * Конвертирует дату текущей Пасхи для формирования даты Воздвижения из милисекунд
    */
   yearLastEaster: Date;
+
+  /**
+   * Конвертирует дату грядущей Пасхи для формирования даты Недели Мытаря и Фарисея из милисекунд
+   */
+  yearNextEaster: Date;
+
+
   otstupkaV: number;
   prestupkaV: number;
+  mif: Date;
 
 
 
   constructor(public _xxxService: XxxService) {
+
+    console.log(this._xxxService.paskhalia[2015]);
+    
   }
   ngOnInit() {
-
+    this.yearNextEaster = new Date(this.datesEasterYear.nextEaster)
     this.numberOfWeeks();
     console.log(this.otstupkaVozdvijjenie());
     this.seedPyatidesyatnica();
@@ -67,7 +78,19 @@ export class SedComponent implements OnInit {
     this.currentWeek = (Math.trunc((Date.now() - this.datesEasterYear.lastEaster) / 864E5 / 7) + 1);
     this.weekAfterPyatidesyatnica = this.sumWeeks - 7;
 
-    console.log("Кол-во седмиц в Пасхальном году (между Пасхами): %d", this.sumWeeks);
+    if (this.vg()) {
+      this.mif = new Date(this.datesEasterYear.nextEaster - 6047999999+86400000);
+      console.log("-------------", this.mif);
+    }
+    else {
+      this.mif = new Date(this.datesEasterYear.nextEaster - 6047999999);
+      console.log("-------------", this.mif);
+    }
+
+
+    console.log("Дата Мытаря и Фарисея", this.mif);
+    
+     console.log("Кол-во седмиц в Пасхальном году (между Пасхами): ", this.sumWeeks);
   }
 
 
@@ -160,5 +183,13 @@ export class SedComponent implements OnInit {
     }
   }
 
+  /**
+   * Проверяет гражданский год грядущей Пасхи на високосность
+   */
+  private vg()
+  {
+    let year = this.yearNextEaster.getFullYear();
+    return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+  }
 }
 
