@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { XxxService } from '../xxx.service';
-import { log } from 'util';
 
 /*
 * компонент вычисления седмиц всего Пасхального года
@@ -23,7 +22,11 @@ export class SedComponent implements OnInit {
   allWeaksVozdvijjenie: number;
   timeBox: number = new Date().getTime();
   numberVozdvijjenie: number;
-  rrr: Date;
+
+  /**
+   * Ковертирует дату текущей Пасхи для формирования даты Воздвижения
+   */
+  yearLastEaster: Date;
   otstupkaV: number;
   prestupkaV: number;
 
@@ -54,8 +57,8 @@ export class SedComponent implements OnInit {
    * Метод возвращает кол-во седмиц отступпки или преступки по празднике Воздвижения.
    */
   private otstupkaVozdvijjenie() {
-    this.rrr = new Date(this.datesEasterYear.lastEaster);
-    this.numberVozdvijjenie = this.rrr.getFullYear();
+    this.yearLastEaster = new Date(this.datesEasterYear.lastEaster);
+    this.numberVozdvijjenie = this.yearLastEaster.getFullYear();
     this.timeBoxVozdvijjenie = new Date(this.numberVozdvijjenie, 8, 27).getTime(); //  смотри spr4 [v]
     this.allWeaksVozdvijjenie = (Math.trunc((this.timeBoxVozdvijjenie - this.datesEasterYear.lastEaster) / 864E5 / 7) - 6);
     console.log("Количество седмиц от Пасхи до Воздвижения Креста: %d", this.allWeaksVozdvijjenie);
@@ -74,7 +77,7 @@ export class SedComponent implements OnInit {
    * 
    */
     if (this.timeBox >= this.timeBoxVozdvijjenie && this.allWeaks > this.allWeaksVozdvijjenie && this.allWeaks > 17) {
-        return ("Отступка по Воздвижении в седмицах: " + otstupkaV);
+      return ("Отступка по Воздвижении в седмицах: " + this.otstupkaV);
     }
 
 /**
@@ -82,17 +85,14 @@ export class SedComponent implements OnInit {
  * 
  */
     else if (this.timeBox >= this.timeBoxVozdvijjenie && this.allWeaks < this.allWeaksVozdvijjenie && this.allWeaks > 17) {
-        return "преступка " + prestupkaV ;
+      var clog = ('Преступка %d' + this.prestupkaV)
+      return (clog) ;
 
         // console.log(prestupkaV + this.timeBoxVozdvijjenie + "\n Воздвиженье еще будет на " + this.allWeaksVozdvijjenie + " седмице: " + this.timeBoxVozdvijjenie);
     }
 
     else return "!!! ВОЗДВИЖЕНИЯ В ТЕКУЩЕМ БОГОСЛУЖЕБНОМ ГОДУ ЕЩЕ НЕ БЫЛО !!! ";
 
-}
-
-
-
-
-
+  }
+  
 }

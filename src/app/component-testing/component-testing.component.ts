@@ -17,7 +17,7 @@ export class ComponentTestingComponent implements OnInit {
   e(): void{}; // в основном для возврата функций
   f: undefined;
   g: null;
-  date: Date;
+  date: string;
 
 
   constructor() {
