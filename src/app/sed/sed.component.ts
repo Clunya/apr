@@ -43,7 +43,6 @@ export class SedComponent implements OnInit {
 
   /** 
     * Вычисление `разницы` между текущем временем и датой прошедшей Пасхи. Обрезка значения до целого.
-    
 */
   private numberOfWeaks() {
     this.allWeaks = (Math.trunc((this.datesEasterYear.nextEaster - this.datesEasterYear.lastEaster) / 864E5 / 7));
@@ -96,3 +95,4 @@ export class SedComponent implements OnInit {
   }
   
 }
+
