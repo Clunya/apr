@@ -1,17 +1,20 @@
-<p>
-    Компонент sed
-</p>
+
+    <h2>
+    sed.component.html
+    </h2>
+
 
 <div class="rrr">
     <!-- конвертирование миллисекунд в дату -->
-    {{ datesEasterYear.lastEaster | date }} 
+    <!-- <b>Пасха бывшая - </b>{{ datesEasterYear.lastEaster | date }} 
     <br>
-    {{ datesEasterYear.nextEaster | date }}
-<br>
-<p>Богослужебный год составляет - {{ sumWeaks }} седмиц.</p>
+    <b>Пасха грядущая </b>- {{ datesEasterYear.nextEaster | date }} -->
+<p>Богослужебный год составляет - {{ sumWeeks }} седмиц.</p>
 <p>Воздвижеская отступка составляет - {{otstupkaV}} седмицу.</p>
-<p>Седмица по Пятидесятнице - {{weekAfterPyatidesyatnica}}</p>
+<p>Текущая седмица по Пятидесятнице - {{weekAfterPyatidesyatnica}}</p>
 <p>
     Глас седмицы - {{glas}}
 </p>
+<p>Количество промежуточных седмиц — {{betweenWeeks}} </p>
+<p [ngStyle]="sedStyle">Дата Мытаря и Фарисея: {{mifRussianDate}}</p>
 </div>

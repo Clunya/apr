@@ -35,17 +35,6 @@ export class PaskhaComponent implements OnInit {
   dateDeference: number;
 
 
-  /** 
-   *  Массив для конвертации
-   */
-
-  monthsArray: any = [
-    "января", "февраля", "марта", "апреля", "май", "июня", "июля",
-    "августа", "сентября", "октября", "ноября", "декабря"
-  ]
-
-
-
   constructor(public _xxxService: XxxService) {
 
 
@@ -103,13 +92,12 @@ export class PaskhaComponent implements OnInit {
   keyNewYear(keyYear: number) {
     console.log(keyYear, " -- keyYear");
 
-    this.lastEaster = "ПРОШЕДШАЯ ПАСХА: " +
-      this.paskhalia2[this.keyYear - 1][1] + " " + this.monthsArray[this.paskhalia2[this.keyYear][0]];
+    this.lastEaster = this.paskhalia2[this.keyYear - 1][1] + " " + this._xxxService.monthsArray[this.paskhalia2[this.keyYear][0]];
 
     var lP = new Date(this.keyYear - 1, this.paskhalia2[this.keyYear - 1][0], this.paskhalia2[this.keyYear - 1][1]).getTime();
     console.log(lP);
 
-    this.nextEaster = "ГРЯДУЩАЯ ПАСХА: " + (this.paskhalia2[this.keyYear][1]) + " " + (this.monthsArray[this.paskhalia2[this.keyYear][0]]);
+    this.nextEaster = (this.paskhalia2[this.keyYear][1]) + " " + (this._xxxService.monthsArray[this.paskhalia2[this.keyYear][0]]);
 
     var nP = new Date(this.keyYear, this.paskhalia2[this.keyYear][0], this.paskhalia2[this.keyYear][1]).getTime();
     console.log(nP);

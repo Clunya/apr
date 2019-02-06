@@ -9,12 +9,11 @@ import { Injectable } from '@angular/core';
 
 export class XxxService {
 
-  
-  /**
+ /**
    * Readonly для свойств и допускает инициализацию только в первый раз.
    */
   readonly paskhalia = {
-    
+ 
     2015: [3, 12],
     2016: [4, 1],
     2017: [3, 16],
@@ -41,11 +40,20 @@ export class XxxService {
     2038: [3, 25]
   };
 
+    /** 
+   *  Массив для конвертации
+*/
+  monthsArray: string[] = [
+    "января", "февраля", "марта", "апреля", "май", "июня", "июля",
+    "август", "сентября", "октября", "ноября", "декабря"
+  ]
+
+
  constructor(private http: HttpClient) { }
 
 
   public getPaskhaliaFromJSON(){
-    // return this.paskhalia;
+    // Возвращает Пасхалию
     return this.http.get<any>('./assets/paskhalia.json');
     
   }
