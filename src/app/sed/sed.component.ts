@@ -68,8 +68,6 @@ export class SedComponent implements OnInit {
     this.seedPyatidesyatnica();
     this.promWeeks();
 
-
-
   }
 
   /**
@@ -193,7 +191,7 @@ export class SedComponent implements OnInit {
    * Проверяет гражданский год грядущей Пасхи на високосность
    */
   private vg() {
-    let year = this.yearNextEaster.getFullYear();
+     var year  = this.yearNextEaster.getFullYear();
     return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
   }
 
