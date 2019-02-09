@@ -33,6 +33,7 @@ export class PaskhaComponent implements OnInit {
  * читай README
 */
   dateDeference: number;
+    this: any;
 
 
   constructor(public _xxxService: XxxService) {

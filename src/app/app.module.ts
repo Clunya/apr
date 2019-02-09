@@ -19,6 +19,7 @@ import { RrrComponent } from './rrr/rrr.component';
     SedComponent,
     ComponentTestingComponent,
     RrrComponent
+
   ],
   imports: [
     BrowserModule,

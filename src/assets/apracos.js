@@ -86,10 +86,10 @@ function otstupkaVozdvijjenie() {
     var norm = sedmicaVozdvijjenie + (17 - sedmicaVozdvijjenie);
 
 
-  /**
-   * 
-   * 
-   */
+    /**
+     * 
+     * 
+     */
     if (timeBox >= timeBoxVozdvijjenie & sedmica > sedmicaVozdvijjenie & sedmica > 17) {
         return otstupkaV;
 
@@ -129,7 +129,7 @@ function seeddayON() {
 
     document.getElementById("date2").innerHTML = linkToCurrentSeed;
 
-    //  формирование id элемента
+    //  формирование id для элемента
     var a = "seedday-" + sedmica + "-" + numDay;
 
     // document.getElementById("date3").innerHTML =massDays[numDay];

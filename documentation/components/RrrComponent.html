@@ -306,16 +306,18 @@ export class RrrComponent implements OnInit {
   }
   
   ngOnInit() {
- 
+  console.log(&quot;Привет Олег&quot;);
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;
-  rrr works! {{data}}
-&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">
+  &lt;h1&gt;
+    rrr works! {{data}}
+  &lt;/h1&gt;
+
 </code></pre>
     </div>
 
@@ -351,7 +353,7 @@ export class RrrComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>  rrr works! {{data}}</p></div>'
+        var COMPONENT_TEMPLATE = '<div>  <h1>    rrr works! {{data}}  </h1></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ComponentTestingComponent', 'selector': 'app-component-testing'},{'name': 'PaskhaComponent', 'selector': 'app-paskha'},{'name': 'RrrComponent', 'selector': 'app-rrr'},{'name': 'SedComponent', 'selector': 'app-sed'},{'name': 'SprComponent', 'selector': 'app-spr'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RrrComponent'};

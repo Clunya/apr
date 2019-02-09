@@ -1,15 +1,15 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { XxxService } from '../xxx.service';
-
-/*
-* компонент вычисления седмиц всего Пасхального года
-*/
 
 @Component({
   selector: 'app-sed',
   templateUrl: './sed.component.html',
   styleUrls: ['./sed.component.css']
 })
+
+/*
+* ## КЛАСС ВЫЧИСЛЕНИЯ СЕДМИЦ ДЛЯ ВСЕГО ПАСХАЛЬНОГО ГОДА С УЧЕТОМ ОСТСТУПОК ПО СОВРЕМЕННОМУ ГРИГОРИАНСКОМУ КАЛЕНДАРЮ.
+*/
 export class SedComponent implements OnInit {
 
   @Input()
@@ -38,7 +38,7 @@ export class SedComponent implements OnInit {
   numberVozdvijjenie: number;
 
   /**
-   * Дата> текущей Пасхи для формирования даты Воздвижения из милисекунд
+   * Дата текущей Пасхи для формирования даты Воздвижения из милисекунд
    */
   yearLastEaster: Date;
 
@@ -50,15 +50,26 @@ export class SedComponent implements OnInit {
 
   otstupkaV: number;
   prestupkaV: number;
+
   mif: Date;
+
+  /**
+   * Количество промежуточных седмиц пред Неделей Мытаря и Фарисея, если таковые случились
+   */
   betweenWeeks: number;
-  sedStyle: object = { "color": "#e3423477", "font-weight": "bold" };
+
+  /**
+   * Конвертированная дата
+   */
   mifRussianDate?: string;
 
+  /**
+   * CSS седмицы 
+   */
+  sedStyle: object = { "color": "#e3423477", "font-weight": "bold" };
 
 
-  constructor(public _xxxService: XxxService) {
-
+  public constructor(public _xxxService: XxxService) {
 
   }
   ngOnInit() {
@@ -74,7 +85,7 @@ export class SedComponent implements OnInit {
     * Вычисление `разницы` между текущем временем и датой прошедшей Пасхи.
     * Обрезка значения до целого.
     * Вычисление текущей седмицы.
-    * Вычисление седмицы по Пятьдесятницы
+    * Вычисление седмицы по Пятьдесятнице
 */
   private numberOfWeeks() {
     this.sumWeeks = (Math.trunc((this.datesEasterYear.nextEaster - this.datesEasterYear.lastEaster) / 864E5 / 7));
@@ -91,19 +102,15 @@ export class SedComponent implements OnInit {
     }
     else {
       this.mif = new Date(this.datesEasterYear.nextEaster - 6047999999);
-
       this.mifRussianDate = this.mif.getDate() + " " + this._xxxService.monthsArray[this.mif.getMonth()];
-
     }
 
-
     console.log("Дата Мытаря и Фарисея", this.mif.toDateString());
-
     console.log("Кол-во седмиц в Пасхальном году (между Пасхами): ", this.sumWeeks);
   }
 
   /**
-   * Возвращает кол-во седмиц отступпки или преступки для празднику Воздвижения.
+   * Возвращает кол-во седмиц отступпки или преступки для праздника Воздвижения Креста.
    */
   private otstupkaVozdvijjenie() {
     this.yearLastEaster = new Date(this.datesEasterYear.lastEaster);
@@ -117,7 +124,7 @@ export class SedComponent implements OnInit {
     this.prestupkaV = this.sumWeeks;
 
     /**
-     * В данном ифе проверяется было ли Воздвижение и превышает ли кол-во седмиц число 17. Если да, то возвращается разность (otstupkaV), на которую больше прошло седмиц.
+     * В данном операторе `if` проверяется было ли Воздвижение и превышает ли кол-во седмиц число 17. Если да, то возвращается разность (otstupkaV), на которую больше прошло седмиц.
      * 
      */
     if (this.timeBox >= this.timeBoxVozdvijjenie && this.sumWeeks > this.sumWeeksAfterVozdvijjenie && this.sumWeeks > 17) {
@@ -125,27 +132,23 @@ export class SedComponent implements OnInit {
     }
 
     /**
-     * В данном ифе возвращается нехватка семнадцати седмиц если праздник Воздвижения случился ранее 17 седмицы после Пасхи.
+     * В данном `if` возвращается нехватка до семьнадцати седмиц если праздник Воздвижения случился ранее 17 седмицы после Пасхи.
      * 
      */
     else if (this.timeBox >= this.timeBoxVozdvijjenie && this.sumWeeks < this.sumWeeksAfterVozdvijjenie && this.sumWeeks > 17) {
-      var clog = ('Преступка ' + this.prestupkaV)
+      var clog = 'Преступка ' + this.prestupkaV
       return (clog);
 
-      // console.log(prestupkaV + this.timeBoxVozdvijjenie + "\n Воздвиженье еще будет на " + this.allWeeksVozdvijjenie + " седмице: " + this.timeBoxVozdvijjenie);
     }
 
     else return "!!! ВОЗДВИЖЕНИЯ В ТЕКУЩЕМ БОГОСЛУЖЕБНОМ ГОДУ ЕЩЕ НЕ БЫЛО !!! ";
 
   }
   /**
-   * ## Определяет глас Октоиха по номеру седмицы случившейся после Пасхи, но не по Пятьдесятнице
+   * Возвращает глас Октоиха по номеру седмицы случившейся после Пасхи, но не по Пятьдесятнице.
    *  
    * @param {string} sedmica принимает строку
-   * @returns возвращает номер гласа
-   * @example 
-   * первое
-   * второе
+   * @returns возвращает номер гласа для текущей седмицы
    */
   private glasSed(sedmica: string | number) {
 
@@ -164,12 +167,14 @@ export class SedComponent implements OnInit {
 
     if (sedmica) {
       return String(glasSedmic[sedmica]);
-
     }
 
     else return "невнятный";
   }
 
+  /**
+   * Вычисляет седмицу по Пятьдесятнице и глас седмицы
+   */
   private seedPyatidesyatnica() {
     if (this.weekAfterPyatidesyatnica < 7) {
 
@@ -190,8 +195,8 @@ export class SedComponent implements OnInit {
   /**
    * Проверяет гражданский год грядущей Пасхи на високосность
    */
-  private vg() {
-     var year  = this.yearNextEaster.getFullYear();
+  protected vg() {
+    var year = this.yearNextEaster.getFullYear();
     return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
   }
 
@@ -205,3 +210,5 @@ export class SedComponent implements OnInit {
   }
 }
 
+// С седмицами окончено.
+// Продолжение в расширении класса

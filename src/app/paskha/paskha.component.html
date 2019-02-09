@@ -4,14 +4,19 @@
 
 
     <p class="pashaLastDate">Грядущая Пасха: {{ lastEaster }}</p>
-    -----------
-    <app-sed [datesEasterYear]=datesEasterYear></app-sed>
-    <!-- <app-component-testing-component></app-component-testing-component> -->
--------------
+
+    <!-- ----------- -->
+    <!-- ----------- -->
+    <app-sed [datesEasterYear]=datesEasterYear>
+        <code>Данные добавлены тегом `ng-content`</code>
+
+
+    </app-sed>
+    <!-- ------------- -->
+    <!-- ------------- -->
+
+
     <p class="pashaNextDate">Грядущая Пасха: {{ nextEaster }}</p>
-
-
-
     <!-- <p class="we">Здесь Богослужебный год в седмицах. {{sedAll}}</p> -->
 
     <!-- Пример форматирования даты (pipe) -->

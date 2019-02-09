@@ -31,6 +31,6 @@ export class RrrComponent implements OnInit {
   }
   
   ngOnInit() {
- 
+  console.log("Привет Олег");
   }
 }
