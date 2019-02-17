@@ -22,13 +22,13 @@ describe('PaskhaComponent', () => {
     expect(component.keyYear=1).toBe(1);
   });
 
-  it('проверка переменной paskhaCurrentYear', () => {
-    expect(component.lastEaster).toBeTruthy();
-  });
+  // it('проверка переменной paskhaCurrentYear', () => {
+  //   expect(component.lastEaster).toBeTruthy();
+  // });
 
-  it('проверка переменной paskhaCurrentYear', () => {
-    expect(component.nextEaster).toBeTruthy();
-  });
+  // it('проверка переменной paskhaCurrentYear', () => {
+  //   expect(component.nextEaster).toBeTruthy();
+  // });
 
   
 });

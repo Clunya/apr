@@ -1,4 +1,6 @@
-<ng-content select='code'></ng-content>
+<!-- <ng-content select='code'></ng-content> -->
+<app-sed2 [datesEasterYear]='datesEasterYear'>
+</app-sed2>
 <!-- =-=-=-=-=-=-===-=-sed.component=-=-===-=-=-=-=-=-=-=-=-=-===- -->
 <div id="date" class="date" style="text-indent: 0px; padding-left: 12px" title="Числа седмиц Православного Церковного года">Зачала всего лета по Пасхе.
     <br>
@@ -7,9 +9,11 @@
     <span id="date2" class="dug"> {{ currentWeek }} </span>
     </div>
     <div *ngIf="sumWeeks>7">
-        <span  id="date3" class="dugpre" title="ПОКАЗЫВАЕТ ЧИСЛО СЕДМИЦЫ СЧИТАЯ ОТ ПРАЗДНИКА ПЯТИДЕСЯТНИЦЫ, НАЧИНАЯ С ВОСКРЕСЕНЬЯ">По Пятьдесятнице </span>
-    <span id="date4" class="dug ">{{ weekAfterPyatidesyatnica }} </span>
-</div>
+        <span id="date3" class="dugpre"
+            title="ПОКАЗЫВАЕТ ЧИСЛО СЕДМИЦЫ СЧИТАЯ ОТ ПРАЗДНИКА ПЯТИДЕСЯТНИЦЫ, НАЧИНАЯ С ВОСКРЕСЕНЬЯ">По Пятьдесятнице
+        </span>
+        <span id="date4" class="dug ">{{ weekAfterPyatidesyatnica }} </span>
+    </div>
     <div  id="date5" class="123" style="text-indent: 0px; padding-left: 12px; font-weight: unset; color: #5e5e5e" title="ГЛАС ТЕКУЩЕЙ СЕДМИЦЫ">Глас текущей седмицы - <b>{{ glas }}</b></div>
 </div>
 <hr class="hr-1">
@@ -17,8 +21,8 @@
 <!-- =-=-=-=-=-=-===-=-=-=-===-=-=-=-=-=-=-=-=-=-===- -->
 
 <div class="rrr">
-    <!-- конвертирование миллисекунд в дату -->
-    <!-- <b>Пасха бывшая - </b>{{ datesEasterYear.lastEaster | date }} 
+    <!-- конвертирование миллисекунд в дату
+    <b>Пасха бывшая - </b>{{ datesEasterYear.lastEaster | date }} 
     <br>
     <b>Пасха грядущая </b>- {{ datesEasterYear.nextEaster | date }} -->
 <p>Богослужебный год составляет -  седмиц.</p>

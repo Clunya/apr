@@ -4,6 +4,8 @@
 */
 import { Component, Injectable, OnInit } from '@angular/core';
 import { XxxService } from '../xxx.service';
+import { Easter } from './interfaces';
+
 
 @Injectable()
 @Component({
@@ -12,28 +14,26 @@ import { XxxService } from '../xxx.service';
   styleUrls: ['./paskha.component.css'],
   providers: [XxxService]
 })
-export class PaskhaComponent implements OnInit {
 
-  keyYear: any; // Главный ключ
-  timeBox: any;
-  lastEaster: string;
-  nextEaster: string;
-  paskhaCurrentYear: any;
-  timeBox2: any;
-  currentYear: any;
-  keyNewYearKey: string;
-  paskhalia: any;
-  paskhalia2: any;
-  datesEasterYear: object;
+export class PaskhaComponent implements OnInit, Easter {
+
+    keyYear: number; // Главный ключ
+    timeBox: Date;
+    paskhaCurrentYear: Date;
+    currentYear: number;
+    keyNewYearKey: string;
+    paskhalia: [];
+    paskhalia2: object;
+    datesEasterYear: any;
   
-  /**
- * Вычисление разницы времен, 
- * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
- * 
- * читай README
-*/
-  dateDeference: number;
-    this: any;
+    /**
+   * Вычисление разницы времен, 
+   * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
+   * 
+   * читай README
+  */
+    dateDeference: number;
+
 
 
   constructor(public _xxxService: XxxService) {
@@ -45,12 +45,9 @@ export class PaskhaComponent implements OnInit {
    * @param {data}
    */
   ngOnInit() {
-
-    this._xxxService.getPaskhaliaFromJSON().subscribe(data => this.paskhalia = data);
+    
+    // this._xxxService.getPaskhaliaFromJSON().subscribe(data => this.paskhalia = data);
     this.paskhalia2 = this._xxxService.paskhaliaArray();
-
-
-
 
     // spr1 (spravka 1 http://localhost:4200/spr)
     this.timeBox = new Date();
@@ -58,31 +55,28 @@ export class PaskhaComponent implements OnInit {
     // prb1 (problema 1, смотри видео prb-1.mov)
     this.currentYear = this.timeBox.getFullYear();
     this.paskhaCurrentYear = new Date(this.currentYear, this.paskhalia2[this.currentYear][0], this.paskhalia2[this.currentYear][1]);
-    console.log(this.paskhaCurrentYear, "Пасха в этом году");
+    console.log("Пасха в этом году", this.paskhaCurrentYear );
 
-
-    this.dateDeference = this.paskhaCurrentYear - this.timeBox;
-
-
+    this.dateDeference = this.paskhaCurrentYear.getTime() - this.timeBox.getTime();
 
     if (this.dateDeference < 0) {
 
-      // ---------------------------
-      // если НГ не был в Пасхальном году
-      this.keyYear = (this.timeBox.getFullYear()) + 1;
-      // ---------------------------
-      this.keyNewYear(this.keyYear);
-      this.keyNewYearKey = "0";
+          // ---------------------------
+          // если НГ не был в текущем Пасхальном году
+          this.keyYear = (this.timeBox.getFullYear()) + 1;
+          // ---------------------------
+          this.keyNewYear(this.keyYear);
+          this.keyNewYearKey = "0";
     }
 
     else {
 
-      // ---------------------------
-      // если НГ был в текущем Пасхальном году
-      this.keyYear = (this.timeBox.getFullYear());
-      this.keyNewYearKey = "1";
-      // ---------------------------
-      this.keyNewYear(this.keyYear);
+          // ---------------------------
+          // если НГ был в текущем Пасхальном году
+          this.keyYear = (this.timeBox.getFullYear());
+          this.keyNewYearKey = "1";
+          // ---------------------------
+          this.keyNewYear(this.keyYear);
     }
 
   }
@@ -90,39 +84,17 @@ export class PaskhaComponent implements OnInit {
   /**
    *  функция, которая в зависимости от входящего ключа-нгода формирует две даты Пасх
    */
-  keyNewYear(keyYear: number) {
+  keyNewYear(keyYear: number)
+  {
     console.log(keyYear, " -- keyYear");
 
-    this.lastEaster = this.paskhalia2[this.keyYear - 1][1] + " " + this._xxxService.monthsArray[this.paskhalia2[this.keyYear][0]];
-
-    var lP = new Date(this.keyYear - 1, this.paskhalia2[this.keyYear - 1][0], this.paskhalia2[this.keyYear - 1][1]).getTime();
-    console.log(lP);
-
-    this.nextEaster = (this.paskhalia2[this.keyYear][1]) + " " + (this._xxxService.monthsArray[this.paskhalia2[this.keyYear][0]]);
-
-    var nP = new Date(this.keyYear, this.paskhalia2[this.keyYear][0], this.paskhalia2[this.keyYear][1]).getTime();
-    console.log(nP);
-
+    // объект для импортирования в другой компонент
     this.datesEasterYear =
-
       {
-        lastEaster: lP,
-        nextEaster: nP
-      },
-      // [
-
-      //   [this.keyYear-1, this.paskhalia2[this.keyYear - 1][0],
-      //   this.paskhalia2[this.keyYear - 1][1]
-      // ],
-      // [this.keyYear, 
-      //   this.paskhalia2[this.keyYear][0],
-      //   this.paskhalia2[this.keyYear][1]
-      // ]
-
-
-      console.log(this.datesEasterYear);
-
-
+      "lastEaster": new Date(this.keyYear - 1, this.paskhalia2[this.keyYear - 1][0], this.paskhalia2[this.keyYear - 1][1]).getTime(),
+        
+      "nextEaster": new Date(this.keyYear, this.paskhalia2[this.keyYear][0], this.paskhalia2[this.keyYear][1]).getTime()
+      }
   }
 
 

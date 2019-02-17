@@ -1,6 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { XxxService } from '../xxx.service';
 
+/**
+ * Набор гласов для седмиц
+ */
+const glasSedmic = {
+  "1": 8, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6, "8": 7,
+  "9": 8, "10": 1, "11": 2, "12": 3, "13": 4, "14": 5, "15": 6, "16": 7,
+  "17": 8, "18": 1, "19": 2, "20": 3, "21": 4, "22": 5, "23": 6, "24": 7,
+  "25": 8, "26": 1, "27": 2, "28": 3, "29": 4, "30": 5, "31": 6, "32": 7,
+  "33": 8, "34": 1, "35": 2, "36": 3, "37": 4, "38": 5, "39": 6, "40": 7,
+  "41": 8, "42": 1, "43": 2, "44": 3, "45": 4, "46": 5, "47": 6, "48": 7,
+  "49": 8, "50": 1, "51": 2, "52": 3, "53": 4, "54": 5, "55": 6, "56": 7,
+  "57": 8, "58": 1, "59": 2, "60": 3, "61": 4, "62": 5, "63": 6, "64": 7,
+  "65": 8,
+
+}
+
 @Component({
   selector: 'app-sed',
   templateUrl: './sed.component.html',
@@ -12,9 +28,9 @@ import { XxxService } from '../xxx.service';
 */
 export class SedComponent implements OnInit {
 
-  @Input()
+  @Input()  
   datesEasterYear: any;
-  monthArray: string[];
+  monthsArray: string[];
 
   /** 
    * вычисление количества седмиц Богослужебного года 
@@ -73,7 +89,7 @@ export class SedComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.yearNextEaster = new Date(this.datesEasterYear.nextEaster)
+    this.yearNextEaster = new Date(this.datesEasterYear.nextEaster);
     this.numberOfWeeks();
     this.otstupkaVozdvijjenie();
     this.seedPyatidesyatnica();
@@ -93,14 +109,16 @@ export class SedComponent implements OnInit {
     this.weekAfterPyatidesyatnica = this.sumWeeks - 7;
 
     // вычисление даты и количества промежуточных седмиц
-    if (this.vg()) {
+    if (this.vg())
+    {
       this.mif = new Date(this.datesEasterYear.nextEaster - 6047999999 + 86400000);
 
       this.mifRussianDate = String(this.mif.getDay() + this._xxxService.monthsArray[this.mif.getMonth()]);
 
       console.log("Это дата для високосного года", this.mif);
     }
-    else {
+    else
+    {
       this.mif = new Date(this.datesEasterYear.nextEaster - 6047999999);
       this.mifRussianDate = this.mif.getDate() + " " + this._xxxService.monthsArray[this.mif.getMonth()];
     }
@@ -150,20 +168,7 @@ export class SedComponent implements OnInit {
    * @param {string} sedmica принимает строку
    * @returns возвращает номер гласа для текущей седмицы
    */
-  private glasSed(sedmica: string | number) {
-
-    let glasSedmic = {
-      "1": 8, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6, "8": 7,
-      "9": 8, "10": 1, "11": 2, "12": 3, "13": 4, "14": 5, "15": 6, "16": 7,
-      "17": 8, "18": 1, "19": 2, "20": 3, "21": 4, "22": 5, "23": 6, "24": 7,
-      "25": 8, "26": 1, "27": 2, "28": 3, "29": 4, "30": 5, "31": 6, "32": 7,
-      "33": 8, "34": 1, "35": 2, "36": 3, "37": 4, "38": 5, "39": 6, "40": 7,
-      "41": 8, "42": 1, "43": 2, "44": 3, "45": 4, "46": 5, "47": 6, "48": 7,
-      "49": 8, "50": 1, "51": 2, "52": 3, "53": 4, "54": 5, "55": 6, "56": 7,
-      "57": 8, "58": 1, "59": 2, "60": 3, "61": 4, "62": 5, "63": 6, "64": 7,
-      "65": 8,
-
-    }
+  protected glasSed(sedmica: string | number) {
 
     if (sedmica) {
       return String(glasSedmic[sedmica]);
@@ -195,7 +200,8 @@ export class SedComponent implements OnInit {
   /**
    * Проверяет гражданский год грядущей Пасхи на високосность
    */
-  protected vg() {
+  vg(): boolean
+  {
     var year = this.yearNextEaster.getFullYear();
     return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
   }
@@ -206,7 +212,6 @@ export class SedComponent implements OnInit {
   private promWeeks() {
     this.betweenWeeks = this.sumWeeks - 17 - 34;
     console.log("Промежуточных седмиц: ", this.betweenWeeks);
-
   }
 }
 
