@@ -368,7 +368,8 @@
     <div class="tab-pane fade " id="c-readme">
         <p><h1 id="-sed-component-ts">Описание шаблона sed.component.ts</h1>
 <h2 id="-name-">Ссылка <code>{{name}}</code></h2>
-<div><pre class="line-numbers"><code class="language-none">Данная ссылка должна ввести на страницу с днём Апракоса, на котором представлены чтения текущего дня с учетом отступок.</code></pre></div></p>
+<p>Данная ссылка должна ввести на страницу с днём Апракоса, на котором представлены чтения текущего дня с учетом отступок.</p>
+</p>
     </div>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
@@ -388,7 +389,7 @@ export class AppComponent implements OnInit {
      
    }
   ngOnInit() {
-    setTimeout(() &#x3D;&gt; {this.timeOut &#x3D; &quot;classON&quot;}, 0);
+    // setTimeout(() &#x3D;&gt; {this.timeOut &#x3D; &quot;classON&quot;}, 3);
        
      
    }
@@ -469,7 +470,7 @@ display: block;
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><!--The content below is only a placeholder and can be replaced.--><p class="name">    <!-- Данная ссылка должна ссылаться на текущий документ седмицы: смотри примечания к шаблону -->    <a [ngClass]="{\'class\': red}" [routerLink]="[ \'/\']" class="apracos-title" title="☨ АПРАКОС КНИГ ЕВАНГЕЛИЯ И АПОСТОЛ. НЕДЕЛЬНЫЕ (ВОСКРЕСНЫЕ) И КАЖДОДНЕВНЫЕ ЧТЕНИЯ СЕДМИЦЫ НАЧИНАЯ ОТ ПАСХИ, СОГЛАСНО УСТАВУ ПРАВОСЛАВНОЙ ЦЕРКВИ.">Апра~косъ и АПО~СТОЛЪ    </a></p>    <nav class="topBar">        <ol class="timeOut">        <!-- <ol [ngClass]="{\'classOFF\': true}"> -->            <li><a routerLink="./">home</a></li>            <li><a routerLink="paskha">paskha</a></li>            <li><a routerLink="spr">справка</a></li>            <li><a routerLink="component-testing">тестовая стр.</a></li>            <li><a routerLink="rrr">rrr.</a></li>        </ol>    </nav><router-outlet>    <!-- вывод роута она же страница --></router-outlet><hr><h3><a [ngClass]="{\'class\': red}" [routerLink]="[ \'/\']" >{{mainPage}}</a></h3></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ComponentTestingComponent', 'selector': 'app-component-testing'},{'name': 'LinkComponent', 'selector': 'app-sed2'},{'name': 'PaskhaComponent', 'selector': 'app-paskha'},{'name': 'RrrComponent', 'selector': 'app-rrr'},{'name': 'SedComponent', 'selector': 'app-sed'},{'name': 'SprComponent', 'selector': 'app-spr'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ComponentTestingComponent', 'selector': 'app-component-testing'},{'name': 'LinkComponent', 'selector': 'app-linkToSed'},{'name': 'PaskhaComponent', 'selector': 'app-paskha'},{'name': 'RrrComponent', 'selector': 'app-rrr'},{'name': 'SedComponent', 'selector': 'app-sed'},{'name': 'SprComponent', 'selector': 'app-spr'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

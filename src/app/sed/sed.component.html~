@@ -1,5 +1,6 @@
 <!-- <ng-content select='code'></ng-content> -->
-<app-linkToSed [datesEasterYear]='datesEasterYear'></app-linkToSed>
+<app-sed2 [datesEasterYear]='datesEasterYear'>
+</app-sed2>
 <!-- =-=-=-=-=-=-===-=-sed.component=-=-===-=-=-=-=-=-=-=-=-=-===- -->
 <div id="date" class="date" style="text-indent: 0px; padding-left: 12px" title="Числа седмиц Православного Церковного года">Зачала всего лета по.
     <br>

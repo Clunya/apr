@@ -1,0 +1,13 @@
+{
+    "metaGo.decoration.backgroundOpacity": "0,75",
+    "metaGo.decoration.height": 20,
+    "metaGo.decoration.width": 16,
+    "metaGo.decoration.fontSize": 17,
+    "metaGo.decoration.fontFamily": "Menlo",
+    "metaGo.decoration.color": "white",
+    "metaGo.decoration.borderColor": "#ffffff",
+    "metaGo.decoration.backgroundColor": "#865c00",
+    "metaGo.decoration.upperCase": true,
+    "metaGo.decoration.x": 3,
+    "metaGo.decoration.y": 16
+}

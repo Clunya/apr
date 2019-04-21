@@ -108,7 +108,7 @@ function otstupkaVozdvijjenie() {
     // return sedmica;
 }
 
-console.log("\n=-=-=-=-=-=-=\n Страница Апракоса-Евангелия с учетом отступки и преступки\n " + "http://clunya.net/html/APRACOS/" + otstupkaVozdvijjenie() + "/" + (numDay) + ".html\n\n");
+console.log("\n=-=-=-=-=-=-=\n Страница Апракоса-Евангелия с учетом отступки и преступки\n " + "http://clunya.github.io/html/APRACOS/" + otstupkaVozdvijjenie() + "/" + (numDay) + ".html\n\n");
 
 
 // Адрес-заголовок на текущие чтение с учетом отступки и преступки

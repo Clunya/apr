@@ -1,12 +1,11 @@
 // среда, 20 февраля 2019 г. 11:01:48 (MSK)
 import { Component, Input, OnInit } from '@angular/core';
-import { DateService } from '../date.service';
+import { DateService } from '../xxx.service';
 
 /**
  * Набор гласов для седмиц
  */
 const glasSedmic = {
-
    "1": 8,  "2": 1,  "3": 2,  "4": 3,  "5": 4,  "6": 5,  "7": 6,  "8": 7,
    "9": 8, "10": 1, "11": 2, "12": 3, "13": 4, "14": 5, "15": 6, "16": 7,
   "17": 8, "18": 1, "19": 2, "20": 3, "21": 4, "22": 5, "23": 6, "24": 7,
@@ -175,7 +174,7 @@ export class SedComponent implements OnInit {
       return String(glasSedmic[sedmica]);
     }
 
-    else return "невнятный 🙅‍ --";
+    else return "невнятный";
   }
 
   /**

@@ -3,12 +3,11 @@
 *
 */
 import { Component, Injectable, OnInit } from '@angular/core';
-import { DateService } from '../date.service';
+import { DateService } from '../xxx.service';
 import { Easter } from './interfaces';
 
 
 @Injectable()
-
 @Component({
   selector: 'app-paskha',
   templateUrl: './paskha.component.html',
@@ -27,7 +26,7 @@ export class PaskhaComponent implements OnInit, Easter {
     paskhalia2: object;
     datesEasterYear: any;
 
- /**
+    /**
    * Вычисление разницы времен,
    * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
    *
@@ -71,7 +70,8 @@ export class PaskhaComponent implements OnInit, Easter {
     }
 
   }
-/**
+
+  /**
    *  функция, которая в зависимости от входящего ключа-нгода формирует две даты Пасх
    */
   keyNewYear(keyYear: number)
@@ -92,3 +92,5 @@ export class PaskhaComponent implements OnInit, Easter {
 
 
 }
+
+

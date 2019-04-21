@@ -9,7 +9,7 @@ export interface Easter {
     paskhalia: [];
     paskhalia2: object;
     datesEasterYear: any;
-  
+    linkToCurrentSeed: string;  
     /**
    * Вычисление разницы времен, 
    * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.

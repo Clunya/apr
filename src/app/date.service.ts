@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 
 
-export class XxxService {
+export class DateService {
 
  /**
    * Readonly для свойств и допускает инициализацию только в первый раз.

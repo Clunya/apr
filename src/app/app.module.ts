@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { PaskhaComponent } from './paskha/paskha.component';
 import { SprComponent } from './spr/spr.component';
 import { SedComponent } from './sed/sed.component';
-import { XxxService } from './xxx.service';
+import { DateService } from './date.service';
 import { ComponentTestingComponent } from './component-testing/component-testing.component';
 import { RrrComponent } from './rrr/rrr.component';
 import { LinkComponent } from './sed/link.component';
@@ -28,7 +28,7 @@ import { LinkComponent } from './sed/link.component';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [XxxService],
+  providers: [DateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
