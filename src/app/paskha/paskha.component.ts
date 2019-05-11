@@ -41,7 +41,7 @@ export class PaskhaComponent implements OnInit, Easter {
 
   ngOnInit() {
 
-    // this._xxxService.getPaskhaliaFromJSON().subscribe(data => this.paskhalia = data);
+    this._xxxService.getPaskhaliaFromJSON().subscribe(data => this.paskhalia = data);
     this.paskhalia2 = this._xxxService.paskhaliaArray();
     // spr1 (spravka 1 http://localhost:4200/spr)
     this.timeBox = new Date();

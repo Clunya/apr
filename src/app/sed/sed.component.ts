@@ -7,7 +7,6 @@ import { DateService } from '../date.service';
  * Набор гласов для седмиц
  */
 const GLASSEDMIC = {
-
    "1": 8,  "2": 1,  "3": 2,  "4": 3,  "5": 4,  "6": 5,  "7": 6,  "8": 7,
    "9": 8, "10": 1, "11": 2, "12": 3, "13": 4, "14": 5, "15": 6, "16": 7,
   "17": 8, "18": 1, "19": 2, "20": 3, "21": 4, "22": 5, "23": 6, "24": 7,
@@ -15,9 +14,7 @@ const GLASSEDMIC = {
   "33": 8, "34": 1, "35": 2, "36": 3, "37": 4, "38": 5, "39": 6, "40": 7,
   "41": 8, "42": 1, "43": 2, "44": 3, "45": 4, "46": 5, "47": 6, "48": 7,
   "49": 8, "50": 1, "51": 2, "52": 3, "53": 4, "54": 5, "55": 6, "56": 7,
-  "57": 8, "58": 1, "59": 2, "60": 3, "61": 4, "62": 5, "63": 6, "64": 7,
-  "65": 8,
-
+  "57": 8
 }
 
 @Component({
@@ -87,12 +84,13 @@ export class SedComponent implements OnInit {
   /**
    * CSS седмицы 
    */
-  sedStyle: object = { "color": "#e3423477", "font-weight": "bold" };
+  sedStyle: object = { "color": "#e3423477", "font-weight": "bold", "font-size": "1.5em" };
 
   /**
    * Високосный год
    */
   v_year: boolean;
+  stupka: string;
 
 
   public constructor(public _datesService: DateService) {
@@ -101,7 +99,6 @@ export class SedComponent implements OnInit {
     this.numberOfWeeks();
     this.yearNextEaster = new Date(this.datesEasterYear.nextEaster);
     this.otstupkaVozdvijjenie();
-    this.seedPyatidesyatnica();
     this.promWeeks();
     this.v_year = this.vg();
 
@@ -119,9 +116,11 @@ export class SedComponent implements OnInit {
 
     if (this.sumWeeks === 8) {
       this.weekAfterPyatidesyatnica = this.sumWeeks - 7;
+      this.glas = this.glasSed(String(this.currentWeek));
     }
     else {
       this.weekAfterPyatidesyatnica = null;
+      this.glas = this.glasSed(String(this.currentWeek));
     }
 
     /**
@@ -159,8 +158,12 @@ export class SedComponent implements OnInit {
     this.sumWeeksAfterVozdvijjenie = (Math.trunc((this.timeBoxVozdvijjenie - this.datesEasterYear.lastEaster) / 864E5 / 7) - 6);
     console.log("Количество седмиц от Пасхи до Воздвижения Креста: ", this.sumWeeksAfterVozdvijjenie);
 
-    this.otstupkaV = this.sumWeeksAfterVozdvijjenie - 17;
-    this.prestupkaV = this.sumWeeks;
+    if (this.sumWeeksAfterVozdvijjenie >17) {
+      this.otstupkaV = this.sumWeeksAfterVozdvijjenie - 17;
+      this.stupka = "отступка"
+    }
+    else this.otstupkaV = 17 - this.sumWeeksAfterVozdvijjenie;
+    this.stupka = "преступка"
 
     /**
      * В данном операторе `if` проверяется было ли Воздвижение и превышает ли кол-во седмиц число 17. Если да, то возвращается разность (otstupkaV), на которую больше прошло седмиц.
@@ -183,6 +186,7 @@ export class SedComponent implements OnInit {
     else return "!!! ВОЗДВИЖЕНИЯ В ТЕКУЩЕМ БОГОСЛУЖЕБНОМ ГОДУ ЕЩЕ НЕ БЫЛО !!! ";
 
   }
+  
   /**
    * Возвращает глас Октоиха по номеру седмицы случившейся после Пасхи, но не по Пятьдесятнице.
    *  
@@ -198,25 +202,6 @@ export class SedComponent implements OnInit {
     else return "невнятный 🙅‍ --";
   }
 
-  /**
-   * Вычисляет седмицу по Пятьдесятнице и глас седмицы
-   */
-  private seedPyatidesyatnica() {
-    if (this.weekAfterPyatidesyatnica < 7) {
-
-      this.glas = String(this.currentWeek);
-
-    }
-    else {
-
-      this.glas = this.glasSed(String(this.currentWeek));
-      // this.weekAfterPyatidesyatnica = this.currentWeek - 7;
-
-      // document.getElementById("date3").className += "PlusUngles";
-      // document.getElementById("date3").innerHTML = sedmicaPyatidesyatnici;
-      // document.getElementById("date4").className += "blockOFF";
-    }
-  }
 
   /**
    * Проверяет гражданский год грядущей Пасхи на високосность

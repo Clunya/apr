@@ -12,23 +12,23 @@
         </span>
         <span id="date4" class="dug ">{{ weekAfterPyatidesyatnica }} </span>
     </div>
-    <div  id="date5" class="123" style="text-indent: 0px; padding-left: 12px; font-weight: unset; color: #5e5e5e" title="ГЛАС ТЕКУЩЕЙ СЕДМИЦЫ">Глас текущей седмицы - <b>{{ glas }}</b></div>
+    <div  id="date5" class="123" style="text-indent: 0px; padding-left: 12px; font-weight: unset; color: #5e5e5e" title="ГЛАС ТЕКУЩЕЙ СЕДМИЦЫ">Глас Октоиха - <b>{{ glas }}</b></div>
 </div>
 <hr class="hr-1">
 <br>
 <!-- =-=-=-=-=-=-===-=-=-=-===-=-=-=-=-=-=-=-=-=-===- -->
 
-<div class="rrr">
+<div style="font-size: 1.2em" class="rrr">
     <!-- конвертирование миллисекунд в дату
     <b>Пасха бывшая - </b>{{ datesEasterYear.lastEaster | date }} 
     <br>
     <b>Пасха грядущая </b>- {{ datesEasterYear.nextEaster | date }} -->
-<p>Богослужебный год составляет в седмицах –  {{ sumWeeks }}.</p>
-<p>Воздвиженская отступка составляет в седмицах - {{ otstupkaV }}.</p>
-<p *ngIf="weekAfterPyatidesyatnica">Текущая седмица по Пятидесятнице - {{weekAfterPyatidesyatnica }}</p>
+<p>Богослужебный год составляет в седмицах:  {{ sumWeeks }}.</p>
+<p>Воздвиженская <strong>{{stupka}}</strong> составляет в седмицах: {{ otstupkaV }}.</p>
+<p *ngIf="weekAfterPyatidesyatnica">Текущая седмица по Пятидесятнице: {{weekAfterPyatidesyatnica }}</p>
 <p>
-    Глас седмицы - {{glas}}
+    Глас седмицы: {{glas}}
 </p>
-<p>Количество промежуточных седмиц — {{betweenWeeks}} </p>
+<p>Количество промежуточных седмиц: {{betweenWeeks}} </p>
 <p [ngStyle]="sedStyle">Дата Мытаря и Фарисея: {{mifRussianDate}}</p>
 </div>

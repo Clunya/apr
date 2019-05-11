@@ -1,4 +1,4 @@
-<div class="paskhaDate">
+<div style="font-size: 1.2em" class="paskhaDate">
     <!-- <ng-content select="h1, h2, h3, p"></ng-content> -->
     <p class="pashaLastDate">Пасха: {{ datesEasterYear.nextEaster | date }}</p>
 
@@ -24,7 +24,7 @@
 <div>
     <!-- =-=-=-=-{{paskhalia}} -->
     <ul style="list-style-type:none">
-        <li *ngFor="let item  of paskhalia; let i=index">{{item.year}}/{{item.month}}/<b>{{item.number}}</b></li>
+        <li *ngFor="let item of paskhalia; let i=index">{{item.year}} / {{item.month}} /<b><span style="font-size: 150%"> {{item.date}}</span></b></li>
     </ul>
 
 </div>
