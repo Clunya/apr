@@ -1,11 +1,12 @@
-// среда, 20 февраля 2019 г. 11:01:48 (MSK)
+// среда, 21 апреля 2019 г. 11:01:48 (MSK)
 import { Component, Input, OnInit } from '@angular/core';
 import { DateService } from '../date.service';
+
 
 /**
  * Набор гласов для седмиц
  */
-const glasSedmic = {
+const GLASSEDMIC = {
 
    "1": 8,  "2": 1,  "3": 2,  "4": 3,  "5": 4,  "6": 5,  "7": 6,  "8": 7,
    "9": 8, "10": 1, "11": 2, "12": 3, "13": 4, "14": 5, "15": 6, "16": 7,
@@ -31,6 +32,8 @@ const glasSedmic = {
 export class SedComponent implements OnInit {
 
   @Input()  
+    
+    
   datesEasterYear: any;
   monthsArray: string[];
 
@@ -52,7 +55,7 @@ export class SedComponent implements OnInit {
 
   timeBoxVozdvijjenie: number;
   sumWeeksAfterVozdvijjenie: number;
-  timeBox: number = new Date().getTime();
+  timeBox = new Date().getTime();
   numberVozdvijjenie: number;
 
   /**
@@ -86,16 +89,21 @@ export class SedComponent implements OnInit {
    */
   sedStyle: object = { "color": "#e3423477", "font-weight": "bold" };
 
+  /**
+   * Високосный год
+   */
+  v_year: boolean;
 
-  public constructor(public _xxxService: DateService) {
 
+  public constructor(public _datesService: DateService) {
   }
   ngOnInit() {
-    this.yearNextEaster = new Date(this.datesEasterYear.nextEaster);
     this.numberOfWeeks();
+    this.yearNextEaster = new Date(this.datesEasterYear.nextEaster);
     this.otstupkaVozdvijjenie();
     this.seedPyatidesyatnica();
     this.promWeeks();
+    this.v_year = this.vg();
 
   }
 
@@ -105,26 +113,38 @@ export class SedComponent implements OnInit {
     * Вычисление текущей седмицы.
     * Вычисление седмицы по Пятьдесятнице
 */
-  private numberOfWeeks() {
+  numberOfWeeks() {
     this.sumWeeks = (Math.trunc((this.datesEasterYear.nextEaster - this.datesEasterYear.lastEaster) / 864E5 / 7));
     this.currentWeek = (Math.trunc((Date.now() - this.datesEasterYear.lastEaster) / 864E5 / 7 + 1));
-    this.weekAfterPyatidesyatnica = this.sumWeeks - 7;
 
-    // вычисление даты и количества промежуточных седмиц
-    if (this.vg())
+    if (this.sumWeeks === 8) {
+      this.weekAfterPyatidesyatnica = this.sumWeeks - 7;
+    }
+    else {
+      this.weekAfterPyatidesyatnica = null;
+    }
+
+    /**
+     *  вычисление даты Мытаря и Фарисея и количества промежуточных седмиц
+     */
+    if (this.v_year) // читай README.md 001 
     {
       this.mif = new Date(this.datesEasterYear.nextEaster - 6047999999 + 86400000);
 
-      this.mifRussianDate = String(this.mif.getDay() + this._xxxService.monthsArray[this.mif.getMonth()]);
+      console.log("---=---=-=-=-=-=-=-=-", this.mif);
+      
+
+      this.mifRussianDate = String(this.mif.getDay() + this._datesService.monthsArray[this.mif.getMonth()]);
 
       console.log("Это дата для високосного года", this.mif);
     }
     else
     {
       this.mif = new Date(this.datesEasterYear.nextEaster - 6047999999);
-      this.mifRussianDate = this.mif.getDate() + " " + this._xxxService.monthsArray[this.mif.getMonth()];
+      this.mifRussianDate = this.mif.getDate() + " " + this._datesService.monthsArray[this.mif.getMonth()];
     }
 
+    console.log("Текущая седмица", this.currentWeek);
     console.log("Дата Мытаря и Фарисея", this.mif.toDateString());
     console.log("Кол-во седмиц в Пасхальном году (между Пасхами): ", this.sumWeeks);
   }
@@ -172,7 +192,7 @@ export class SedComponent implements OnInit {
   protected glasSed(sedmica: string | number) {
 
     if (sedmica) {
-      return String(glasSedmic[sedmica]);
+      return String(GLASSEDMIC[sedmica]);
     }
 
     else return "невнятный 🙅‍ --";
@@ -190,7 +210,7 @@ export class SedComponent implements OnInit {
     else {
 
       this.glas = this.glasSed(String(this.currentWeek));
-      this.weekAfterPyatidesyatnica = this.currentWeek - 7;
+      // this.weekAfterPyatidesyatnica = this.currentWeek - 7;
 
       // document.getElementById("date3").className += "PlusUngles";
       // document.getElementById("date3").innerHTML = sedmicaPyatidesyatnici;
@@ -201,10 +221,11 @@ export class SedComponent implements OnInit {
   /**
    * Проверяет гражданский год грядущей Пасхи на високосность
    */
-  vg(): boolean
-  {
-    var year = this.yearNextEaster.getFullYear();
-    return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+  vg(): boolean{
+    
+    var year2 = this.yearNextEaster.getFullYear();
+    return ((year2 % 4 == 0) && (year2 % 100 != 0)) || (year2 % 400 == 0);
+    
   }
 
   /**
@@ -214,7 +235,8 @@ export class SedComponent implements OnInit {
     this.betweenWeeks = this.sumWeeks - 17 - 34;
     console.log("Промежуточных седмиц: ", this.betweenWeeks);
   }
+
 }
 
 // С седмицами окончено.
-// Продолжение в расширении класса
+// Продолжение в расширениях этого класса

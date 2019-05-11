@@ -144,6 +144,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Текущий гражданский год в текущем Богослужебном году. Один Богослужебный год имеет всегда в себе два гражданских года. Говоря иначе делится на два периода до Нового года и после. </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -210,6 +216,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Дата следующей Пасхи</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -239,6 +251,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Вычисление седмиц и дат зависит от текущего гражданского года. В одном гражданском году всегда вычисляются даты двух Пасх прошлой и будущей. В зависимости от текущего года проводятся разные вычисления.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -268,6 +286,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Ключ года - это флаг, который переключается в зависимости от того, был Новый год или нет в Богослужебном году.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -297,6 +321,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Пасха текущего года. Имеется в виду Богослужебный год и его Пасха</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -386,25 +416,41 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Easter {
-    keyYear: number; // Главный ключ
-    timeBox: Date;
-    // lastEaster: string;
-    // nextEaster: string;
-    paskhaCurrentYear: Date;
-    currentYear: any;
-    keyNewYearKey: string;
-    paskhalia: [];
-    paskhalia2: object;
-    datesEasterYear: any;
-  
-    /**
-   * Вычисление разницы времен, 
-   * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
-   * 
-   * читай README
-  */
-    dateDeference: number;
-    
+  /**
+   *  Ключ года - это флаг, который переключается в зависимости от того, был Новый год или нет в Богослужебном году.
+   */
+  keyYear: number; // Главный ключ
+  timeBox: Date;
+  // lastEaster: string;
+  // nextEaster: string;
+  /**
+   * Пасха текущего года. Имеется в виду Богослужебный год и его Пасха
+   */
+  paskhaCurrentYear: Date;
+  /**
+   * Текущий гражданский год в текущем Богослужебном году. Один Богослужебный год имеет всегда в себе два гражданских года. Говоря иначе делится на два периода до Нового года и после. 
+   */
+  currentYear: any;
+  /**
+   * Вычисление седмиц и дат зависит от текущего гражданского года. В одном гражданском году всегда вычисляются даты двух Пасх прошлой и будущей. В зависимости от текущего года проводятся разные вычисления.
+   */
+  keyNewYearKey: string;
+
+  paskhalia: [];
+  paskhalia2: object;
+  /**
+   * Дата следующей Пасхи
+   */
+  datesEasterYear: any;
+  // linkToCurrentSeed: string;  
+  /**
+ * Вычисление разницы времен, 
+ * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
+ * 
+ * читай README
+*/
+  dateDeference: number;
+
 }
 </code></pre>
     </div>

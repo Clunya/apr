@@ -1,21 +1,37 @@
 export interface Easter {
-    keyYear: number; // Главный ключ
-    timeBox: Date;
-    // lastEaster: string;
-    // nextEaster: string;
-    paskhaCurrentYear: Date;
-    currentYear: any;
-    keyNewYearKey: string;
-    paskhalia: [];
-    paskhalia2: object;
-    datesEasterYear: any;
-    linkToCurrentSeed: string;  
-    /**
-   * Вычисление разницы времен, 
-   * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
-   * 
-   * читай README
-  */
-    dateDeference: number;
-    
+  /**
+   *  Ключ года - это флаг, который переключается в зависимости от того, был Новый год или нет в Богослужебном году.
+   */
+  keyYear: number; // Главный ключ
+  timeBox: Date;
+  // lastEaster: string;
+  // nextEaster: string;
+  /**
+   * Пасха текущего года. Имеется в виду Богослужебный год и его Пасха
+   */
+  paskhaCurrentYear: Date;
+  /**
+   * Текущий гражданский год в текущем Богослужебном году. Один Богослужебный год имеет всегда в себе два гражданских года. Говоря иначе делится на два периода до Нового года и после. 
+   */
+  currentYear: any;
+  /**
+   * Вычисление седмиц и дат зависит от текущего гражданского года. В одном гражданском году всегда вычисляются даты двух Пасх прошлой и будущей. В зависимости от текущего года проводятся разные вычисления.
+   */
+  keyNewYearKey: string;
+
+  paskhalia: [];
+  paskhalia2: object;
+  /**
+   * Дата следующей Пасхи
+   */
+  datesEasterYear: any;
+  // linkToCurrentSeed: string;  
+  /**
+ * Вычисление разницы времен, 
+ * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
+ * 
+ * читай README
+*/
+  dateDeference: number;
+
 }

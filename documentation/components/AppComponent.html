@@ -68,6 +68,13 @@
     <code>src/app/app.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Директива @Component. В этой директиве описывается селектор, который является тэгом в теле которого будет прописано то, что указано в этом файле.</p>
+
+    </p>
 
 
     <p class="comment">
@@ -181,7 +188,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/app.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/app.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -220,7 +227,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/app.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/app.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -275,7 +282,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/app.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/app.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -315,7 +322,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/app.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/app.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -354,7 +361,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/app.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/app.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -367,6 +374,9 @@
 
     <div class="tab-pane fade " id="c-readme">
         <p><h1 id="-sed-component-ts">Описание шаблона sed.component.ts</h1>
+<p> Данный компонент является корневым компонентом. Компонент является контейнером для других компонентов, которые будут построены между тэгами указанных в данном компоненте. Все другие компоненты указываются в других модулях.</p>
+<p>Также данные по баните присуствует роутер линк. Это система ссылок Ангуляр. Принцип её работы основывается на том что она вызывает объекты точнее сказать подгружает объекты из дома веб страницы не перегружаю ее. Говоря проще – роутер ссылается на шаблон того компонента, который указан в параметрах тега <code>&lt;a routerLink=&quot;___&quot;&gt;</code>.</p>
+<p>Принцип работы простой, содержимое html компонента вставляется тег <router-outlet>.</p>
 <h2 id="-name-">Ссылка <code>{{name}}</code></h2>
 <p>Данная ссылка должна ввести на страницу с днём Апракоса, на котором представлены чтения текущего дня с учетом отступок.</p>
 </p>
@@ -375,16 +385,23 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 
+/**
+ * Директива @Component. В этой директиве описывается селектор, который является тэгом в теле которого будет прописано то, что указано в этом файле.
+ */
 
 @Component({
   selector: &#x27;app-root&#x27;,
   templateUrl: &#x27;./app.component.html&#x27;,
   styleUrls: [&#x27;./app.component.css&#x27;]
 })
+/**
+* В данном классе реализуется метод ngOnInit. В методе ngOnInit  инициализируются всё необходимое до загрузки компонента дом. Самая правильное, это прописать в этом  методе только самые необходимые данные.
+ */
 export class AppComponent implements OnInit {
   title &#x3D; &#x27;apracos&#x27;;
-  mainPage &#x3D; &quot;Главная страница&quot;;
-  public timeOut &#x3D; &quot;classOFF&quot;;
+  mainPage: string &#x3D; &quot;Главная страница&quot;;
+  public timeOut: string &#x3D; &quot;classOFF&quot;;
+
   constructor() {
      
    }
@@ -470,7 +487,7 @@ display: block;
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><!--The content below is only a placeholder and can be replaced.--><p class="name">    <!-- Данная ссылка должна ссылаться на текущий документ седмицы: смотри примечания к шаблону -->    <a [ngClass]="{\'class\': red}" [routerLink]="[ \'/\']" class="apracos-title" title="☨ АПРАКОС КНИГ ЕВАНГЕЛИЯ И АПОСТОЛ. НЕДЕЛЬНЫЕ (ВОСКРЕСНЫЕ) И КАЖДОДНЕВНЫЕ ЧТЕНИЯ СЕДМИЦЫ НАЧИНАЯ ОТ ПАСХИ, СОГЛАСНО УСТАВУ ПРАВОСЛАВНОЙ ЦЕРКВИ.">Апра~косъ и АПО~СТОЛЪ    </a></p>    <nav class="topBar">        <ol class="timeOut">        <!-- <ol [ngClass]="{\'classOFF\': true}"> -->            <li><a routerLink="./">home</a></li>            <li><a routerLink="paskha">paskha</a></li>            <li><a routerLink="spr">справка</a></li>            <li><a routerLink="component-testing">тестовая стр.</a></li>            <li><a routerLink="rrr">rrr.</a></li>        </ol>    </nav><router-outlet>    <!-- вывод роута она же страница --></router-outlet><hr><h3><a [ngClass]="{\'class\': red}" [routerLink]="[ \'/\']" >{{mainPage}}</a></h3></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ComponentTestingComponent', 'selector': 'app-component-testing'},{'name': 'LinkComponent', 'selector': 'app-linkToSed'},{'name': 'PaskhaComponent', 'selector': 'app-paskha'},{'name': 'RrrComponent', 'selector': 'app-rrr'},{'name': 'SedComponent', 'selector': 'app-sed'},{'name': 'SprComponent', 'selector': 'app-spr'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ComponentTestingComponent', 'selector': 'app-component-testing'},{'name': 'PaskhaComponent', 'selector': 'app-paskha'},{'name': 'RrrComponent', 'selector': 'app-rrr'},{'name': 'SedComponent', 'selector': 'app-sed'},{'name': 'SprComponent', 'selector': 'app-spr'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

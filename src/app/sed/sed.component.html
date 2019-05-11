@@ -1,5 +1,4 @@
 <!-- <ng-content select='code'></ng-content> -->
-<app-linkToSed [datesEasterYear]='datesEasterYear'></app-linkToSed>
 <!-- =-=-=-=-=-=-===-=-sed.component=-=-===-=-=-=-=-=-=-=-=-=-===- -->
 <div id="date" class="date" style="text-indent: 0px; padding-left: 12px" title="Числа седмиц Православного Церковного года">Зачала всего лета по.
     <br>
@@ -7,7 +6,7 @@
         <span class="dugpre" title="СЕМЬ ПОСЛЕДОВАТЕЛЬНЫХ ДНЕЙ. ПЕРВЫМ ДНЁМ В CЕДМИЦЕ ОБЪЯВЛЯЕТСЯ ДЕНЬ ПОД НАЗВАНИЕМ – НЕДЕЛЯ, ИНАЧЕ НАЗЫВАЕМЫЙ – ВОСКРЕСЕНИЕМ.">Седмица по Пасхе</span>
     <span id="date2" class="dug"> {{ currentWeek }} </span>
     </div>
-    <div *ngIf="sumWeeks>7">
+    <div *ngIf="weekAfterPyatidesyatnica">
         <span id="date3" class="dugpre"
             title="ПОКАЗЫВАЕТ ЧИСЛО СЕДМИЦЫ СЧИТАЯ ОТ ПРАЗДНИКА ПЯТИДЕСЯТНИЦЫ, НАЧИНАЯ С ВОСКРЕСЕНЬЯ">По Пятьдесятнице
         </span>
@@ -24,9 +23,9 @@
     <b>Пасха бывшая - </b>{{ datesEasterYear.lastEaster | date }} 
     <br>
     <b>Пасха грядущая </b>- {{ datesEasterYear.nextEaster | date }} -->
-<p>Богослужебный год составляет -  седмиц.</p>
-<p>Воздвиженская отступка составляет - {{ otstupkaV }} седмицу.</p>
-<p>Текущая седмица по Пятидесятнице - </p>
+<p>Богослужебный год составляет в седмицах –  {{ sumWeeks }}.</p>
+<p>Воздвиженская отступка составляет в седмицах - {{ otstupkaV }}.</p>
+<p *ngIf="weekAfterPyatidesyatnica">Текущая седмица по Пятидесятнице - {{weekAfterPyatidesyatnica }}</p>
 <p>
     Глас седмицы - {{glas}}
 </p>

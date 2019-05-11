@@ -1,25 +1,20 @@
 <div class="paskhaDate">
-
     <!-- <ng-content select="h1, h2, h3, p"></ng-content> -->
+    <p class="pashaLastDate">Пасха: {{ datesEasterYear.nextEaster | date }}</p>
 
-
-    <p class="pashaLastDate">Грядущая Пасха: {{ datesEasterYear.nextEaster | date }}</p>
-
-
-    <app-sed [datesEasterYear]=datesEasterYear>
-<!-- код из файла sed.component -->
-
+    <app-sed [datesEasterYear] = 'datesEasterYear'>
+        <!-- код из файла sed.component -->
     </app-sed>
 
 
-<p class="pashaNextDate">Грядущая Пасха: {{ datesEasterYear.nextEaster | date}}</p>
-    <!-- <p class="we">Здесь Богослужебный год в седмицах. {{sedAll}}</p> -->
+    <p class="pashaNextDate">Грядущая Пасха 2: {{ datesEasterYear.nextEaster | date}}</p>
+    <p class="we">Здесь Богослужебный год в седмицах. {{sedAll}}</p> -->
 
     <!-- Пример форматирования даты (pipe) -->
     <!-- <p>{{ paskhaCurrentYear | date:"MM/dd yyyy" }}</p> -->
 
     <p> Значение ключа --- {{keyNewYearKey}}</p>
-    <p> Текщий год -     {{currentYear}}</p>
+    <p> Текщий год - {{currentYear}}</p>
 </div>
 
 <p>----------------------</p>
@@ -35,6 +30,3 @@
 </div>
 
 <p>----------------------</p>
-
-
-

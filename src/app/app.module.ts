@@ -10,7 +10,7 @@ import { SedComponent } from './sed/sed.component';
 import { DateService } from './date.service';
 import { ComponentTestingComponent } from './component-testing/component-testing.component';
 import { RrrComponent } from './rrr/rrr.component';
-import { LinkComponent } from './sed/link.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +20,6 @@ import { LinkComponent } from './sed/link.component';
     SedComponent,
     ComponentTestingComponent,
     RrrComponent,
-    LinkComponent,
 
   ],
   imports: [
