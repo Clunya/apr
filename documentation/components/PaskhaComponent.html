@@ -9,7 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/postmark.css">
+        <link rel="stylesheet" href="../styles/Readthedocs.css">
     </head>
     <body>
 
@@ -747,22 +747,22 @@ import { Easter } from &#x27;./interfaces&#x27;;
 
 export class PaskhaComponent implements OnInit, Easter {
 
-    keyYear: number; // Главный ключ
-    timeBox: Date;
-    paskhaCurrentYear: Date;
-    currentYear: number;
-    keyNewYearKey: string;
-    paskhalia: [];
-    paskhalia2: object;
-    datesEasterYear: any;
+  keyYear: number; // Главный ключ
+  timeBox: Date;
+  paskhaCurrentYear: Date;
+  currentYear: number;
+  keyNewYearKey: string;
+  paskhalia: [];
+  paskhalia2: object;
+  datesEasterYear: any;
 
- /**
-   * Вычисление разницы времен,
-   * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
-   *
-   * читай README
-  */
-    dateDeference: number;
+  /**
+    * Вычисление разницы времен,
+    * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
+    *
+    * читай README
+   */
+  dateDeference: number;
 
   constructor(public _xxxService: DateService) {
 
@@ -770,54 +770,59 @@ export class PaskhaComponent implements OnInit, Easter {
 
   ngOnInit() {
 
-    // this._xxxService.getPaskhaliaFromJSON().subscribe(data &#x3D;&gt; this.paskhalia &#x3D; data);
+    this._xxxService.getPaskhaliaFromJSON().subscribe(data &#x3D;&gt; this.paskhalia &#x3D; data);
     this.paskhalia2 &#x3D; this._xxxService.paskhaliaArray();
     // spr1 (spravka 1 http://localhost:4200/spr)
     this.timeBox &#x3D; new Date();
     // nrb1 (problema 1, смотри видео prb-1.mov)
     this.currentYear &#x3D; this.timeBox.getFullYear();
     this.paskhaCurrentYear &#x3D; new Date(this.currentYear, this.paskhalia2[this.currentYear][0], this.paskhalia2[this.currentYear][1]);
-    console.log(&quot;Пасха в этом году&quot;, this.paskhaCurrentYear );
+    console.log(&quot;Пасха в этом году&quot;, this.paskhaCurrentYear);
     this.dateDeference &#x3D; this.paskhaCurrentYear.getTime() - this.timeBox.getTime();
 
     if (this.dateDeference &lt; 0) {
-          // ---------------------------
-          // если НГ не был в текущем Пасхальном году
-          this.keyYear &#x3D; (this.timeBox.getFullYear()) + 1;
-          // ---------------------------
-          this.keyNewYear(this.keyYear);
-          this.keyNewYearKey &#x3D; &quot;0&quot;;
+      // ---------------------------
+      // если НГ не был в текущем Пасхальном году
+      this.keyYear &#x3D; (this.timeBox.getFullYear()) + 1;
+      // ---------------------------
+      this.keyNewYear(this.keyYear);
+      this.keyNewYearKey &#x3D; &quot;0&quot;;
     }
 
     else {
 
-          // ---------------------------
-          // если НГ был в текущем Пасхальном году
-          this.keyYear &#x3D; (this.timeBox.getFullYear());
-          this.keyNewYearKey &#x3D; &quot;1&quot;;
-          // ---------------------------
-          this.keyNewYear(this.keyYear);
+      // ---------------------------
+      // если НГ был в текущем Пасхальном году
+      this.keyYear &#x3D; (this.timeBox.getFullYear());
+      this.keyNewYearKey &#x3D; &quot;1&quot;;
+      // ---------------------------
+      this.keyNewYear(this.keyYear);
     }
 
   }
-/**
-   *  функция, которая в зависимости от входящего ключа-нгода формирует две даты Пасх
-   */
-  keyNewYear(keyYear: number)
-  {
+  /**
+     *  функция, которая в зависимости от входящего ключа-нгода формирует две даты Пасх
+     */
+  keyNewYear(keyYear: number) {
     console.log(keyYear, &quot; -- keyYear&quot;);
-
+    
     // объект для импортирования в другой компонент
     this.datesEasterYear &#x3D;
-      {
-      &quot;lastEaster&quot;: new Date(this.keyYear - 1, this.paskhalia2[this.keyYear - 1][0],
-       this.paskhalia2[this.keyYear - 1][1]).getTime(),
-
-      &quot;nextEaster&quot;: new Date(this.keyYear, this.paskhalia2[this.keyYear][0],
-       this.paskhalia2[this.keyYear][1]).getTime()
-      }
+    {
+      &quot;lastEaster&quot;:
+      new Date(this.keyYear - 1, this.paskhalia2[this.keyYear - 1][0],
+        this.paskhalia2[this.keyYear - 1][1]).getTime(),
+        // возращаает ти number
+        &quot;nextEaster&quot;:
+        new Date(this.keyYear, this.paskhalia2[this.keyYear][0],
+          this.paskhalia2[this.keyYear][1]).getTime()
+    }
+    
+    
+    // return console.log(typeof(this.datesEasterYear.nextEaster));
+    
   }
-
+  
 
 
 }
@@ -825,39 +830,34 @@ export class PaskhaComponent implements OnInit, Easter {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;paskhaDate&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;font-size: 1.2em&quot; class&#x3D;&quot;paskhaDate&quot;&gt;
     &lt;!-- &lt;ng-content select&#x3D;&quot;h1, h2, h3, p&quot;&gt;&lt;/ng-content&gt; --&gt;
-    &lt;p class&#x3D;&quot;pashaLastDate&quot;&gt;Грядущая Пасха: {{ datesEasterYear.nextEaster | date }}&lt;/p&gt;
+    &lt;p class&#x3D;&quot;pashaLastDate&quot;&gt;Пасха: {{ datesEasterYear.nextEaster | date }}&lt;/p&gt;
 
-    &lt;app-sed [datesEasterYear]&#x3D;&#x27;datesEasterYear&#x27;&gt;
-&lt;!-- код из файла sed.component --&gt;
+    &lt;app-sed [datesEasterYear] &#x3D; &#x27;datesEasterYear&#x27;&gt;
+        &lt;!-- код из файла sed.component --&gt;
     &lt;/app-sed&gt;
 
 
-&lt;p class&#x3D;&quot;pashaNextDate&quot;&gt;Грядущая Пасха: {{ datesEasterYear.nextEaster | date}}&lt;/p&gt;
+    &lt;p class&#x3D;&quot;pashaNextDate&quot;&gt;Грядущая Пасха 2: {{ datesEasterYear.nextEaster | date}}&lt;/p&gt;
     &lt;p class&#x3D;&quot;we&quot;&gt;Здесь Богослужебный год в седмицах. {{sedAll}}&lt;/p&gt; --&gt;
 
     &lt;!-- Пример форматирования даты (pipe) --&gt;
     &lt;!-- &lt;p&gt;{{ paskhaCurrentYear | date:&quot;MM/dd yyyy&quot; }}&lt;/p&gt; --&gt;
 
     &lt;p&gt; Значение ключа --- {{keyNewYearKey}}&lt;/p&gt;
-    &lt;p&gt; Текщий год -     {{currentYear}}&lt;/p&gt;
+    &lt;p&gt; Текщий год - {{currentYear}}&lt;/p&gt;
 &lt;/div&gt;
-
-&lt;p&gt;----------------------&lt;/p&gt;
 
 &lt;!-- {{paskhalia | json}} --&gt;
 
 &lt;div&gt;
     &lt;!-- &#x3D;-&#x3D;-&#x3D;-&#x3D;-{{paskhalia}} --&gt;
     &lt;ul style&#x3D;&quot;list-style-type:none&quot;&gt;
-        &lt;li *ngFor&#x3D;&quot;let item  of paskhalia; let i&#x3D;index&quot;&gt;{{item.year}}/{{item.month}}/&lt;b&gt;{{item.number}}&lt;/b&gt;&lt;/li&gt;
+        &lt;li *ngFor&#x3D;&quot;let item of paskhalia; let i&#x3D;index&quot;&gt;{{item.year}} / {{item.month}} /&lt;b&gt;&lt;span style&#x3D;&quot;font-size: 150%&quot;&gt; {{item.date}}&lt;/span&gt;&lt;/b&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
 &lt;/div&gt;
-
-&lt;p&gt;----------------------&lt;/p&gt;
-
 
 
 </code></pre>
@@ -905,8 +905,8 @@ export class PaskhaComponent implements OnInit, Easter {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="paskhaDate">    <!-- <ng-content select="h1, h2, h3, p"></ng-content> -->    <p class="pashaLastDate">Грядущая Пасха: {{ datesEasterYear.nextEaster | date }}</p>    <app-sed [datesEasterYear]=\'datesEasterYear\'><!-- код из файла sed.component -->    </app-sed><p class="pashaNextDate">Грядущая Пасха: {{ datesEasterYear.nextEaster | date}}</p>    <p class="we">Здесь Богослужебный год в седмицах. {{sedAll}}</p> -->    <!-- Пример форматирования даты (pipe) -->    <!-- <p>{{ paskhaCurrentYear | date:"MM/dd yyyy" }}</p> -->    <p> Значение ключа --- {{keyNewYearKey}}</p>    <p> Текщий год -     {{currentYear}}</p></div><p>----------------------</p><!-- {{paskhalia | json}} --><div>    <!-- =-=-=-=-{{paskhalia}} -->    <ul style="list-style-type:none">        <li *ngFor="let item  of paskhalia; let i=index">{{item.year}}/{{item.month}}/<b>{{item.number}}</b></li>    </ul></div><p>----------------------</p></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ComponentTestingComponent', 'selector': 'app-component-testing'},{'name': 'PaskhaComponent', 'selector': 'app-paskha'},{'name': 'RrrComponent', 'selector': 'app-rrr'},{'name': 'SedComponent', 'selector': 'app-sed'},{'name': 'SprComponent', 'selector': 'app-spr'}];
+        var COMPONENT_TEMPLATE = '<div><div style="font-size: 1.2em" class="paskhaDate">    <!-- <ng-content select="h1, h2, h3, p"></ng-content> -->    <p class="pashaLastDate">Пасха: {{ datesEasterYear.nextEaster | date }}</p>    <app-sed [datesEasterYear] = \'datesEasterYear\'>        <!-- код из файла sed.component -->    </app-sed>    <p class="pashaNextDate">Грядущая Пасха 2: {{ datesEasterYear.nextEaster | date}}</p>    <p class="we">Здесь Богослужебный год в седмицах. {{sedAll}}</p> -->    <!-- Пример форматирования даты (pipe) -->    <!-- <p>{{ paskhaCurrentYear | date:"MM/dd yyyy" }}</p> -->    <p> Значение ключа --- {{keyNewYearKey}}</p>    <p> Текщий год - {{currentYear}}</p></div><!-- {{paskhalia | json}} --><div>    <!-- =-=-=-=-{{paskhalia}} -->    <ul style="list-style-type:none">        <li *ngFor="let item of paskhalia; let i=index">{{item.year}} / {{item.month}} /<b><span style="font-size: 150%"> {{item.date}}</span></b></li>    </ul></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ComponentTestingComponent', 'selector': 'app-component-testing'},{'name': 'PaskhaComponent', 'selector': 'app-paskha'},{'name': 'SedComponent', 'selector': 'app-sed'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PaskhaComponent'};
 </script>
