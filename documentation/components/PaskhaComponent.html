@@ -724,9 +724,12 @@
 
     <div class="tab-pane fade " id="c-readme">
         <p><h1 id="-">Описание компонента</h1>
-<p>Компонент вычисления дат Пасх и пердача этих дат в формате миллисекунд в компонент седмиц - <strong>sed.component.ts</strong></p>
-<p>Мы получаем текущий год, на его основании вычисляем дату Пасхи. Далее отнимаем от даты вычисленной Пасхи текущую дату и проверяем знак результата.</p>
-<p>Если текущая дата менее даты Пасхи одноименного года то НГ уже был в Пасхальном году так как результат вычисления будет <code>положительный</code>. Если же результат вычисления <code>отрицательный</code>, значит Нового года в текущем Пасхальном году еще не было.</p>
+<h2 id="-sed-component-ts">Компонент вычисления дат Пасх и передача этих дат в формате миллисекунд в компонент седмиц - <code>sed.component.ts</code></h2>
+<h3 id="-">Сложность вычисления заключается в том, что само вычисление даты Пасхи всегда бывает в двух гражданских годах. До нового года и после него. Гражданский год увеличивается на единицу, а Богослужебный год остается тот же.</h3>
+<h2 id="-">Мы получаем текущий год, на его основании вычисляем дату Пасхи. Далее отнимаем от даты вычисленной Пасхи текущую дату и проверяем знак результата.</h2>
+<h2 id="-">Если текущая дата менее даты Пасхи одноименного года то НГ уже был в Пасхальном году так как результат вычисления будет <code>положительный</code>. Если же результат вычисления <code>отрицательный</code>, значит Нового года в текущем Пасхальном году еще не было.</h2>
+<p><img src="https://3.bp.blogspot.com/-BdssDIwNmTU/XNkHYc--vCI/AAAAAAAADko/LGeD9e3pEq0pBLZ-Np50UBEWSCdOwHm8ACLcBGAs/s512/goodyear.png" alt="Пасхальный круг" class="img-responsive"></p>
+<h2 id="-">Как видно на диаграмме, Богослужебный год начинается в одно время, но заканчивается всегда в другое, – или до даты начала Бывшей Пасхи или После нее. На диаграмме это представлено в виде трех Пасх. Розовый кружок - это внутрь-Пасха. Бежевый кружок это вне-Пасха. В зависимости такого движения возникают отступки и преступки в чтениях Священных Писаний. Такие отступки, преступки, промежуточные седмицы представлены в компоненте соответствующими перемеными.</h2>
 </p>
     </div>
 
@@ -832,7 +835,7 @@ export class PaskhaComponent implements OnInit, Easter {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;font-size: 1.2em&quot; class&#x3D;&quot;paskhaDate&quot;&gt;
     &lt;!-- &lt;ng-content select&#x3D;&quot;h1, h2, h3, p&quot;&gt;&lt;/ng-content&gt; --&gt;
-    &lt;p class&#x3D;&quot;pashaLastDate&quot;&gt;Пасха: {{ datesEasterYear.nextEaster | date }}&lt;/p&gt;
+    &lt;p class&#x3D;&quot;pashaLastDate&quot;&gt;Пасха: {{ datesEasterYear.lastEaster | date }}&lt;/p&gt;
 
     &lt;app-sed [datesEasterYear] &#x3D; &#x27;datesEasterYear&#x27;&gt;
         &lt;!-- код из файла sed.component --&gt;
@@ -840,7 +843,6 @@ export class PaskhaComponent implements OnInit, Easter {
 
 
     &lt;p class&#x3D;&quot;pashaNextDate&quot;&gt;Грядущая Пасха 2: {{ datesEasterYear.nextEaster | date}}&lt;/p&gt;
-    &lt;p class&#x3D;&quot;we&quot;&gt;Здесь Богослужебный год в седмицах. {{sedAll}}&lt;/p&gt; --&gt;
 
     &lt;!-- Пример форматирования даты (pipe) --&gt;
     &lt;!-- &lt;p&gt;{{ paskhaCurrentYear | date:&quot;MM/dd yyyy&quot; }}&lt;/p&gt; --&gt;
@@ -905,7 +907,7 @@ export class PaskhaComponent implements OnInit, Easter {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div style="font-size: 1.2em" class="paskhaDate">    <!-- <ng-content select="h1, h2, h3, p"></ng-content> -->    <p class="pashaLastDate">Пасха: {{ datesEasterYear.nextEaster | date }}</p>    <app-sed [datesEasterYear] = \'datesEasterYear\'>        <!-- код из файла sed.component -->    </app-sed>    <p class="pashaNextDate">Грядущая Пасха 2: {{ datesEasterYear.nextEaster | date}}</p>    <p class="we">Здесь Богослужебный год в седмицах. {{sedAll}}</p> -->    <!-- Пример форматирования даты (pipe) -->    <!-- <p>{{ paskhaCurrentYear | date:"MM/dd yyyy" }}</p> -->    <p> Значение ключа --- {{keyNewYearKey}}</p>    <p> Текщий год - {{currentYear}}</p></div><!-- {{paskhalia | json}} --><div>    <!-- =-=-=-=-{{paskhalia}} -->    <ul style="list-style-type:none">        <li *ngFor="let item of paskhalia; let i=index">{{item.year}} / {{item.month}} /<b><span style="font-size: 150%"> {{item.date}}</span></b></li>    </ul></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div style="font-size: 1.2em" class="paskhaDate">    <!-- <ng-content select="h1, h2, h3, p"></ng-content> -->    <p class="pashaLastDate">Пасха: {{ datesEasterYear.lastEaster | date }}</p>    <app-sed [datesEasterYear] = \'datesEasterYear\'>        <!-- код из файла sed.component -->    </app-sed>    <p class="pashaNextDate">Грядущая Пасха 2: {{ datesEasterYear.nextEaster | date}}</p>    <!-- Пример форматирования даты (pipe) -->    <!-- <p>{{ paskhaCurrentYear | date:"MM/dd yyyy" }}</p> -->    <p> Значение ключа --- {{keyNewYearKey}}</p>    <p> Текщий год - {{currentYear}}</p></div><!-- {{paskhalia | json}} --><div>    <!-- =-=-=-=-{{paskhalia}} -->    <ul style="list-style-type:none">        <li *ngFor="let item of paskhalia; let i=index">{{item.year}} / {{item.month}} /<b><span style="font-size: 150%"> {{item.date}}</span></b></li>    </ul></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ComponentTestingComponent', 'selector': 'app-component-testing'},{'name': 'PaskhaComponent', 'selector': 'app-paskha'},{'name': 'SedComponent', 'selector': 'app-sed'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PaskhaComponent'};

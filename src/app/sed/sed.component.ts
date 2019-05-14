@@ -1,4 +1,3 @@
-// среда, 21 апреля 2019 г. 11:01:48 (MSK)
 import { Component, Input, OnInit } from '@angular/core';
 import { DateService } from '../date.service';
 
@@ -29,10 +28,19 @@ const GLASSEDMIC = {
 export class SedComponent implements OnInit {
 
   @Input()  
-    
-    
+
+  /**`
+   * Темплейтная переменная принимающая значение из родительского компонента html-шаблона **datesEasterYear** 
+   * 
+   */
   datesEasterYear: any;
-  monthsArray: string[];
+
+  /**
+   * Массив строк который находится в _datesService по умолчанию
+   * _переменную можно не прописывать_
+   * 
+   */
+  monthsArray: string[]; 
 
   /** 
    * вычисление количества седмиц Богослужебного года 
@@ -65,10 +73,16 @@ export class SedComponent implements OnInit {
    */
   yearNextEaster: Date;
 
-
+  /**
+   * Переменные для значений отступки и преступки в чтениях
+   * Указывают сдвиг от празднества Воздвижения в обе стороны
+   */
   otstupkaV: number;
   prestupkaV: number;
 
+  /**
+   * Переменная для даты Недели Мытаря и Фарисея
+   */
   mif: Date;
 
   /**
@@ -90,17 +104,25 @@ export class SedComponent implements OnInit {
    * Високосный год
    */
   v_year: boolean;
+
+  /**
+   * Переменная для вывода русского слова в шаблоне html (преступка или отступка)
+   */
   stupka: string;
 
 
   public constructor(public _datesService: DateService) {
   }
+
+  /**
+   * Стартовая инициализация объектов значениями дат
+   */
   ngOnInit() {
     this.numberOfWeeks();
     this.yearNextEaster = new Date(this.datesEasterYear.nextEaster);
+    this.v_year = this.vg();
     this.otstupkaVozdvijjenie();
     this.promWeeks();
-    this.v_year = this.vg();
 
   }
 
@@ -129,18 +151,17 @@ export class SedComponent implements OnInit {
     if (this.v_year) // читай README.md 001 
     {
       this.mif = new Date(this.datesEasterYear.nextEaster - 6047999999 + 86400000);
-
-      console.log("---=---=-=-=-=-=-=-=-", this.mif);
-      
+      console.log("Дата Мытаря и Фарисея", this.mif);
 
       this.mifRussianDate = String(this.mif.getDay() + this._datesService.monthsArray[this.mif.getMonth()]);
-
       console.log("Это дата для високосного года", this.mif);
     }
     else
     {
       this.mif = new Date(this.datesEasterYear.nextEaster - 6047999999);
       this.mifRussianDate = this.mif.getDate() + " " + this._datesService.monthsArray[this.mif.getMonth()];
+      console.log("Дата Мытаря и Фарисея", this.mif);
+
     }
 
     console.log("Текущая седмица", this.currentWeek);
@@ -183,7 +204,8 @@ export class SedComponent implements OnInit {
 
     }
 
-    else return "!!! ВОЗДВИЖЕНИЯ В ТЕКУЩЕМ БОГОСЛУЖЕБНОМ ГОДУ ЕЩЕ НЕ БЫЛО !!! ";
+    else
+      console.log("До Воздвижения осталось седмиц: ", (this.sumWeeksAfterVozdvijjenie - this.currentWeek));
 
   }
   
@@ -210,6 +232,7 @@ export class SedComponent implements OnInit {
     
     var year2 = this.yearNextEaster.getFullYear();
     return ((year2 % 4 == 0) && (year2 % 100 != 0)) || (year2 % 400 == 0);
+    
     
   }
 

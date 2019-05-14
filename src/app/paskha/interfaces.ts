@@ -34,4 +34,9 @@ export interface Easter {
 */
   dateDeference: number;
 
+  /**
+   * Массив месяцев c ru-names 
+   */
+  // monthsArray: string[];
+
 }

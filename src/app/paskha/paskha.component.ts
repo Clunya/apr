@@ -43,7 +43,6 @@ export class PaskhaComponent implements OnInit, Easter {
 
     this._xxxService.getPaskhaliaFromJSON().subscribe(data => this.paskhalia = data);
     this.paskhalia2 = this._xxxService.paskhaliaArray();
-    // spr1 (spravka 1 http://localhost:4200/spr)
     this.timeBox = new Date();
     // nrb1 (problema 1, смотри видео prb-1.mov)
     this.currentYear = this.timeBox.getFullYear();

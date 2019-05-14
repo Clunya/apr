@@ -1,6 +1,6 @@
 <div style="font-size: 1.2em" class="paskhaDate">
     <!-- <ng-content select="h1, h2, h3, p"></ng-content> -->
-    <p class="pashaLastDate">Пасха: {{ datesEasterYear.nextEaster | date }}</p>
+    <p class="pashaLastDate">Пасха: {{ datesEasterYear.lastEaster | date }}</p>
 
     <app-sed [datesEasterYear] = 'datesEasterYear'>
         <!-- код из файла sed.component -->
@@ -8,7 +8,6 @@
 
 
     <p class="pashaNextDate">Грядущая Пасха 2: {{ datesEasterYear.nextEaster | date}}</p>
-    <p class="we">Здесь Богослужебный год в седмицах. {{sedAll}}</p> -->
 
     <!-- Пример форматирования даты (pipe) -->
     <!-- <p>{{ paskhaCurrentYear | date:"MM/dd yyyy" }}</p> -->
