@@ -1,6 +1,6 @@
 <div style="font-size: 1.2em" class="paskhaDate">
     <!-- <ng-content select="h1, h2, h3, p"></ng-content> -->
-    <p class="pashaLastDate">Пасха: {{ datesEasterYear.lastEaster | date }}</p>
+    <p class="pashaLastDate" [style.font-size.em]="2">Пасха: {{ datesEasterYear.lastEaster | date }}</p>
 
     <app-sed [datesEasterYear] = 'datesEasterYear'>
         <!-- код из файла sed.component -->

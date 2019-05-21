@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/paskha/interfaces.ts</code>
+            <code>src/app/intrfc/interfaces.ts</code>
         </p>
 
 
@@ -181,7 +181,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Вычисление разницы времен, 
+                                    <div class="io-description"><p>Вычисление разницы времен,
 которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.</p>
 <p>читай README</p>
 </div>
@@ -350,6 +350,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Пасхалия как объект </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -379,6 +385,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Пасхалия  из файла json</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -408,6 +420,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Тукущая дата для вычисления других дат</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -420,35 +438,47 @@
    *  Ключ года - это флаг, который переключается в зависимости от того, был Новый год или нет в Богослужебном году.
    */
   keyYear: number; // Главный ключ
+
+  /**
+   * Тукущая дата для вычисления других дат
+   */
   timeBox: Date;
-  // lastEaster: string;
-  // nextEaster: string;
+
   /**
    * Пасха текущего года. Имеется в виду Богослужебный год и его Пасха
    */
   paskhaCurrentYear: Date;
+
   /**
    * Текущий гражданский год в текущем Богослужебном году. Один Богослужебный год имеет всегда в себе два гражданских года. Говоря иначе делится на два периода до Нового года и после. 
    */
   currentYear: any;
+
   /**
    * Вычисление седмиц и дат зависит от текущего гражданского года. В одном гражданском году всегда вычисляются даты двух Пасх прошлой и будущей. В зависимости от текущего года проводятся разные вычисления.
    */
   keyNewYearKey: string;
 
+  /**
+   * Пасхалия как объект 
+   */
   paskhalia: [];
+
+  /**
+   * Пасхалия  из файла json
+   */
   paskhalia2: object;
   /**
    * Дата следующей Пасхи
    */
   datesEasterYear: any;
-  // linkToCurrentSeed: string;  
+
   /**
- * Вычисление разницы времен, 
- * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
- * 
- * читай README
-*/
+  * Вычисление разницы времен,
+  * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
+  *
+  * читай README
+  */
   dateDeference: number;
 
 }

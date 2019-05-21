@@ -3,8 +3,9 @@
 *
 */
 import { Component, Injectable, OnInit } from '@angular/core';
-import { DateService } from '../date.service';
-import { Easter } from './interfaces';
+import { DateService } from '../svrs/date.service';
+import { Easter } from '../intrfc/interfaces';
+import { LinksService } from '../svrs/links.service';
 
 
 @Injectable()
@@ -13,7 +14,10 @@ import { Easter } from './interfaces';
   selector: 'app-paskha',
   templateUrl: './paskha.component.html',
   styleUrls: ['./paskha.component.css'],
-  providers: [DateService]
+  providers: [ // открывает доступ к сервисам данных
+    DateService,
+    LinksService
+  ] 
 })
 
 export class PaskhaComponent implements OnInit, Easter {
@@ -35,14 +39,14 @@ export class PaskhaComponent implements OnInit, Easter {
    */
   dateDeference: number;
 
-  constructor(public _xxxService: DateService) {
+  constructor(public _dateService: DateService, public _linksService: LinksService) {
 
   }
 
   ngOnInit() {
 
-    this._xxxService.getPaskhaliaFromJSON().subscribe(data => this.paskhalia = data);
-    this.paskhalia2 = this._xxxService.paskhaliaArray();
+    this._dateService.getPaskhaliaFromJSON().subscribe(data => this.paskhalia = data); // инициализация переменной paskhalia значениями из файла paskhalia.json 
+    this.paskhalia2 = this._dateService.paskhaliaArray();
     this.timeBox = new Date();
     // nrb1 (problema 1, смотри видео prb-1.mov)
     this.currentYear = this.timeBox.getFullYear();

@@ -57,7 +57,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/date.service.ts</code>
+            <code>src/app/svrs/date.service.ts</code>
         </p>
 
 
@@ -123,12 +123,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/date.service.ts:49</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/svrs/date.service.ts:49</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Коструктор использует HttpClient так как нужно подключаться к внешнему источнику – файлу paskhalia.json</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -137,6 +139,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -151,6 +154,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>свойство для работы с протоколом http</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -190,7 +197,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/date.service.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/svrs/date.service.ts:58</a></div>
                             </td>
                         </tr>
 
@@ -228,7 +235,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/date.service.ts:61</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/svrs/date.service.ts:64</a></div>
                             </td>
                         </tr>
 
@@ -286,13 +293,13 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/date.service.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/svrs/date.service.ts:46</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Массив для конвертации</p>
+                        <div class="io-description"><p>Массив для конвертации месяцев в русский язык</p>
 </div>
                     </td>
                 </tr>
@@ -358,7 +365,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/date.service.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/svrs/date.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -420,16 +427,19 @@ export class DateService {
   };
 
     /** 
-   *  Массив для конвертации
+   *  Массив для конвертации месяцев в русский язык
 */
   monthsArray: string[] &#x3D; [
     &quot;января&quot;, &quot;февраля&quot;, &quot;марта&quot;, &quot;апреля&quot;, &quot;май&quot;, &quot;июня&quot;, &quot;июля&quot;,
     &quot;август&quot;, &quot;сентября&quot;, &quot;октября&quot;, &quot;ноября&quot;, &quot;декабря&quot;
   ]
 
-
+    /**
+     * Коструктор использует HttpClient так как нужно подключаться к внешнему источнику – файлу paskhalia.json
+     * @param http 
+     * свойство для работы с протоколом http
+     */
  constructor(private http: HttpClient) { }
-
 
   public getPaskhaliaFromJSON(){
     // Возвращает Пасхалию
@@ -440,6 +450,9 @@ export class DateService {
   paskhaliaArray() {
     return this.paskhalia
   }
+
+// 
+
 }
 </code></pre>
     </div>

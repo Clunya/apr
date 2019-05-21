@@ -17,12 +17,57 @@ export class AppComponent implements OnInit {
   mainPage: string = "Главная страница";
   public timeOut: string = "classOFF";
 
-  constructor() {
-     
-   }
+  linkToPageOfTheDay: string;
+  pageTheApracosDay: string;
+  td: number;
+
+  constructor() { }
   ngOnInit() {
     // setTimeout(() => {this.timeOut = "classON"}, 3);
-       
-     
-   }
+    this.pathToPageDay();
+    this.pathToPageApracosDay();
+
+  }
+  pathToPageDay() {
+
+    let mn = new Array('JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC');
+    let mnn = new Array('31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31');
+    let mnl = new Array('31', '29', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31');
+
+    let d = new Date();
+    this.td = d.getDate();
+    if (this.td < 10) {
+      this.td = Number("0" + this.td);
+    }
+    let tm = d.getMonth();
+    let ty = d.getFullYear();
+    let marr = ((ty % 4) == 0) ? mnl : mnn;
+
+    if (tm == 0 && this.td <= 13) {
+      var mm = 11;
+      var ss = Number(marr[mm]) - (13 - this.td);
+    } else if (tm > 0 && this.td <= 13) {
+      mm = tm - 1;
+      ss = Number(marr[mm]) - (13 - this.td);
+    } else {
+      mm = tm;
+      ss = (this.td - 13);
+    }
+
+    if (ss < 10) { var dd = '0' + ss; } else { dd = String(ss); }
+
+    this.linkToPageOfTheDay = (mn[mm] + "/" + dd + this.td + "/" + "index.html");
+    // console.log(this.linkToPageOfTheDay);
+
+    //  перенаправление на директорию текущего дня
+    // location.replace(mn[mm] + "/" + dd + this.td + "/" + "index.html");
+  }
+/**
+ * Метод собирающий ссылку на страницу Апракоса текущего дня
+ */
+  pathToPageApracosDay() {
+    // тут требуется код для перехода на страницу Апракоса
+    // location.replace("../APRACOS/" + sedmica + "/" + (d.getDay() + 1) + ".html")
+  }
+
 }

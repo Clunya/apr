@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DateService } from '../date.service';
+import { DateService } from '../svrs/date.service';
 
 
 /**
@@ -128,6 +128,7 @@ export class SedComponent implements OnInit {
 
   /**
     * Вычисление `разницы` между текущем временем и датой прошедшей Пасхи.
+    * 864E5 - экспонента (кол-во миллисекунд в сутках) = 86.400.000
     * Обрезка значения до целого.
     * Вычисление текущей седмицы.
     * Вычисление седмицы по Пятьдесятнице
@@ -243,6 +244,15 @@ export class SedComponent implements OnInit {
     this.betweenWeeks = this.sumWeeks - 17 - 34;
     console.log("Промежуточных седмиц: ", this.betweenWeeks);
   }
+
+  r = 'e';
+  private onKey(value: any) {
+    this.r =  value;
+    console.log(this.r);
+    
+    return this.r;
+  }
+
 
 }
 

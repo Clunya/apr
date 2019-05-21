@@ -28,7 +28,10 @@
 <p *ngIf="weekAfterPyatidesyatnica">Текущая седмица по Пятидесятнице: {{weekAfterPyatidesyatnica }}</p>
 <p>
     Глас седмицы: {{glas}}
+    <input [(ngModel)]="glas">
 </p>
+<input #box (keyup.shift)="onKey(box.value)">
+<p>{{r}}</p>
 <p>Количество промежуточных седмиц: {{betweenWeeks}} </p>
 <p [ngStyle]="sedStyle">Дата Мытаря и Фарисея: {{mifRussianDate}}</p>
 </div>
