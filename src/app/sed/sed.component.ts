@@ -34,6 +34,11 @@ export class SedComponent implements OnInit {
    * 
    */
   datesEasterYear: any;
+  /**`
+   * Темплейтная переменная принимающая значение из родительского компонента html-шаблона **keyNewYearKey** 
+   * 
+   */
+  keyNewYearKey: number;
 
   /**
    * Массив строк который находится в _datesService по умолчанию

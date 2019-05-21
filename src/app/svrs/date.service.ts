@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { Easter } from '../intrfc/interfaces';
 
 
 @Injectable({
@@ -7,7 +8,23 @@ import { Injectable } from '@angular/core';
 })
 
 
-export class DateService {
+
+export class DateService implements OnInit, Easter {
+
+keyYear: number; // Главный ключ
+timeBox: Date;
+paskhaCurrentYear: Date;
+currentYear: number;
+keyNewYearKey: string;
+paskhalia2: object;
+datesEasterYear: any;
+  /**
+    * Вычисление разницы времен,
+    * которая показывает состояние Праздника Новый год в текущем ПАСХАЛЬНОМ ГОДУ.
+    *
+    * читай README
+   */
+  dateDeference: number;
 
  /**
    * Readonly для свойств и допускает инициализацию только в первый раз.
@@ -25,21 +42,80 @@ export class DateService {
     "август", "сентября", "октября", "ноября", "декабря"
   ]
 
+
+
     /**
      * Коструктор использует HttpClient так как нужно подключаться к внешнему источнику – файлу paskhalia.json
      * @param http 
      * свойство для работы с протоколом http
      */
-  constructor(private http: HttpClient) { }
-  
-  
+  constructor(private http: HttpClient) {
+    this.paskhalia2 = this.paskhalia;
+    // this.paskhalia = this.getPaskhaliaFromJSON().subscribe(data => this.paskhalia = data); // инициализация переменной paskhalia значениями из файла paskhalia.json 
+    this.timeBox = new Date();
+    // nrb1 (problema 1, смотри видео prb-1.mov)
+    this.currentYear = this.timeBox.getFullYear();
+    this.paskhaCurrentYear = new Date(this.currentYear, this.paskhalia2[this.currentYear][0], this.paskhalia2[this.currentYear][1]);
+    console.log("Пасха в этом году", this.paskhaCurrentYear);
+    this.dateDeference = this.paskhaCurrentYear.getTime() - this.timeBox.getTime();
 
+    if (this.dateDeference < 0) {
+      // ---------------------------
+      // если НГ не был в текущем Пасхальном году
+      this.keyYear = (this.timeBox.getFullYear()) + 1;
+      // ---------------------------
+      this.keyNewYear(this.keyYear);
+      this.keyNewYearKey = "0";
+    }
+
+    else {
+
+      // ---------------------------
+      // если НГ был в текущем Пасхальном году
+      this.keyYear = (this.timeBox.getFullYear());
+      this.keyNewYearKey = "1";
+      // ---------------------------
+      this.keyNewYear(this.keyYear);
+    }
+
+  }
+  ngOnInit() {
+
+    
+  }
+     /**
+     *  функция, которая в зависимости от входящего ключа-нгода формирует две даты Пасх
+     */
+  keyNewYear(keyYear: number) {
+    console.log(keyYear, " -- keyYear");
+    
+    // объект для экспортирования в другой компонент
+    this.datesEasterYear =
+    {
+      "lastEaster":
+      new Date(this.keyYear - 1, this.paskhalia2[this.keyYear - 1][0],
+        this.paskhalia2[this.keyYear - 1][1]).getTime(),
+        // возращаает ти number
+        "nextEaster":
+        new Date(this.keyYear, this.paskhalia2[this.keyYear][0],
+          this.paskhalia2[this.keyYear][1]).getTime()
+    }
+    
+    
+    // return console.log(typeof(this.datesEasterYear.nextEaster));
+    
+  }
+  
+/**
+ * Метод возвращающий Пасхалию из json файла
+ */
   public getPaskhaliaFromJSON(){
     // Возвращает Пасхалию
     return this.http.get<any>('./assets/paskhalia.json');
     
   }
   
+
   paskhaliaArray() {
     return this.paskhalia
   }
