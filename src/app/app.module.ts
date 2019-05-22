@@ -36,7 +36,9 @@ import { LinksService } from './svrs/links.service';
    */
   providers: [
     DateService,
-    LinksService
+    LinksService,
+    SedComponent
+
   ],
   /**
    * Загрузчик

@@ -9,5 +9,6 @@
     "metaGo.decoration.backgroundColor": "#865c00",
     "metaGo.decoration.upperCase": true,
     "metaGo.decoration.x": 3,
-    "metaGo.decoration.y": 16
+    "metaGo.decoration.y": 16,
+    "vsicons.presets.angular": true
 }

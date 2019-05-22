@@ -30,7 +30,7 @@
     Глас седмицы: {{glas}}
     <input [(ngModel)]="glas">
 </p>
-<input #box (keyup.shift)="onKey(box.value)">
+<input #box placeholder="{{r}}" (keyup.enter)="onKey(box.value)">
 <p>{{r}}</p>
 <p>Количество промежуточных седмиц: {{betweenWeeks}} </p>
 <p [ngStyle]="sedStyle">Дата Мытаря и Фарисея: {{mifRussianDate}}</p>

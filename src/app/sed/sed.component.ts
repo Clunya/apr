@@ -250,10 +250,11 @@ export class SedComponent implements OnInit {
     console.log("Промежуточных седмиц: ", this.betweenWeeks);
   }
 
-  r = 'e';
+  r = 'Введите год';
   private onKey(value: any) {
-    this.r =  value;
+    this.r = String(this._datesService.paskhalia[value]);
     console.log(this.r);
+    // this.r =  value;
     
     return this.r;
   }
