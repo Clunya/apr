@@ -10,6 +10,7 @@ import { SedComponent } from './sed/sed.component';
 import { DateService } from './svrs/date.service';
 import { ComponentTestingComponent } from './component-testing/component-testing.component';
 import { LinksService } from './svrs/links.service';
+import { SedService } from './svrs/sed.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { LinksService } from './svrs/links.service';
   providers: [
     DateService,
     LinksService,
-    SedComponent
+    SedService
 
   ],
   /**

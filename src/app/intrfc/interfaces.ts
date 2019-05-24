@@ -27,12 +27,12 @@ export interface Easter {
   /**
    * Пасхалия как объект 
    */
-  paskhalia: any;
+  // PASKHALIA: any;
 
   /**
    * Пасхалия  из файла json
    */
-  paskhalia2: object;
+  paskhaliaJSON: object;
   /**
    * Дата следующей Пасхи
    */

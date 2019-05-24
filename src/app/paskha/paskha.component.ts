@@ -20,33 +20,31 @@ import { LinksService } from '../svrs/links.service';
   ] 
 })
 
-export class PaskhaComponent implements OnInit, Easter {
+export class PaskhaComponent implements OnInit {
 
-  keyYear: number; // Главный ключ
-  timeBox: Date;
-  paskhaCurrentYear: Date;
-  currentYear: number;
-  keyNewYearKey: string;
-  paskhalia: object;
-  paskhalia2: object;
-  datesEasterYear: any;
-  dateDeference: number;
+  // keyYear: number; // Главный ключ
+  // timeBox: Date;
+  // paskhaCurrentYear: Date;
+  // currentYear: number;
+  // keyNewYearKey: string;
+  // PASKHALIA: object;
+  // paskhaliaJSON: object;
+  // datesEasterYear: any;
+  // dateDeference: number;
+
+  ruDateLastEaster: string;
 
   
   constructor(public _datesService: DateService, public _linksService: LinksService) {
+
+    // this._datesService.getPaskhaliaFromJSON().subscribe(data => this.paskhaliaJSON = data); // инициализация переменной paskhaliaJSON значениями из файла paskhalia.json 
 
   }
   
   ngOnInit() {
     // инициализация интефейса компонента
     // console.log(this.timeBox);
-    this._datesService.getPaskhaliaFromJSON().subscribe(data => this.paskhalia2 = data);
-    
-    this.paskhalia = this._datesService.paskhaliaArray();
-    
-    this.datesEasterYear = this._datesService.datesEasterYear;
-    this.currentYear = this._datesService.currentYear;
-    this.keyNewYearKey = this._datesService.keyNewYearKey;
+  
   }
 
 // Здесь должен быть код для управления интерфейсом html шаблона.

@@ -1,25 +1,26 @@
 <div style="font-size: 1.2em" class="paskhaDate">
     <!-- <ng-content select="h1, h2, h3, p"></ng-content> -->
-    <p class="pashaLastDate" [style.font-size.em]="2">Пасха: {{ datesEasterYear.lastEaster | date }}</p>
+    <p class="pashaLastDate" [style.font-size.em]="2">Пасха: {{ _datesService.datesEasterYear.lastEaster}}</p>
 
-    <app-sed [datesEasterYear] = 'datesEasterYear'>
+    <app-sed>
         <!-- код из файла sed.component -->
     </app-sed>
 
 
-    <p class="pashaNextDate">Грядущая Пасха 2: {{ datesEasterYear.nextEaster | date}}</p>
+    <p class="pashaNextDate">Грядущая Пасха 2: {{ _datesService.datesEasterYear.nextEaster | date}}</p>
 
     <!-- Пример форматирования даты (pipe) -->
     <!-- <p>{{ paskhaCurrentYear | date:"MM/dd yyyy" }}</p> -->
 
-    <p> Значение ключа --- {{keyNewYearKey}}</p>
-    <p> Текщий год - {{currentYear}}</p>
+    <p> Значение ключа --- {{_datesService.keyNewYearKey}}</p>
+    <p> Текщий год - {{_datesService.currentYear}}</p>
 <!-- {{paskhalia | json}} -->
 
 <div>
     <!-- =-=-=-=-{{paskhalia}} -->
-    <ul style="list-style-type:none">
-        <li *ngFor="let item of paskhalia2; let i=index">{{item.year}} / {{item.month}} /<b><span style="font-size: 150%"> {{item.date}}</span></b></li>
+    <ul style="list-style-type: none">
+        <li *ngFor="let item of paskhaliaJSON; index as i">год: … <b>{{item.year}} … <span style="font-size: 150%"> {{item.date}}</span></b> {{_datesService.monthsArray[item.month]}}</li>
+        <li *ngFor="let item of PASKHALIA; let i=index">------</li>
     </ul>
 
 </div>

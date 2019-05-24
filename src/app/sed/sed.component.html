@@ -4,15 +4,15 @@
     <br>
     <div class="123">
         <span class="dugpre" title="СЕМЬ ПОСЛЕДОВАТЕЛЬНЫХ ДНЕЙ. ПЕРВЫМ ДНЁМ В CЕДМИЦЕ ОБЪЯВЛЯЕТСЯ ДЕНЬ ПОД НАЗВАНИЕМ – НЕДЕЛЯ, ИНАЧЕ НАЗЫВАЕМЫЙ – ВОСКРЕСЕНИЕМ.">Седмица по Пасхе</span>
-    <span id="date2" class="dug"> {{ currentWeek }} </span>
+    <span id="date2" class="dug"> {{ _sedService.currentWeek }} </span>
     </div>
     <div *ngIf="weekAfterPyatidesyatnica">
         <span id="date3" class="dugpre"
             title="ПОКАЗЫВАЕТ ЧИСЛО СЕДМИЦЫ СЧИТАЯ ОТ ПРАЗДНИКА ПЯТИДЕСЯТНИЦЫ, НАЧИНАЯ С ВОСКРЕСЕНЬЯ">По Пятьдесятнице
         </span>
-        <span id="date4" class="dug ">{{ weekAfterPyatidesyatnica }} </span>
+        <span id="date4" class="dug ">{{ _sedService.weekAfterPyatidesyatnica }} </span>
     </div>
-    <div  id="date5" class="123" style="text-indent: 0px; padding-left: 12px; font-weight: unset; color: #5e5e5e" title="ГЛАС ТЕКУЩЕЙ СЕДМИЦЫ">Глас Октоиха - <b>{{ glas }}</b></div>
+    <div  id="date5" class="123" style="text-indent: 0px; padding-left: 12px; font-weight: unset; color: #5e5e5e" title="ГЛАС ТЕКУЩЕЙ СЕДМИЦЫ">Глас Октоиха - <b>{{ _sedService.glas }}</b></div>
 </div>
 <hr class="hr-1">
 <br>
@@ -23,15 +23,15 @@
     <b>Пасха бывшая - </b>{{ datesEasterYear.lastEaster | date }} 
     <br>
     <b>Пасха грядущая </b>- {{ datesEasterYear.nextEaster | date }} -->
-<p>Богослужебный год составляет в седмицах:  {{ sumWeeks }}.</p>
-<p>Воздвиженская <strong>{{stupka}}</strong> составляет в седмицах: {{ otstupkaV }}.</p>
-<p *ngIf="weekAfterPyatidesyatnica">Текущая седмица по Пятидесятнице: {{weekAfterPyatidesyatnica }}</p>
+<p>Богослужебный год составляет в седмицах:  {{ _sedService.sumWeeks }}.</p>
+<p>Воздвиженская <strong>{{_sedService.stupka}}</strong> составляет в седмицах: {{ _sedService.otstupkaV }}.</p>
+<p *ngIf="weekAfterPyatidesyatnica">Текущая седмица по Пятидесятнице: {{_sedService.weekAfterPyatidesyatnica }}</p>
 <p>
-    Глас седмицы: {{glas}}
-    <input [(ngModel)]="glas">
+    Глас седмицы: {{_sedService.glas}}
+    <!-- <input [(ngModel)]="glas"> -->
 </p>
-<input #box placeholder="{{r}}" (keyup.enter)="onKey(box.value)">
-<p>{{r}}</p>
-<p>Количество промежуточных седмиц: {{betweenWeeks}} </p>
-<p [ngStyle]="sedStyle">Дата Мытаря и Фарисея: {{mifRussianDate}}</p>
+<!-- <input #box placeholder="{{r}}" (keyup.enter)="onKey(box.value)">
+<p>{{r}}</p> -->
+<p>Количество промежуточных седмиц: {{_sedService.betweenWeeks}} </p>
+<p [ngStyle]="sedStyle">Дата Мытаря и Фарисея: {{_sedService.mifRussianDate}}</p>
 </div>
