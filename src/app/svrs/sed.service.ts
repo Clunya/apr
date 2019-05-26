@@ -113,9 +113,9 @@ export class SedService implements OnInit {
     this.v_year = this.vg();
     this.otstupkaVozdvijjenie();
     this.promWeeks();
-
+    
   }
-
+  
   /**
    * Стартовая инициализация объектов значениями дат
    */

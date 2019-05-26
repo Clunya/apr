@@ -52,17 +52,15 @@ export class DateService implements OnInit, Easter {
      * свойство для работы с протоколом http
      */
   constructor(private http: HttpClient) {
-
     // PASKHALIAJSON = this.getPaskhaliaFromJSON().subscribe(data => PASKHALIAJSON = data); // инициализация переменной paskhalia значениями из файла paskhalia.json 
-    console.log("-0-0-0-0-0-0 ", Math.random());
-    
     this.timeBox = new Date();
-    // prb1 (problema 1, смотри видео prb-1.mov)
+    console.log("-0-0-0-0-0-0 ", Math.random());
     this.currentYear = this.timeBox.getFullYear();
     this.paskhaCurrentYear = new Date(this.currentYear, PASKHALIA[this.currentYear][0], PASKHALIA[this.currentYear][1]);
+    // prb1 (problema 1, смотри видео prb-1.mov)
     console.log("Пасха в этом году", this.paskhaCurrentYear);
     this.dateDeference = this.paskhaCurrentYear.getTime() - this.timeBox.getTime();
-
+  
     if (this.dateDeference < 0) {
       // ---------------------------
       // если НГ не был в текущем Пасхальном году
@@ -71,9 +69,9 @@ export class DateService implements OnInit, Easter {
       this.keyNewYear(this.keyYear);
       this.keyNewYearKey = "0";
     }
-
+  
     else {
-
+  
       // ---------------------------
       // если НГ был в текущем Пасхальном году
       this.keyYear = (this.timeBox.getFullYear());
@@ -81,9 +79,11 @@ export class DateService implements OnInit, Easter {
       // ---------------------------
       this.keyNewYear(this.keyYear);
     }
-
+    
+    
   }
   ngOnInit() {
+
 
     
   }
@@ -124,7 +124,7 @@ export class DateService implements OnInit, Easter {
     return PASKHALIA
   }
 
-
+  
 
 // --
 
