@@ -24,12 +24,12 @@ const GLASSEDMIC = {
 export class SedService implements OnInit {
 
 
-  /**`
+  /**
    * Темплейтная переменная принимающая значение из родительского компонента html-шаблона **datesEasterYear** 
    * 
    */
   datesEasterYear: any;
-  /**`
+  /**
    * Темплейтная переменная принимающая значение из родительского компонента html-шаблона **keyNewYearKey** 
    * 
    */
