@@ -19,8 +19,8 @@
 <div>
     <!-- =-=-=-=-{{paskhalia}} -->
     <ul style="list-style-type: none">
-        <li *ngFor="let item of paskhaliaJSON; index as i">год: … <b>{{item.year}} … <span style="font-size: 150%"> {{item.date}}</span></b> {{_datesService.monthsArray[item.month]}}</li>
-        <li *ngFor="let item of PASKHALIA; let i=index">------</li>
+        <li *ngFor="let item of _datesService.paskhaliaJSON | keyvalue">год: … <span style="font-size: 150%"><b> {{item.key}}</b></span> {{item.value[1]}} {{_datesService.monthsArray[item.value[0]]}}</li>
+        <!-- <li *ngFor="let item of PASKHALIA; let i=index">------</li> -->
     </ul>
 
 </div>

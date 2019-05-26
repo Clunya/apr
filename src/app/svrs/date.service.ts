@@ -52,6 +52,7 @@ export class DateService implements OnInit, Easter {
      * свойство для работы с протоколом http
      */
   constructor(private http: HttpClient) {
+    this.paskhaliaJSON = PASKHALIA;
     // PASKHALIAJSON = this.getPaskhaliaFromJSON().subscribe(data => PASKHALIAJSON = data); // инициализация переменной paskhalia значениями из файла paskhalia.json 
     this.timeBox = new Date();
     console.log("-0-0-0-0-0-0 ", Math.random());
