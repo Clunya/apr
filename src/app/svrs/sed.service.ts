@@ -69,11 +69,6 @@ export class SedService implements OnInit {
   yearLastEaster: Date;
 
   /**
-   * Дата грядущей Пасхи для формирования даты Недели Мытаря и Фарисея из милисекунд
-   */
-  yearNextEaster: Date;
-
-  /**
    * Переменные для значений отступки и преступки в чтениях
    * Указывают сдвиг от празднества Воздвижения в обе стороны
    */
@@ -96,11 +91,6 @@ export class SedService implements OnInit {
   mifRussianDate?: string;
 
   /**
-   * Високосный год
-   */
-  v_year: boolean;
-
-  /**
    * Переменная для вывода русского слова в шаблоне html (преступка или отступка)
    */
   stupka: string;
@@ -108,9 +98,8 @@ export class SedService implements OnInit {
 
   public constructor(public _datesService: DateService) {
 
+    
     this.numberOfWeeks();
-    this.yearNextEaster = new Date(this._datesService.datesEasterYear.nextEaster);
-    this.v_year = this.vg();
     this.otstupkaVozdvijjenie();
     this.promWeeks();
     
@@ -120,7 +109,7 @@ export class SedService implements OnInit {
    * Стартовая инициализация объектов значениями дат
    */
   ngOnInit() {
-
+    
   }
 
   /**
@@ -146,7 +135,7 @@ export class SedService implements OnInit {
     /**
      *  вычисление даты Мытаря и Фарисея и количества промежуточных седмиц
      */
-    if (this.v_year) // читай README.md 001 
+    if (this.vg()) // читай README.md 001 
     {
       this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999 + 86400000);
       console.log("Дата Мытаря и Фарисея", this.mif);
@@ -227,7 +216,7 @@ export class SedService implements OnInit {
    */
   vg(): boolean {
     
-    var year2 = this.yearNextEaster.getFullYear();
+    var year2 = this._datesService.datesEasterYear.nextEaster;
     return ((year2 % 4 == 0) && (year2 % 100 != 0)) || (year2 % 400 == 0);
     
     
@@ -241,5 +230,4 @@ export class SedService implements OnInit {
     console.log("Промежуточных седмиц: ", this.betweenWeeks);
   }
 
-  r = 'Введите год';
 }

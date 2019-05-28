@@ -36,7 +36,7 @@ export interface Easter {
   /**
    * Дата следующей Пасхи
    */
-  datesEasterYear: any;
+  datesEasterYear?: any;
 
   /**
   * Вычисление разницы времен,

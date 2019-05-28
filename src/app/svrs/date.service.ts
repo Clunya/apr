@@ -25,7 +25,7 @@ export class DateService implements OnInit, Easter {
   currentYear: number;
   keyNewYearKey: string;
   paskhaliaJSON: object;
-  datesEasterYear: any;
+  datesEasterYear?: any;
 
 
   /**
@@ -40,16 +40,20 @@ export class DateService implements OnInit, Easter {
     /** 
    *  Массив для конвертации месяцев в русский язык
 */
-  monthsArray: string[] = [
+  monthsArray = [
     "января", "февраля", "марта", "апреля", "мая", "июня", "июля",
     "августа", "сентября", "октября", "ноября", "декабря"
   ]
+
+
     /**
      * Коструктор использует HttpClient так как нужно подключаться к внешнему источнику – файлу paskhalia.json
      * @param http 
      * свойство для работы с протоколом http
      */
   constructor(private http: HttpClient) {
+    
+    // ???
     
     this.paskhaliaJSON = PASKHALIA;
     // PASKHALIAJSON = this.getPaskhaliaFromJSON().subscribe(data => PASKHALIAJSON = data); // инициализация переменной paskhalia значениями из файла paskhalia.json 
@@ -79,12 +83,10 @@ export class DateService implements OnInit, Easter {
       // ---------------------------
       this.keyNewYear(this.keyYear);
     }
-    
   }
+
   ngOnInit() {
 
-  
-    
   }
 
      /**
