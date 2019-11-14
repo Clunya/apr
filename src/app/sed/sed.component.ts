@@ -8,7 +8,7 @@ import { SedService } from '../svrs/sed.service';
   styleUrls: ['./sed.component.css']
 })
 
-  
+
 export class SedComponent implements OnInit {
 
   // @Input()
