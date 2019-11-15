@@ -20,6 +20,7 @@ import { LinksService } from '../svrs/links.service';
   ] 
 })
 
+
 export class PaskhaComponent implements OnInit {
 
   // keyYear: number; // Главный ключ
