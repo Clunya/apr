@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { DateService } from './date.service';
-import { OnInit } from '@angular/core';
+
 
 /**
  * Набор гласов для седмиц
