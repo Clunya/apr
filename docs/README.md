@@ -1,6 +1,6 @@
 # **Документация АПРАКОСЪ**
 
-![apr](https://3.bp.blogspot.com/-HDKF6GDcMD8/Xc6QlUbBDzI/AAAAAAAAElo/M3yn9nHMQ8ISeoisPgXeJOnqq9vKf1cNgCK4BGAYYCw/s400/apr.png)
+![apr](https://4.bp.blogspot.com/-YwQ8PL9Ml_g/Xc6ViMiv96I/AAAAAAAAEl0/21Cl0nIvEW0bAW5KQfAFevmbZUashMVDwCK4BGAYYCw/s1600/Group%2B2.png)
 
 [далее](intrance.md)
 
