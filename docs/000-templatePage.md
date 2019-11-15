@@ -13,4 +13,4 @@ content
 
 ---
 
-[далее](name.md)
+[далее](numberPage.md)
