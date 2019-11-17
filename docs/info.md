@@ -1,10 +1,12 @@
 ![img](https://3.bp.blogspot.com/-HDKF6GDcMD8/Xc6QlUbBDzI/AAAAAAAAElo/M3yn9nHMQ8ISeoisPgXeJOnqq9vKf1cNgCK4BGAYYCw/s400/apr.png "information docs")
+
 ---
+
 # Проект **Апракос**
 
-Проект создан в [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2
+Проект создан в [Angular CLI](https://github.com/angular/angular-cli)
 
-    Обновлен до версии 8.3.19
+    последняя версия 8.3.19
 
 ## **Сборка документации Compodoc**
 
