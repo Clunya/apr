@@ -1,3 +1,5 @@
+![img](https://3.bp.blogspot.com/-HDKF6GDcMD8/Xc6QlUbBDzI/AAAAAAAAElo/M3yn9nHMQ8ISeoisPgXeJOnqq9vKf1cNgCK4BGAYYCw/s400/apr.png "information docs")
+---
 # Проект **Апракос**
 
 Проект создан в [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2
@@ -54,4 +56,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 
+
 ---
+
+[маркировка объектов документации](marking.md)

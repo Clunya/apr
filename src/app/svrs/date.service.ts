@@ -89,27 +89,28 @@ export class DateService implements OnInit, Easter {
 
   }
 
-     /**
-     *  функция, которая в зависимости от входящего ключа-нгода формирует две даты Пасх
+     /** 007.md
+     * Функция, которая в зависимости от входящего ключа-года формирует две даты Пасх.
+     * @param {number} per – номер текущего года
      */
-  keyNewYear(keyYear: number) {
-    console.log(keyYear, " -- keyYear");
+  keyNewYear(per: number) {
+    console.log(per, " -- keyYear");
     
     // объект для экспортирования в другой компонент
+    /**
+     * Колекция содержит две даты Пасх (last and next)
+     */
     this.datesEasterYear =
     {
       "lastEaster":
       new Date(this.keyYear - 1, PASKHALIA[this.keyYear - 1][0],
         PASKHALIA[this.keyYear -1][1]).getTime(),
-        // возращаае тип number в миллисекундах
+        // возращает тип number в миллисекундах
         "nextEaster":
         new Date(this.keyYear, PASKHALIA[this.keyYear][0],
           PASKHALIA[this.keyYear][1]).getTime()
     }
-    
-    
-    // return console.log(typeof(this.datesEasterYear.nextEaster));
-    
+
   }
   
 /**
