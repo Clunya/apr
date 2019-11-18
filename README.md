@@ -6,9 +6,9 @@
 
 Приложение верстается на Angular CLI.
 
-1. [Введение и дальнейшее толкование](../introduction.html)
-1. [Установка и настройка](../info.html)
-1. [Маркировка](../marking.html)
+1. [Установка и настройка](additional-documentation/info.html)
+1. [Введение и дальнейшее толкование](additional-documentation/введение.html)
+1. [Маркировка как дополнение](additional-documentation/маркировка.html)
 
 ---
 
