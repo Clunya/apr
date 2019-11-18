@@ -3,26 +3,7 @@
 Проект создан в [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19
 
 
-## **Сборка документации программой `Compodoc`**
 
-*Папка /documentation может быть скрыта в проводнике редактора кода. Смотри настройки VSCode*.
-
-Проверте наличие комподока вашем компьютере выполнив в терминале:
-
-```bash
-compodoc -V
-```
-
-Если `compodoc` есть, тогда используйте команду для сборки документации: 
-
-```bash
-npm run compodoc
-```
-
-Дополнительная информация на сайте [compodoc](http://compodoc.app).
-Дополнительные настройки тем *compodoca* и др. - смотреть в файле `package.json`.
-
----
 
 ## **Клонирование проекта и запуск**.
 
@@ -117,6 +98,27 @@ ng help
 
 or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+---
 
+## **Сборка документации программой `Compodoc`**
+
+*Папка /documentation может быть скрыта в проводнике редактора кода. Смотри настройки VSCode*.
+
+Проверте наличие комподока вашем компьютере выполнив в терминале:
+
+```bash
+compodoc -V
+```
+
+Если `compodoc` есть, тогда используйте команду для сборки документации: 
+
+```bash
+npm run compodoc
+```
+
+Дополнительная информация на сайте [compodoc](http://compodoc.app).
+Дополнительные настройки тем *compodoca* и др. - смотреть в файле `package.json`.
 
 ---
+
+[Маркировка объектов](../marking.md)

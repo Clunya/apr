@@ -4,5 +4,6 @@
 Приложение верстается на Angular CLI.
 
 
-* [Введение](introduction.md)
+* [Введение и дальнейшее толкование](introduction.md)
+* [Основная документация](./compodoc/index.html)
 
