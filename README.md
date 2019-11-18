@@ -2,6 +2,8 @@
 
 ## **Документация проекта [Cий день](https://clunya.github.io) для его главной части [Апракосъ](https://clunya.github.io/html/APRACOS/stvol.html).** 
 
+# Милости просим …
+
 Приложение верстается на Angular CLI.
 
 1. [Введение и дальнейшее толкование](../introduction.html)
