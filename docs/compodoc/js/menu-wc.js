@@ -41,6 +41,58 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                     </ul>
                 </li>
+                    <li class="chapter additional">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#additional-pages"'
+                            : 'data-target="#xs-additional-pages"' }>
+                            <span class="icon ion-ios-book"></span>
+                            <span>Маркировка объектов</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="additional-pages"' : 'id="xs-additional-pages"' }>
+                                    <li class="link ">
+                                        <a href="additional-documentation/начало.html" data-type="entity-link" data-context-id="additional">Начало</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/введение.html" data-type="entity-link" data-context-id="additional">Введение</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/info.html" data-type="entity-link" data-context-id="additional">iNFO</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/маркировка.html" data-type="entity-link" data-context-id="additional">Маркировка</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/001.html" data-type="entity-link" data-context-id="additional">001</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/002.html" data-type="entity-link" data-context-id="additional">002</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/003.html" data-type="entity-link" data-context-id="additional">003</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/004.html" data-type="entity-link" data-context-id="additional">004</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/005.html" data-type="entity-link" data-context-id="additional">005</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/006.html" data-type="entity-link" data-context-id="additional">006</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/007.html" data-type="entity-link" data-context-id="additional">007</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/008.html" data-type="entity-link" data-context-id="additional">008</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/009.html" data-type="entity-link" data-context-id="additional">009</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/010.html" data-type="entity-link" data-context-id="additional">010</a>
+                                    </li>
+                        </ul>
+                    </li>
                     <li class="chapter modules">
                         <a data-type="chapter-link" href="modules.html">
                             <div class="menu-toggler linked" data-toggle="collapse" ${ isNormalMode ?
