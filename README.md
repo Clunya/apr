@@ -6,7 +6,6 @@
 
 
 1. [Введение и дальнейшее толкование.](docs/introduction.md)
-1. [Маркировка.](docs/marking.md)
 1. [Установка и настройка](docs/info.md)
-1. [](docs/)
+1. [Маркировка.](docs/marking.md)
 
