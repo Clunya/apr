@@ -1,8 +1,8 @@
+![settings](https://1.bp.blogspot.com/-VfbWcrw4Qpc/XdKynSuNRdI/AAAAAAAAErE/ESat0jf6020jPfcX6i__fpJgmsn_ltiRQCLcBGAsYHQ/s320/settings.png)
+
 # Проект **Апракос**
 
 Проект создан в [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19
-
-
 
 
 ## **Клонирование проекта и запуск**.
@@ -120,4 +120,4 @@ npm run compodoc
 Дополнительные настройки тем *compodoca* и др. - смотреть в файле `package.json`.
 
 ---
-[маркировка](marking.md)
+[маркировка](marking.html)
