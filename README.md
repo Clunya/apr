@@ -4,9 +4,9 @@
 
 Приложение верстается на Angular CLI.
 
-1. [Введение и дальнейшее толкование](../docs/introduction.md)
-1. [Установка и настройка](../docs/info.md)
-1. [Маркировка](../docs/marking.md)
+1. [Введение и дальнейшее толкование](../docs/introduction.html)
+1. [Установка и настройка](../docs/info.html)
+1. [Маркировка](../docs/marking.html)
 
 ---
 
