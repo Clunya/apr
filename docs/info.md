@@ -10,7 +10,7 @@
 
 ## **Сборка документации Compodoc**
 
-* [смотри здесь](../documentation/index.html)
+* [смотри здесь](./documentation/index.html)
 
 *Папка /documentation может быть скрыта в проводнике редактора кода. Смотри настройки VSCode*.
 
