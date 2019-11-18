@@ -6,7 +6,7 @@
 
 Проект создан в [Angular CLI](https://github.com/angular/angular-cli)
 
-    последняя версия 8.3.19
+    версия 8.3.19
 
 ## **Сборка документации Compodoc**
 
