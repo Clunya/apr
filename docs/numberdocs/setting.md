@@ -110,7 +110,7 @@ or go check out the [Angular CLI README](https://github.com/angular/angular-cli/
 compodoc -V
 ```
 
-Если `compodoc` есть, тогда используйте команду для сборки документации: 
+Если `compodoc` установлен, тогда используйте команду для сборки документации: 
 
 ```bash
 npm run compodoc
@@ -120,4 +120,4 @@ npm run compodoc
 Дополнительные настройки тем *compodoca* и др. - смотреть в файле `package.json`.
 
 ---
-[маркировка](marking.html)
+[маркировка](маркировка.html)

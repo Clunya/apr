@@ -301,11 +301,11 @@ import { FormsModule } from &#x27;@angular/forms&#x27;; // &lt;-- NgModel lives 
 import { AppRoutingModule } from &#x27;./app-routing.module&#x27;;
 import { AppComponent } from &#x27;./app.component&#x27;;
 import { PaskhaComponent } from &#x27;./paskha/paskha.component&#x27;;
-import { SedComponent } from &#x27;./sed/sed.component&#x27;;
 import { DateService } from &#x27;./svrs/date.service&#x27;;
+import { SedComponent } from &#x27;./sed/sed.component&#x27;;
+import { SedService } from &#x27;./svrs/sed.service&#x27;;
 import { ComponentTestingComponent } from &#x27;./component-testing/component-testing.component&#x27;;
 import { LinksService } from &#x27;./svrs/links.service&#x27;;
-import { SedService } from &#x27;./svrs/sed.service&#x27;;
 
 
 @NgModule({
@@ -332,8 +332,8 @@ import { SedService } from &#x27;./svrs/sed.service&#x27;;
    */
   providers: [
     DateService,
+    SedService,
     LinksService,
-    SedService
 
   ],
   /**
@@ -377,7 +377,7 @@ export class AppModule { }
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = '007.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppModule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

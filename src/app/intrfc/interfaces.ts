@@ -44,4 +44,14 @@ export interface Easter {
   */
   dateDeference: number;
 
+  /** 001.
+   * Переменная удерживает html-ссылку на Главную страницу дня. Далее ссылка парсится компонентом.
+   */
+  linkToPageOfTheDay: string;
+
+  /** 002.
+   * Переменная удерживает html-ссылку на страницу чтения Апракоса.
+   */
+  pageTheApracosDay: string;
+
 }

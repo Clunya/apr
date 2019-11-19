@@ -74,6 +74,9 @@ export class SedService implements OnInit {
   otstupkaV: number;
   prestupkaV: number;
 
+
+
+
   /**
    * Переменная для даты Недели Мытаря и Фарисея
    */
@@ -103,8 +106,8 @@ export class SedService implements OnInit {
   public constructor(public _datesService: DateService) {
 
     
-    this.numberOfWeeks();
     this.v_year = this.vg();
+    this.numberOfWeeks();
     this.otstupkaVozdvijjenie();
     this.promWeeks();
     
@@ -114,6 +117,16 @@ export class SedService implements OnInit {
    * Стартовая инициализация объектов значениями дат
    */
   ngOnInit() {
+  }
+
+  /**
+   * Проверяет гражданский год грядущей Пасхи на високосность
+   */
+  vg(): boolean {
+
+    var year2 = this._datesService.datesEasterYear.nextEaster;
+    return ((year2 % 4 == 0) && (year2 % 100 != 0)) || (year2 % 400 == 0);
+
   }
 
   /**
@@ -136,25 +149,16 @@ export class SedService implements OnInit {
       this.glas = this.glasSed(String(this.currentWeek));
     }
 
-    /**
-     *  Вычисление даты Мытаря и Фарисея и количества промежуточных седмиц с учетом високосного года
+    /** 004.
+     *  Вычисление даты для Недели Мытаря и Фарисея и количества промежуточных седмиц с учетом високосного года.
      */
-    if (this.v_year) // читай README.md 001 
+    if (this.v_year)
     {
-<<<<<<< HEAD
-      this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999 + 86400000);
-
-      this.mifRussianDate = String(this.mif.getDay() + this._datesService.monthsRU[this.mif.getMonth()]);
-      console.log("Это дата для високосного года", this.mifRussianDate);
-=======
-      this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999 + 86400000); // 
-      console.log("Дата Мытаря и Фарисея", this.mif);
-
-      this.mifRussianDate = String(this.mif.getDate() + " "+this._datesService.monthsArray[this.mif.getMonth()]);
-      console.log("Это дата для високосного года", this.mif);
->>>>>>> 219b1dc689e03e233f8b9a1c09da050fbdce9245
+      this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999); // 86.400.000 - это один день в миллисекундах для високосного года
+      this.mifRussianDate = String(this.mif.getDate() + " "+this._datesService.monthsRU[this.mif.getMonth()]);
+      console.log("Это дата МиФ для високосного года", this.mif);
     }
-
+    
     else {
       this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999);
       this.mifRussianDate = this.mif.getDate() + " " + this._datesService.monthsRU[this.mif.getMonth()];
@@ -162,14 +166,8 @@ export class SedService implements OnInit {
 
     }
 
-<<<<<<< HEAD
     console.log("Текущая седмица", this.currentWeek);
     console.log("Кол-во седмиц в Пасхальном году (между Пасхами): ", this.sumWeeks);
-=======
-    // console.log("Текущая седмица", this.currentWeek);
-    // console.log("Дата Мытаря и Фарисея", this.mif.toDateString());
-    // console.log("Кол-во седмиц в Пасхальном году (между Пасхами): ", this.sumWeeks);
->>>>>>> 219b1dc689e03e233f8b9a1c09da050fbdce9245
   }
 
   /**
@@ -227,17 +225,6 @@ export class SedService implements OnInit {
     else return "невнятный 🙅‍ --";
   }
 
-
-  /**
-   * Проверяет гражданский год грядущей Пасхи на високосность
-   */
-  vg(): boolean {
-    
-    var year2 = this._datesService.datesEasterYear.nextEaster;
-    return ((year2 % 4 == 0) && (year2 % 100 != 0)) || (year2 % 400 == 0);
-    
-    
-  }
 
   /**
    * Функция вычисляет промежуточные седмицы от 34 Недели (Воскресенья) по Пятьдесятнице до Недели Мытаря и Фарисея.
