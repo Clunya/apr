@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 * В данном классе реализуется метод ngOnInit. В методе ngOnInit  инициализируются всё необходимое до загрузки компонента дом. Самая правильное, это прописать в этом  методе только самые необходимые данные.
  */
 export class AppComponent implements OnInit {
-  title = 'apracos';
+  title = 'АПРАКОСЪ';
   mainPage: string = "Главная страница";
   public timeOut: string = "classOFF";
 

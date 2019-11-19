@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SedComponent } from './sed.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('SedComponent', () => {
   let component: SedComponent;
@@ -8,7 +9,8 @@ describe('SedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SedComponent ]
+      declarations: [SedComponent],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   }));
@@ -19,7 +21,7 @@ describe('SedComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('ПРОВЕРКА ', () => {
     expect(component).toBeTruthy();
   });
 });

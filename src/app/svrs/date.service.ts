@@ -25,7 +25,7 @@ export class DateService implements OnInit, Easter {
   currentYear: number;
   keyNewYearKey: string;
   paskhaliaJSON: object;
-  datesEasterYear?: any;
+  datesEasterYear: any;
 
 
   /**
@@ -36,53 +36,46 @@ export class DateService implements OnInit, Easter {
    */
   dateDeference: number;
 
-
     /** 
    *  Массив для конвертации месяцев в русский язык
 */
-  monthsArray = [
+  monthsRU = [
     "января", "февраля", "марта", "апреля", "мая", "июня", "июля",
     "августа", "сентября", "октября", "ноября", "декабря"
   ]
 
-
+  PASKHALIAJSON2: any;
     /**
+     * Пока не используется !!!
      * Коструктор использует HttpClient так как нужно подключаться к внешнему источнику – файлу paskhalia.json
      * @param http 
      * свойство для работы с протоколом http
      */
   constructor(private http: HttpClient) {
-    
-    // ???
-    
+
     this.paskhaliaJSON = PASKHALIA;
-    // PASKHALIAJSON = this.getPaskhaliaFromJSON().subscribe(data => PASKHALIAJSON = data); // инициализация переменной paskhalia значениями из файла paskhalia.json 
+    // this.PASKHALIAJSON2 = this.getPaskhaliaFromJSON().subscribe(data => this.PASKHALIAJSON2 = data); // инициализация переменной paskhalia значениями из файла paskhalia.json 
     this.timeBox = new Date();
     this.currentYear = this.timeBox.getFullYear();
     this.paskhaCurrentYear = new Date(this.currentYear, PASKHALIA[this.currentYear][0], PASKHALIA[this.currentYear][1]);
     // prb1 (problema 1, смотри видео prb-1.mov)
-    console.log("Пасха в этом году", this.paskhaCurrentYear);
-    this.dateDeference = this.paskhaCurrentYear.getTime() - this.timeBox.getTime();
-    
-    
-    if (this.dateDeference < 0) {
-      // ---------------------------
-      // если НГ не был в текущем Пасхальном году
-      this.keyYear = this.currentYear + 1;
-      // ---------------------------
-      this.keyNewYear(this.keyYear);
-      this.keyNewYearKey = "0";
-    }
-  
-    else {
-  
-      // ---------------------------
-      // если НГ был в текущем Пасхальном году
-      this.keyYear = this.currentYear;
-      this.keyNewYearKey = "1";
-      // ---------------------------
-      this.keyNewYear(this.keyYear);
-    }
+    this.dateDeference = this.paskhaCurrentYear.getTime() -this.timeBox.getTime();
+        if (this.dateDeference < 0){
+          // ---------------------------
+          // если НГ не был в текущем Пасхальном году
+          this.keyYear = this.currentYear + 1;
+          // ---------------------------
+          this.keyNewYear(this.keyYear);
+          this.keyNewYearKey = "0";
+        }
+        else {
+          // ---------------------------
+          // если НГ был в текущем Пасхальном году
+          this.keyYear = this.currentYear;
+          this.keyNewYearKey = "1";
+          // ---------------------------
+          this.keyNewYear(this.keyYear);
+        }
   }
 
   ngOnInit() {
@@ -90,26 +83,34 @@ export class DateService implements OnInit, Easter {
   }
 
      /**
-     *  функция, которая в зависимости от входящего ключа-нгода формирует две даты Пасх
+     *  функция, которая в зависимости от входящего ключа-нгода формирует две даты Пасх в миллисекундах 
+     * и их русский формат для чтения
      */
   keyNewYear(keyYear: number) {
-    console.log(keyYear, " -- keyYear");
-    
+
     // объект для экспортирования в другой компонент
     this.datesEasterYear =
-    {
-      "lastEaster":
-      new Date(this.keyYear - 1, PASKHALIA[this.keyYear - 1][0],
-        PASKHALIA[this.keyYear -1][1]).getTime(),
-        // возращаае тип number в миллисекундах
+      {
+
+        "lastEaster":
+          new Date(this.keyYear - 1, PASKHALIA[this.keyYear - 1][0],
+            PASKHALIA[this.keyYear - 1][1]).getTime(),
+
+        "lastEasterRU": PASKHALIA[this.keyYear - 1][1]+" "+
+        this.monthsRU[PASKHALIA[this.keyYear - 1][0]], // +" "+ (this.keyYear-1),
+
         "nextEaster":
-        new Date(this.keyYear, PASKHALIA[this.keyYear][0],
-          PASKHALIA[this.keyYear][1]).getTime()
-    }
-    
-    
+          new Date(this.keyYear, PASKHALIA[this.keyYear][0],
+            PASKHALIA[this.keyYear][1]).getTime(),
+
+        "nextEasterRU":   PASKHALIA[this.keyYear][1]+" "+
+          this.monthsRU[PASKHALIA[this.keyYear][0]] +" "+ (this.keyYear)
+        
+      }
+
+
     // return console.log(typeof(this.datesEasterYear.nextEaster));
-    
+
   }
   
 /**
@@ -122,7 +123,7 @@ export class DateService implements OnInit, Easter {
   }
   
 
-  paskhaliaArray() {
+  getPaskhaliaArray() {
     return PASKHALIA
   }
 

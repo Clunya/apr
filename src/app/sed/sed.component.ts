@@ -8,7 +8,7 @@ import { SedService } from '../svrs/sed.service';
   styleUrls: ['./sed.component.css']
 })
 
-export class SedComponent implements OnInit {
+export class SedComponent {
 
   // @Input()
   // datesEasterYear: any;
@@ -39,16 +39,16 @@ export class SedComponent implements OnInit {
   /**
    * CSS седмицы 
    */
-  sedStyle: object = { "color": "#e3423477", "font-weight": "bold", "font-size": "1.5em" };
+  sedStyle: object = {
+    "color": "#e3423477",
+    "font-weight": "bold",
+    "font-size": "1.5em"
+  };
 
-  v_year: boolean;
-  stupka: string;
+  // v_year: boolean;
+  // stupka: string;
 
   constructor(public _sedService: SedService) {
-  }
-  
-  ngOnInit() {
-
   }
 
 }

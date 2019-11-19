@@ -37,10 +37,9 @@ export class SedService implements OnInit {
 
   /**
    * Массив строк который находится в _datesService по умолчанию
-   * _переменную можно не прописывать_
    * 
    */
-  monthsArray: string[];
+  monthsRU: string[];
 
   /** 
    * вычисление количества седмиц Богослужебного года 
@@ -91,6 +90,11 @@ export class SedService implements OnInit {
   mifRussianDate?: string;
 
   /**
+   * Високосный год
+   */
+  v_year: boolean;
+
+  /**
    * Переменная для вывода русского слова в шаблоне html (преступка или отступка)
    */
   stupka: string;
@@ -100,6 +104,7 @@ export class SedService implements OnInit {
 
     
     this.numberOfWeeks();
+    this.v_year = this.vg();
     this.otstupkaVozdvijjenie();
     this.promWeeks();
     
@@ -109,7 +114,6 @@ export class SedService implements OnInit {
    * Стартовая инициализация объектов значениями дат
    */
   ngOnInit() {
-    
   }
 
   /**
@@ -135,23 +139,22 @@ export class SedService implements OnInit {
     /**
      *  вычисление даты Мытаря и Фарисея и количества промежуточных седмиц
      */
-    if (this.vg()) // читай README.md 001 
+    if (this.v_year) // читай README.md 001 
     {
       this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999 + 86400000);
-      console.log("Дата Мытаря и Фарисея", this.mif);
 
-      this.mifRussianDate = String(this.mif.getDay() + this._datesService.monthsArray[this.mif.getMonth()]);
-      console.log("Это дата для високосного года", this.mif);
+      this.mifRussianDate = String(this.mif.getDay() + this._datesService.monthsRU[this.mif.getMonth()]);
+      console.log("Это дата для високосного года", this.mifRussianDate);
     }
+
     else {
       this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999);
-      this.mifRussianDate = this.mif.getDate() + " " + this._datesService.monthsArray[this.mif.getMonth()];
-      console.log("Дата Мытаря и Фарисея", this.mif);
+      this.mifRussianDate = this.mif.getDate() + " " + this._datesService.monthsRU[this.mif.getMonth()];
+      console.log("Дата Мытаря и Фарисея", this.mifRussianDate);
 
     }
 
     console.log("Текущая седмица", this.currentWeek);
-    console.log("Дата Мытаря и Фарисея", this.mif.toDateString());
     console.log("Кол-во седмиц в Пасхальном году (между Пасхами): ", this.sumWeeks);
   }
 

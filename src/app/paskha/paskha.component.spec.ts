@@ -18,9 +18,9 @@ describe('PaskhaComponent', () => {
     fixture.detectChanges();
   });
 
-  it('тест переменной keyYear', () => {
-    expect(component.keyYear=1).toBe(1);
-  });
+  // it('тест переменной keyYear', () => {
+  //   expect(component.keyYear).toBe();
+  // });
 
   // it('проверка переменной paskhaCurrentYear', () => {
   //   expect(component.lastEaster).toBeTruthy();
