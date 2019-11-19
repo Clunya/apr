@@ -82,14 +82,28 @@ export class DateService implements OnInit, Easter {
 
   }
 
+<<<<<<< HEAD
      /**
      *  функция, которая в зависимости от входящего ключа-нгода формирует две даты Пасх в миллисекундах 
      * и их русский формат для чтения
      */
   keyNewYear(keyYear: number) {
 
+=======
+     /** 007.md
+     * Функция, которая в зависимости от входящего ключа-года формирует две даты Пасх.
+     * @param {number} per – номер текущего года
+     */
+  keyNewYear(per: number) {
+    console.log(per, " -- keyYear");
+    
+>>>>>>> 219b1dc689e03e233f8b9a1c09da050fbdce9245
     // объект для экспортирования в другой компонент
+    /**
+     * Колекция содержит две даты Пасх (last and next)
+     */
     this.datesEasterYear =
+<<<<<<< HEAD
       {
 
         "lastEaster":
@@ -110,6 +124,17 @@ export class DateService implements OnInit, Easter {
 
 
     // return console.log(typeof(this.datesEasterYear.nextEaster));
+=======
+    {
+      "lastEaster":
+      new Date(this.keyYear - 1, PASKHALIA[this.keyYear - 1][0],
+        PASKHALIA[this.keyYear -1][1]).getTime(),
+        // возращает тип number в миллисекундах
+        "nextEaster":
+        new Date(this.keyYear, PASKHALIA[this.keyYear][0],
+          PASKHALIA[this.keyYear][1]).getTime()
+    }
+>>>>>>> 219b1dc689e03e233f8b9a1c09da050fbdce9245
 
   }
   

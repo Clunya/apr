@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { DateService } from './date.service';
-import { OnInit } from '@angular/core';
+
 
 /**
  * Набор гласов для седмиц
@@ -80,12 +80,12 @@ export class SedService implements OnInit {
   mif: Date;
 
   /**
-   * Количество промежуточных седмиц пред Неделей Мытаря и Фарисея, если таковые случились
+   * Количество промежуточных седмиц пред Неделей Мытаря и Фарисея, если таковые случились. Представлены разницей между суммой всех седмициц и числом 50, которое складывается из всех седмиц Уставного Богослужения (7-ми Пасхальных, 33-x по Пятьдесятнице, 10-ти седмиц Великопостного периода).
    */
   betweenWeeks: number;
 
   /**
-   * Конвертированная дата
+   * Конвертированная дата Мытаря
    */
   mifRussianDate?: string;
 
@@ -137,14 +137,22 @@ export class SedService implements OnInit {
     }
 
     /**
-     *  вычисление даты Мытаря и Фарисея и количества промежуточных седмиц
+     *  Вычисление даты Мытаря и Фарисея и количества промежуточных седмиц с учетом високосного года
      */
     if (this.v_year) // читай README.md 001 
     {
+<<<<<<< HEAD
       this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999 + 86400000);
 
       this.mifRussianDate = String(this.mif.getDay() + this._datesService.monthsRU[this.mif.getMonth()]);
       console.log("Это дата для високосного года", this.mifRussianDate);
+=======
+      this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999 + 86400000); // 
+      console.log("Дата Мытаря и Фарисея", this.mif);
+
+      this.mifRussianDate = String(this.mif.getDate() + " "+this._datesService.monthsArray[this.mif.getMonth()]);
+      console.log("Это дата для високосного года", this.mif);
+>>>>>>> 219b1dc689e03e233f8b9a1c09da050fbdce9245
     }
 
     else {
@@ -154,8 +162,14 @@ export class SedService implements OnInit {
 
     }
 
+<<<<<<< HEAD
     console.log("Текущая седмица", this.currentWeek);
     console.log("Кол-во седмиц в Пасхальном году (между Пасхами): ", this.sumWeeks);
+=======
+    // console.log("Текущая седмица", this.currentWeek);
+    // console.log("Дата Мытаря и Фарисея", this.mif.toDateString());
+    // console.log("Кол-во седмиц в Пасхальном году (между Пасхами): ", this.sumWeeks);
+>>>>>>> 219b1dc689e03e233f8b9a1c09da050fbdce9245
   }
 
   /**
@@ -226,10 +240,10 @@ export class SedService implements OnInit {
   }
 
   /**
-   * Вычисляет промежуточные седмицы пред Неделей Мытаря и Фарисея
+   * Функция вычисляет промежуточные седмицы от 34 Недели (Воскресенья) по Пятьдесятнице до Недели Мытаря и Фарисея.
    */
   private promWeeks() {
-    this.betweenWeeks = this.sumWeeks - 17 - 34;
+    this.betweenWeeks = this.sumWeeks - (17+33);
     console.log("Промежуточных седмиц: ", this.betweenWeeks);
   }
 

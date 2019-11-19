@@ -21,6 +21,7 @@ import { SedService } from '../svrs/sed.service';
   ] 
 })
 
+
 export class PaskhaComponent implements OnInit {
 
   keyYear: number; // Главный ключ

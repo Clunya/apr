@@ -8,7 +8,12 @@ import { SedService } from '../svrs/sed.service';
   styleUrls: ['./sed.component.css']
 })
 
+<<<<<<< HEAD
 export class SedComponent {
+=======
+
+export class SedComponent implements OnInit {
+>>>>>>> 219b1dc689e03e233f8b9a1c09da050fbdce9245
 
   // @Input()
   // datesEasterYear: any;
