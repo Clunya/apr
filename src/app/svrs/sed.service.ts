@@ -30,7 +30,7 @@ export class SedService implements OnInit {
   keyNewYearKey: number;
 
   /**
-   * Массив строк который находится в _datesService по умолчанию.
+   * Массив строк который находится в `_datesService` по умолчанию.
    * 
    */
   monthsRU: string[];
@@ -41,12 +41,12 @@ export class SedService implements OnInit {
   sumWeeks: number;
 
   /**
-   * Текущая седмица по Пасхе
+   * Текущая седмица по Пасхе.
    */
   currentWeek: number;
 
   /**
-   * Cедмица по Пятидесятнице
+   * Cедмица по Пятидесятнице.
    */
   weekAfterPyatidesyatnica: number;
   glas: string;
@@ -89,12 +89,12 @@ export class SedService implements OnInit {
   betweenWeeks: number;
 
   /**
-   * Конвертированная дата Мытаря.
+   * Конвертированная дата МиФ.
    */
   mifRussianDate?: string;
 
   /**
-   * Високосный год
+   * Високосный год.
    */
   v_year: boolean;
 
@@ -172,7 +172,7 @@ export class SedService implements OnInit {
 
   /**
    * Возвращает кол-во седмиц отступпки или преступки для праздника Воздвижения Креста.
-   * @param return количество седмиц
+   * @param return количество седмиц.
    */
   private otstupkaVozdvijjenie() {
     this.yearLastEaster = new Date(this._datesService.datesEasterYear.lastEaster);
@@ -214,8 +214,8 @@ export class SedService implements OnInit {
   /**
    * Возвращает глас Октоиха по номеру седмицы случившейся после Пасхи, но не по Пятьдесятнице.
    *  
-   * @param {string} sedmica принимает строку
-   * @returns возвращает номер гласа для текущей седмицы
+   * @param {string} sedmica принимает строку.
+   * @returns возвращает номер гласа для текущей седмицы.
    */
   protected glasSed(sedmica: string | number) {
 

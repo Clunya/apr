@@ -296,7 +296,7 @@
 
 
                                     <td>
-                                        <p>принимает строку</p>
+                                        <p>принимает строку.</p>
 
                                     </td>
                                 </tr>
@@ -310,7 +310,7 @@
 
                     </div>
                     <div class="io-description">
-                        <p>возвращает номер гласа для текущей седмицы</p>
+                        <p>возвращает номер гласа для текущей седмицы.</p>
 
                     </div>
                 </td>
@@ -622,7 +622,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Текущая седмица по Пасхе</p>
+                        <div class="io-description"><p>Текущая седмица по Пасхе.</p>
 </div>
                     </td>
                 </tr>
@@ -743,7 +743,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Конвертированная дата Мытаря.</p>
+                        <div class="io-description"><p>Конвертированная дата МиФ.</p>
 </div>
                     </td>
                 </tr>
@@ -776,7 +776,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Массив строк который находится в _datesService по умолчанию.</p>
+                        <div class="io-description"><p>Массив строк который находится в <code>_datesService</code> по умолчанию.</p>
 </div>
                     </td>
                 </tr>
@@ -1055,7 +1055,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Високосный год</p>
+                        <div class="io-description"><p>Високосный год.</p>
 </div>
                     </td>
                 </tr>
@@ -1088,7 +1088,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Cедмица по Пятидесятнице</p>
+                        <div class="io-description"><p>Cедмица по Пятидесятнице.</p>
 </div>
                     </td>
                 </tr>
@@ -1178,7 +1178,7 @@ export class SedService implements OnInit {
   keyNewYearKey: number;
 
   /**
-   * Массив строк который находится в _datesService по умолчанию.
+   * Массив строк который находится в &#x60;_datesService&#x60; по умолчанию.
    * 
    */
   monthsRU: string[];
@@ -1189,12 +1189,12 @@ export class SedService implements OnInit {
   sumWeeks: number;
 
   /**
-   * Текущая седмица по Пасхе
+   * Текущая седмица по Пасхе.
    */
   currentWeek: number;
 
   /**
-   * Cедмица по Пятидесятнице
+   * Cедмица по Пятидесятнице.
    */
   weekAfterPyatidesyatnica: number;
   glas: string;
@@ -1237,12 +1237,12 @@ export class SedService implements OnInit {
   betweenWeeks: number;
 
   /**
-   * Конвертированная дата Мытаря.
+   * Конвертированная дата МиФ.
    */
   mifRussianDate?: string;
 
   /**
-   * Високосный год
+   * Високосный год.
    */
   v_year: boolean;
 
@@ -1320,7 +1320,7 @@ export class SedService implements OnInit {
 
   /**
    * Возвращает кол-во седмиц отступпки или преступки для праздника Воздвижения Креста.
-   * @param return количество седмиц
+   * @param return количество седмиц.
    */
   private otstupkaVozdvijjenie() {
     this.yearLastEaster &#x3D; new Date(this._datesService.datesEasterYear.lastEaster);
@@ -1362,8 +1362,8 @@ export class SedService implements OnInit {
   /**
    * Возвращает глас Октоиха по номеру седмицы случившейся после Пасхи, но не по Пятьдесятнице.
    *  
-   * @param {string} sedmica принимает строку
-   * @returns возвращает номер гласа для текущей седмицы
+   * @param {string} sedmica принимает строку.
+   * @returns возвращает номер гласа для текущей седмицы.
    */
   protected glasSed(sedmica: string | number) {
 
