@@ -52,6 +52,6 @@ export interface Easter {
   /** 002.
    * Переменная удерживает html-ссылку на страницу чтения Апракоса.
    */
-  pageTheApracosDay: string;
+  linkTheApracosDay: string;
 
 }

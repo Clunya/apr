@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { SedService } from '../svrs/sed.service';
+import { LinksService } from '../svrs/links.service';
 
 
 @Component({
@@ -48,7 +49,7 @@ export class SedComponent {
   // v_year: boolean;
   // stupka: string;
 
-  constructor(public _sedService: SedService) {
+  constructor(public _sedService: SedService, public _linksServise: LinksService) {
   }
 
 }

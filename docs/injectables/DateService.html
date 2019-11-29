@@ -235,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="133"
-                            class="link-to-prism">src/app/svrs/date.service.ts:133</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">src/app/svrs/date.service.ts:134</a></div>
                 </td>
             </tr>
 
@@ -276,8 +276,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="126"
-                            class="link-to-prism">src/app/svrs/date.service.ts:126</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">src/app/svrs/date.service.ts:127</a></div>
                 </td>
             </tr>
 
@@ -317,8 +317,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">src/app/svrs/date.service.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/app/svrs/date.service.ts:94</a></div>
                 </td>
             </tr>
 
@@ -395,8 +395,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">src/app/svrs/date.service.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/app/svrs/date.service.ts:86</a></div>
                 </td>
             </tr>
 
@@ -772,10 +772,11 @@
         <p><h1 id="сервис-дат">Сервис дат</h1>
 <h3 id="сервис-вычисления-дат-пасх-и-передача-этих-дат-в-формате-миллисекунд-в-компонент-седмиц---sedcomponentts">Сервис вычисления дат Пасх и передача этих дат в формате миллисекунд в компонент седмиц - <code>sed.component.ts</code></h3>
 <p>Сложность вычисления заключается в том, что само вычисление даты Пасхи всегда бывает в двух гражданских годах. До нового года и после него. Гражданский год увеличивается на единицу, а Богослужебный год остается тот же.</p>
-<p>Мы получаем текущий год, на его основании вычисляем дату Пасхи. Далее отнимаем от даты вычисленной Пасхи текущую дату и проверяем знак результата.</p>
-<p>Если текущая дата менее даты Пасхи одноименного года то НГ уже был в Пасхальном году так как результат вычисления будет <code>положительный</code>. Если же результат вычисления <code>отрицательный</code>, значит Нового года в текущем Пасхальном году еще не было.</p>
+<p>Мы получаем текущий год, на его основании вычисляем дату Пасхи. Далее отнимаем от даты вычисленной Пасхи текущую дату и проверяем результат на положительность.</p>
+<p>Если текущая дата менее даты Пасхи <em>одноименного</em> года то НГ (Новый гражданский год) уже был в текущем Пасхальном году, так как результат вычисления будет <code>положительный</code>. Если же результат вычисления <code>отрицательный</code>, значит Нового года в текущем Пасхальном году еще не было.</p>
 <p><img src="https://3.bp.blogspot.com/--4CWPG8YeA4/XdGsnH2zvlI/AAAAAAAAEq8/A5Oa9S2RGv8OFKKfjA9OJwfqXqcKb-vYQCK4BGAYYCw/s640/OrthodoxYear.png" alt="Пасхальный круг" class="img-responsive"></p>
-<p>Как видно на диаграмме, Богослужебный год начинается в одно время (голубой цвет), но заканчивается всегда в другое, – или до даты начала Бывшей Пасхи или После этой даты. На диаграмме это представлено в виде трех Пасх. Розовый кружок - это внутрь-Пасха. Бежевый кружок это вне-Пасха. В зависимости такого движения возникают отступки и преступки в чтениях Священных Писаний. Такие отступки, преступки, промежуточные седмицы представлены в компоненте соответствующими перемеными. Более подробную информацию можно найти в Христианской Православной литературе.</p>
+<p>Как видно на диаграмме, Богослужебный год начинается в одно время (голубой цвет), но заканчивается всегда в другое, – или до даты начала Бывшей Пасхи или После этой даты. </p>
+<p>Пример: Пасха была 28 апреля, но следущая Пасха 19 апреля. На диаграмме это представлено в виде трех Пасх. Розовый кружок - это внутрь-Пасха. Бежевый кружок это вне-Пасха. В зависимости такого движения возникают отступки и преступки в чтениях Священных Писаний. Такие отступки, преступки, промежуточные седмицы представлены в компоненте соответствующими перемеными. Более подробную информацию можно найти в Христианской Православной литературе.</p>
 <h3 id="синий-квадрат-с-буквами--нг--символизирует-новый-год-по-гражданскому-календарю"><em>Синий квадрат с буквами -НГ- символизирует Новый Год по гражданскому календарю</em>.</h3>
 </p>
     </div>
@@ -831,6 +832,7 @@ export class DateService implements OnInit, Easter {
   ]
 
   PASKHALIAJSON2: any;
+
     /**
      * Пока не используется !!!
      * Коструктор использует HttpClient так как нужно подключаться к внешнему источнику – файлу paskhalia.json
@@ -840,7 +842,8 @@ export class DateService implements OnInit, Easter {
   constructor(private http: HttpClient) {
 
     this.paskhaliaJSON &#x3D; PASKHALIA;
-    // this.PASKHALIAJSON2 &#x3D; this.getPaskhaliaFromJSON().subscribe(data &#x3D;&gt; this.PASKHALIAJSON2 &#x3D; data); // инициализация переменной paskhalia значениями из файла paskhalia.json 
+    // this.PASKHALIAJSON2 &#x3D; this.getPaskhaliaFromJSON().subscribe(data &#x3D;&gt; this.PASKHALIAJSON2 &#x3D; data); 
+    // инициализация переменной paskhalia значениями из файла paskhalia.json
     this.timeBox &#x3D; new Date();
     this.currentYear &#x3D; this.timeBox.getFullYear();
     this.paskhaCurrentYear &#x3D; new Date(this.currentYear, PASKHALIA[this.currentYear][0], PASKHALIA[this.currentYear][1]);
@@ -873,7 +876,6 @@ export class DateService implements OnInit, Easter {
      * @param {number} per – номер текущего года
      */
   keyNewYear(per: number) {
-    console.log(per, &quot; -- keyYear&quot;);
     
     // объект для экспортирования в другой компонент
     /**

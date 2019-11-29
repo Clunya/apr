@@ -15,7 +15,8 @@ import { SedService } from '../svrs/sed.service';
   selector: 'app-paskha',
   templateUrl: './paskha.component.html',
   styleUrls: ['./paskha.component.css'],
-  providers: [ // открывает доступ к сервисам данных
+  providers: [
+    // открывает доступ к сервисам данных
     DateService,
     LinksService
   ] 

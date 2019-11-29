@@ -20,7 +20,7 @@ import { Easter } from '../intrfc/interfaces';
 export class DateService implements OnInit, Easter {
   
   linkToPageOfTheDay: string;
-  pageTheApracosDay: string;
+  linkTheApracosDay: string;
 
   keyYear: number; // Главный ключ
   timeBox: Date;
@@ -48,6 +48,7 @@ export class DateService implements OnInit, Easter {
   ]
 
   PASKHALIAJSON2: any;
+
     /**
      * Пока не используется !!!
      * Коструктор использует HttpClient так как нужно подключаться к внешнему источнику – файлу paskhalia.json
@@ -57,7 +58,8 @@ export class DateService implements OnInit, Easter {
   constructor(private http: HttpClient) {
 
     this.paskhaliaJSON = PASKHALIA;
-    // this.PASKHALIAJSON2 = this.getPaskhaliaFromJSON().subscribe(data => this.PASKHALIAJSON2 = data); // инициализация переменной paskhalia значениями из файла paskhalia.json 
+    // this.PASKHALIAJSON2 = this.getPaskhaliaFromJSON().subscribe(data => this.PASKHALIAJSON2 = data); 
+    // инициализация переменной paskhalia значениями из файла paskhalia.json
     this.timeBox = new Date();
     this.currentYear = this.timeBox.getFullYear();
     this.paskhaCurrentYear = new Date(this.currentYear, PASKHALIA[this.currentYear][0], PASKHALIA[this.currentYear][1]);

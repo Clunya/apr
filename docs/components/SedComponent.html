@@ -282,7 +282,7 @@
 
     <div class="tab-pane fade " id="c-readme">
         <p><h1 id="толкование-компонента-sed"><strong>Толкование компонента SED</strong></h1>
-<p>Компонент вычисляет количесво седмиц и сдвиги их в соответствии с Богослужебным годом</p>
+<p>Компонент вычисляет количесво седмиц и сдвиги их в соответствии с Богослужебным годом.</p>
 <h2 id="об-оступке-на-воздвижение-креста"><strong>Об оступке на Воздвижение Креста</strong></h2>
 <p>Переменная <code>otstupkaV</code> получает число, которое равно количеству седмиц превыщающих число 17. Так как чтения Евангелия после Пасхи расчитано на 50 седмиц, то подразумевается, что с 17-седмицы и далее должно быть начато Евангелие от Луки в первую неделю (воскресение) после праздника Воздвижения Креста. Таков расчет для Пасхального года.
 Такое может совпасть только если в Пасхальном году будет 50 седмиц. Переменная <code>otstupkaV</code> показывает превышение числа 17. Аргумент переменной <code>otstupkaV</code> и будет отступкой для повторных чтений до праздника Воздвижения.</p>
@@ -369,7 +369,7 @@ export class SedComponent {
     &lt;br&gt;
     &lt;div class&#x3D;&quot;123&quot;&gt;
         &lt;span class&#x3D;&quot;dugpre&quot;
-            title&#x3D;&quot;СЕМЬ ПОСЛЕДОВАТЕЛЬНЫХ ДНЕЙ. ПЕРВЫМ ДНЁМ В CЕДМИЦЕ ОБЪЯВЛЯЕТСЯ ДЕНЬ ПОД НАЗВАНИЕМ – НЕДЕЛЯ, ИНАЧЕ НАЗЫВАЕМЫЙ – ВОСКРЕСЕНИЕМ.&quot;&gt;Седмица&lt;/span&gt;
+            title&#x3D;&quot;СЕМЬ ПОСЛЕДОВАТЕЛЬНЫХ ДНЕЙ. ПЕРВЫМ ДНЁМ В CЕДМИЦЕ ОБЪЯВЛЯЕТСЯ ДЕНЬ ПОД НАЗВАНИЕМ – НЕДЕЛЯ, ИНАЧЕ НАЗЫВАЕМЫЙ – ВОСКРЕСЕНИЕМ.&quot;&gt;Седмица по Пасхе&lt;/span&gt;
         &lt;span id&#x3D;&quot;date2&quot; class&#x3D;&quot;dug&quot;&gt; {{ _sedService.currentWeek }} &lt;/span&gt;
     &lt;/div&gt;
     &lt;div *ngIf&#x3D;&quot;weekAfterPyatidesyatnica&quot;&gt;
@@ -437,7 +437,7 @@ export class SedComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- <ng-content select=\'code\'></ng-content> --><!-- =-=-=-=-=-=-===-=-sed.component=-=-===-=-=-=-=-=-=-=-=-=-===- --><div id="date" class="date" style="text-indent: 0px; padding-left: 12px"    title="Числа седмиц Православного Церковного года">Зачала всего лета по Пасхе.    <br>    <div class="123">        <span class="dugpre"            title="СЕМЬ ПОСЛЕДОВАТЕЛЬНЫХ ДНЕЙ. ПЕРВЫМ ДНЁМ В CЕДМИЦЕ ОБЪЯВЛЯЕТСЯ ДЕНЬ ПОД НАЗВАНИЕМ – НЕДЕЛЯ, ИНАЧЕ НАЗЫВАЕМЫЙ – ВОСКРЕСЕНИЕМ.">Седмица</span>        <span id="date2" class="dug"> {{ _sedService.currentWeek }} </span>    </div>    <div *ngIf="weekAfterPyatidesyatnica">        <span id="date3" class="dugpre"            title="ПОКАЗЫВАЕТ ЧИСЛО СЕДМИЦЫ СЧИТАЯ ОТ ПРАЗДНИКА ПЯТИДЕСЯТНИЦЫ, НАЧИНАЯ С ВОСКРЕСЕНЬЯ">По Пятьдесятнице        </span>        <span id="date4" class="dug ">{{ _sedService.weekAfterPyatidesyatnica }} </span>    </div>    <div id="date5" class="123" style="text-indent: 0px; padding-left: 12px; font-weight: unset; color: #5e5e5e"        title="ГЛАС ТЕКУЩЕЙ СЕДМИЦЫ">Глас Октоиха - <b>{{ _sedService.glas }}</b></div></div><hr class="hr-1"><br><!-- =-=-=-=-=-=-===-=-=-=-===-=-=-=-=-=-=-=-=-=-===- --><div style="font-size: 1.2em" class="rrr">    <!-- конвертирование миллисекунд в дату    <b>Пасха бывшая - </b>{{ datesEasterYear.lastEaster | date }}     <br>    <b>Пасха грядущая </b>- {{ datesEasterYear.nextEaster | date }} -->    <p>Богослужебный год составляет в седмицах: {{ _sedService.sumWeeks }}.</p>    <p>Воздвиженская <strong>{{_sedService.stupka}}</strong> составляет в седмицах: {{ _sedService.otstupkaV }}.</p>    <p *ngIf="weekAfterPyatidesyatnica">Текущая седмица по Пятидесятнице: {{_sedService.weekAfterPyatidesyatnica }}</p>    <p>        Глас седмицы: {{_sedService.glas}}        <!-- <input [(ngModel)]="glas"> -->    </p>    <!-- <input #box placeholder="{{r}}" (keyup.enter)="onKey(box.value)"><p>{{r}}</p> -->    <p>Количество промежуточных седмиц: {{_sedService.betweenWeeks}} </p>    <p [ngStyle]="sedStyle">{{ mif | date }} Дата Мытаря и Фарисея:  {{_sedService.mifRussianDate}}</p></div></div>'
+        var COMPONENT_TEMPLATE = '<div><!-- <ng-content select=\'code\'></ng-content> --><!-- =-=-=-=-=-=-===-=-sed.component=-=-===-=-=-=-=-=-=-=-=-=-===- --><div id="date" class="date" style="text-indent: 0px; padding-left: 12px"    title="Числа седмиц Православного Церковного года">Зачала всего лета по Пасхе.    <br>    <div class="123">        <span class="dugpre"            title="СЕМЬ ПОСЛЕДОВАТЕЛЬНЫХ ДНЕЙ. ПЕРВЫМ ДНЁМ В CЕДМИЦЕ ОБЪЯВЛЯЕТСЯ ДЕНЬ ПОД НАЗВАНИЕМ – НЕДЕЛЯ, ИНАЧЕ НАЗЫВАЕМЫЙ – ВОСКРЕСЕНИЕМ.">Седмица по Пасхе</span>        <span id="date2" class="dug"> {{ _sedService.currentWeek }} </span>    </div>    <div *ngIf="weekAfterPyatidesyatnica">        <span id="date3" class="dugpre"            title="ПОКАЗЫВАЕТ ЧИСЛО СЕДМИЦЫ СЧИТАЯ ОТ ПРАЗДНИКА ПЯТИДЕСЯТНИЦЫ, НАЧИНАЯ С ВОСКРЕСЕНЬЯ">По Пятьдесятнице        </span>        <span id="date4" class="dug ">{{ _sedService.weekAfterPyatidesyatnica }} </span>    </div>    <div id="date5" class="123" style="text-indent: 0px; padding-left: 12px; font-weight: unset; color: #5e5e5e"        title="ГЛАС ТЕКУЩЕЙ СЕДМИЦЫ">Глас Октоиха - <b>{{ _sedService.glas }}</b></div></div><hr class="hr-1"><br><!-- =-=-=-=-=-=-===-=-=-=-===-=-=-=-=-=-=-=-=-=-===- --><div style="font-size: 1.2em" class="rrr">    <!-- конвертирование миллисекунд в дату    <b>Пасха бывшая - </b>{{ datesEasterYear.lastEaster | date }}     <br>    <b>Пасха грядущая </b>- {{ datesEasterYear.nextEaster | date }} -->    <p>Богослужебный год составляет в седмицах: {{ _sedService.sumWeeks }}.</p>    <p>Воздвиженская <strong>{{_sedService.stupka}}</strong> составляет в седмицах: {{ _sedService.otstupkaV }}.</p>    <p *ngIf="weekAfterPyatidesyatnica">Текущая седмица по Пятидесятнице: {{_sedService.weekAfterPyatidesyatnica }}</p>    <p>        Глас седмицы: {{_sedService.glas}}        <!-- <input [(ngModel)]="glas"> -->    </p>    <!-- <input #box placeholder="{{r}}" (keyup.enter)="onKey(box.value)"><p>{{r}}</p> -->    <p>Количество промежуточных седмиц: {{_sedService.betweenWeeks}} </p>    <p [ngStyle]="sedStyle">{{ mif | date }} Дата Мытаря и Фарисея:  {{_sedService.mifRussianDate}}</p></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ComponentTestingComponent', 'selector': 'app-component-testing'},{'name': 'PaskhaComponent', 'selector': 'app-paskha'},{'name': 'SedComponent', 'selector': 'app-sed'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SedComponent'};
@@ -475,7 +475,7 @@ export class SedComponent {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = '007.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'SedComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

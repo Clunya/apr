@@ -1,9 +1,13 @@
 import { Injectable, OnInit } from '@angular/core';
 import { DateService } from './date.service';
 
+/**
+ * Экспонента суток (кол-во миллисекунд в сутках) = 86.400.000
+ */
+const DMS = 864E5
 
 /**
- * Набор гласов для седмиц
+ * Набор гласов для седмиц.
  */
 const GLASSEDMIC = {
   "1": 8, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6, "8": 7,
@@ -23,26 +27,16 @@ const GLASSEDMIC = {
 
 export class SedService implements OnInit {
 
-
-  /**
-   * Темплейтная переменная принимающая значение из родительского компонента html-шаблона **datesEasterYear** 
-   * 
-   */
-  datesEasterYear: any;
-  /**
-   * Темплейтная переменная принимающая значение из родительского компонента html-шаблона **keyNewYearKey** 
-   * 
-   */
   keyNewYearKey: number;
 
   /**
-   * Массив строк который находится в _datesService по умолчанию
+   * Массив строк который находится в _datesService по умолчанию.
    * 
    */
   monthsRU: string[];
 
   /** 
-   * вычисление количества седмиц Богослужебного года 
+   * Вычисление количества седмиц Богослужебного года.
   */
   sumWeeks: number;
 
@@ -57,38 +51,45 @@ export class SedService implements OnInit {
   weekAfterPyatidesyatnica: number;
   glas: string;
 
+  /**
+   * Переменная даты Воздвижения (простоянное празнество).
+   */
   timeBoxVozdvijjenie: number;
+
+  /**
+   * Сумма седмиц от Пасхи до Воздвижения.
+   */
   sumWeeksAfterVozdvijjenie: number;
+
+
   timeBox = new Date().getTime();
+
   numberVozdvijjenie: number;
 
   /**
-   * Дата текущей Пасхи для формирования даты Воздвижения из милисекунд
+   * Дата текущей Пасхи для формирования даты Воздвижения из милисекунд.
    */
   yearLastEaster: Date;
 
   /**
-   * Переменные для значений отступки и преступки в чтениях
-   * Указывают сдвиг от празднества Воздвижения в обе стороны
+   * Переменные для значений отступки и преступки в чтениях.
+   * Указывают сдвиг от празднества Воздвижения в обе стороны.
    */
   otstupkaV: number;
   prestupkaV: number;
 
-
-
-
   /**
-   * Переменная для даты Недели Мытаря и Фарисея
+   * Переменная даты Недели Мытаря и Фарисея.
    */
   mif: Date;
 
   /**
-   * Количество промежуточных седмиц пред Неделей Мытаря и Фарисея, если таковые случились. Представлены разницей между суммой всех седмициц и числом 50, которое складывается из всех седмиц Уставного Богослужения (7-ми Пасхальных, 33-x по Пятьдесятнице, 10-ти седмиц Великопостного периода).
+   * Количество промежуточных седмиц пред Неделей Мытаря и Фарисея, если таковые случились. Представлены разницей между суммой всех седмициц Богослужебного года и числом 50, которое складывается из определенных седмиц Уставного Богослужения (7-ми Пасхальных, 33-x по Пятьдесятнице, 10-ти седмиц Великопостного периода).
    */
   betweenWeeks: number;
 
   /**
-   * Конвертированная дата Мытаря
+   * Конвертированная дата Мытаря.
    */
   mifRussianDate?: string;
 
@@ -98,29 +99,29 @@ export class SedService implements OnInit {
   v_year: boolean;
 
   /**
-   * Переменная для вывода русского слова в шаблоне html (преступка или отступка)
+   * Переменная для вывода русского слова в шаблоне html (преступка или отступка).
    */
   stupka: string;
 
-
   public constructor(public _datesService: DateService) {
 
-    
     this.v_year = this.vg();
     this.numberOfWeeks();
     this.otstupkaVozdvijjenie();
     this.promWeeks();
-    
+
+
   }
-  
+
   /**
-   * Стартовая инициализация объектов значениями дат
+   * Стартовая инициализация объектов значениями дат.
    */
   ngOnInit() {
   }
 
+
   /**
-   * Проверяет гражданский год грядущей Пасхи на високосность
+   * Проверяет гражданский год грядущей Пасхи на високосность.
    */
   vg(): boolean {
 
@@ -130,15 +131,14 @@ export class SedService implements OnInit {
   }
 
   /**
-    * Вычисление `разницы` между текущем временем и датой прошедшей Пасхи.
-    * 864E5 - экспонента (кол-во миллисекунд в сутках) = 86.400.000
-    * Обрезка значения до целого.
-    * Вычисление текущей седмицы.
-    * Вычисление седмицы по Пятьдесятнице
-*/
+   * Вычисление `разницы` между текущем временем и датой прошедшей Пасхи.
+   * Обрезка значения до целого.
+   * Вычисление текущей седмицы.
+   * Вычисление седмицы по Пятьдесятнице
+   */
   numberOfWeeks() {
-    this.sumWeeks = (Math.trunc((this._datesService.datesEasterYear.nextEaster - this._datesService.datesEasterYear.lastEaster) / 864E5 / 7));
-    this.currentWeek = (Math.trunc((Date.now() - this._datesService.datesEasterYear.lastEaster) / 864E5 / 7 + 1));
+    this.sumWeeks = (Math.trunc((this._datesService.datesEasterYear.nextEaster - this._datesService.datesEasterYear.lastEaster) / DMS / 7));
+    this.currentWeek = (Math.trunc((Date.now() - this._datesService.datesEasterYear.lastEaster) / DMS / 7 + 1));
 
     if (this.sumWeeks === 8) {
       this.weekAfterPyatidesyatnica = this.sumWeeks - 7;
@@ -152,17 +152,17 @@ export class SedService implements OnInit {
     /** 004.
      *  Вычисление даты для Недели Мытаря и Фарисея и количества промежуточных седмиц с учетом високосного года.
      */
-    if (this.v_year)
-    {
-      this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999); // 86.400.000 - это один день в миллисекундах для високосного года
-      this.mifRussianDate = String(this.mif.getDate() + " "+this._datesService.monthsRU[this.mif.getMonth()]);
-      console.log("Это дата МиФ для високосного года", this.mif);
+    this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999);
+    this.mifRussianDate = this.mif.getDate() + " " + this._datesService.monthsRU[this.mif.getMonth()];
+
+    if (this.v_year) {
+
+      console.log("Дата МиФ для високосного года – ", this.mifRussianDate);
     }
-    
+
     else {
-      this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999);
-      this.mifRussianDate = this.mif.getDate() + " " + this._datesService.monthsRU[this.mif.getMonth()];
-      console.log("Дата Мытаря и Фарисея", this.mifRussianDate);
+
+      console.log("Дата Мытаря и Фарисея – ", this.mifRussianDate);
 
     }
 
@@ -172,13 +172,14 @@ export class SedService implements OnInit {
 
   /**
    * Возвращает кол-во седмиц отступпки или преступки для праздника Воздвижения Креста.
+   * @param return количество седмиц
    */
   private otstupkaVozdvijjenie() {
     this.yearLastEaster = new Date(this._datesService.datesEasterYear.lastEaster);
     this.numberVozdvijjenie = this.yearLastEaster.getFullYear();
     this.timeBoxVozdvijjenie = new Date(this.numberVozdvijjenie, 8, 27).getTime();
-    this.sumWeeksAfterVozdvijjenie = (Math.trunc((this.timeBoxVozdvijjenie - this._datesService.datesEasterYear.lastEaster) / 864E5 / 7) - 6);
-    console.log("Количество седмиц от Пасхи до Воздвижения Креста: ", this.sumWeeksAfterVozdvijjenie);
+    this.sumWeeksAfterVozdvijjenie = (Math.trunc((this.timeBoxVozdvijjenie - this._datesService.datesEasterYear.lastEaster) / DMS / 7) - 6);
+    console.warn("Количество седмиц от Пятидесятницы до Воздвижения Креста: ", this.sumWeeksAfterVozdvijjenie + ".\nОт Пасхи же: " + (this.sumWeeksAfterVozdvijjenie+6));
 
     if (this.sumWeeksAfterVozdvijjenie > 17) {
       this.otstupkaV = this.sumWeeksAfterVozdvijjenie - 17;
@@ -209,7 +210,7 @@ export class SedService implements OnInit {
       console.log("До Воздвижения осталось седмиц: ", (this.sumWeeksAfterVozdvijjenie - this.currentWeek));
 
   }
-  
+
   /**
    * Возвращает глас Октоиха по номеру седмицы случившейся после Пасхи, но не по Пятьдесятнице.
    *  
@@ -230,7 +231,7 @@ export class SedService implements OnInit {
    * Функция вычисляет промежуточные седмицы от 34 Недели (Воскресенья) по Пятьдесятнице до Недели Мытаря и Фарисея.
    */
   private promWeeks() {
-    this.betweenWeeks = this.sumWeeks - (17+33);
+    this.betweenWeeks = this.sumWeeks - (17 + 33);
     console.log("Промежуточных седмиц: ", this.betweenWeeks);
   }
 

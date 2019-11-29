@@ -5,8 +5,8 @@
     <br>
     <div class="123">
         <span class="dugpre"
-            title="СЕМЬ ПОСЛЕДОВАТЕЛЬНЫХ ДНЕЙ. ПЕРВЫМ ДНЁМ В CЕДМИЦЕ ОБЪЯВЛЯЕТСЯ ДЕНЬ ПОД НАЗВАНИЕМ – НЕДЕЛЯ, ИНАЧЕ НАЗЫВАЕМЫЙ – ВОСКРЕСЕНИЕМ.">Седмица</span>
-        <span id="date2" class="dug"> {{ _sedService.currentWeek }} </span>
+            title="СЕМЬ ПОСЛЕДОВАТЕЛЬНЫХ ДНЕЙ. ПЕРВЫМ ДНЁМ В CЕДМИЦЕ ОБЪЯВЛЯЕТСЯ ДЕНЬ ПОД НАЗВАНИЕМ – НЕДЕЛЯ, ИНАЧЕ НАЗЫВАЕМЫЙ – ВОСКРЕСЕНИЕМ.">Седмица по Пасхе</span>
+        <span id="date2" class="dug"><a [href]="_linksServise.idLink">{{ _sedService.currentWeek }}</a></span>
     </div>
     <div *ngIf="weekAfterPyatidesyatnica">
         <span id="date3" class="dugpre"

@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import AppComponent from './app.component';
 import { PaskhaComponent } from './paskha/paskha.component';
 import { DateService } from './svrs/date.service';
 import { SedComponent } from './sed/sed.component';

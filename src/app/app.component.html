@@ -2,7 +2,7 @@
 <p class="name">
     <!-- Данная ссылка должна ссылаться на текущий документ седмицы: смотри примечания к шаблону -->
 
-    <a [ngClass]="{'class': red}" [href]="linkToPageOfTheDay" class="apracos-title"
+    <a [ngClass]="{'class': red}" [href]="_linksService.linkToPageOfTheDay" class="apracos-title"
         title="☨ АПРАКОС КНИГ ЕВАНГЕЛИЯ И АПОСТОЛ. НЕДЕЛЬНЫЕ (ВОСКРЕСНЫЕ) И КАЖДОДНЕВНЫЕ ЧТЕНИЯ СЕДМИЦЫ НАЧИНАЯ ОТ ПАСХИ, СОГЛАСНО УСТАВУ ПРАВОСЛАВНОЙ ЦЕРКВИ.">СІЙ
         ДЕ~НЬ</a>
 </p>
@@ -10,7 +10,7 @@
 
     <!-- Данная ссылка должна ссылаться на текущий документ седмицы: смотри примечания к шаблону -->
 
-    <a [ngClass]="{'class': red}" href="{{ linkToPageOfTheApracosDay }}" class="apracos-title"
+    <a [ngClass]="{'class': red}" [href]="_linksService.linkTheApracosDay" class="apracos-title"
         title="☨ АПРАКОС КНИГ ЕВАНГЕЛИЯ И АПОСТОЛ. НЕДЕЛЬНЫЕ (ВОСКРЕСНЫЕ) И КАЖДОДНЕВНЫЕ ЧТЕНИЯ СЕДМИЦЫ НАЧИНАЯ ОТ ПАСХИ, СОГЛАСНО УСТАВУ ПРАВОСЛАВНОЙ ЦЕРКВИ.">Апра~косъ
         и АПО~СТОЛЪ
     </a>
