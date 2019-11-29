@@ -211,7 +211,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Функция инициализирует переменную <code>idLink</code> ссылкой на странице stvol.html.
+                    <div class="io-description"><p>Функция инициализирует переменную <code>idLink</code> ссылкой на странице <code>stvol.html</code>.
 Ссылка ведет на текущую седмицу БЕЗ УЧЕТА отступок и преступок.</p>
 </div>
 
@@ -253,7 +253,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Функция инициализирует переменную pathToPageApracosDay</p>
+                    <div class="io-description"><p>Функция инициализирует переменную <code>pathToPageApracosDay</code>.</p>
 </div>
 
                     <div class="io-description">
@@ -294,7 +294,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Функция инициализирует переменную linkToPageOfTheDay ссылкой на страницу дня, в соответствии с Минеей (Сий день)</p>
+                    <div class="io-description"><p>Функция инициализирует переменную <code>linkToPageOfTheDay</code> ссылкой на страницу дня, в соответствии с Минеей (Сий день).</p>
 </div>
 
                     <div class="io-description">
@@ -365,7 +365,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Ссылка на #id страницы stvol.html</p>
+                        <div class="io-description"><p>Ссылка на #id страницы <code>stvol.html</code>.</p>
 </div>
                     </td>
                 </tr>
@@ -398,7 +398,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Ссылка на текущие чтения Апракоса (Апрáкосъ)</p>
+                        <div class="io-description"><p>Ссылка на текущие чтения Апракоса (Апрáкосъ).</p>
 </div>
                     </td>
                 </tr>
@@ -431,7 +431,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Ссылка на текущий день Минеи (Сий день)</p>
+                        <div class="io-description"><p>Ссылка на текущий день Минеи (Сий день).</p>
 </div>
                     </td>
                 </tr>
@@ -464,7 +464,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>число текущего дня</p>
+                        <div class="io-description"><p>число текущего дня.</p>
 </div>
                     </td>
                 </tr>
@@ -493,22 +493,22 @@ import { SedService } from &#x27;./sed.service&#x27;;
 export class LinksService {
 
   /**
-   * Ссылка на текущий день Минеи (Сий день)
+   * Ссылка на текущий день Минеи (Сий день).
    */
   linkToPageOfTheDay: string;
 
   /**
-   * Ссылка на текущие чтения Апракоса (Апрáкосъ)
+   * Ссылка на текущие чтения Апракоса (Апрáкосъ).
    */
   linkTheApracosDay: string;
 
   /**
-   *  число текущего дня
+   *  число текущего дня.
   */ 
   td: number;
 
   /**
-   * Ссылка на #id страницы stvol.html
+   * Ссылка на #id страницы &#x60;stvol.html&#x60;.
    */
   idLink: string;
 
@@ -523,7 +523,7 @@ export class LinksService {
 
 
  /**
-     * Функция инициализирует переменную linkToPageOfTheDay ссылкой на страницу дня, в соответствии с Минеей (Сий день)
+     * Функция инициализирует переменную &#x60;linkToPageOfTheDay&#x60; ссылкой на страницу дня, в соответствии с Минеей (Сий день).
      */
     pathToPageDay() {
 
@@ -564,24 +564,24 @@ export class LinksService {
   
     
   
-      /**
-       * Функция инициализирует переменную pathToPageApracosDay
-       * 
-       */
-  
+    
     // -&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-
-  
+    
     // STOP:START date: 30/11/2019, time: 22:45
     // note: в этой функции требуется код генерации ссылки для перехода на страницу Апракоса С УЧЕТОМ всех преступок и промежуточных седмиц.
-  
+    
     // -&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-
-
+    
+    /**
+     * Функция инициализирует переменную &#x60;pathToPageApracosDay&#x60;.
+     * 
+     */
     pathToPageApracosDay() {
       this.linkTheApracosDay &#x3D; (&quot;../APRACOS/&quot; + this._sedSevice.currentWeek + &quot;/&quot; + (this._sedSevice._datesService.timeBox.getDay()+1) + &quot;.html&quot;)
     }
   
   /**
-   * Функция инициализирует переменную &#x60;idLink&#x60; ссылкой на странице stvol.html.
+   * Функция инициализирует переменную &#x60;idLink&#x60; ссылкой на странице &#x60;stvol.html&#x60;.
    * Ссылка ведет на текущую седмицу БЕЗ УЧЕТА отступок и преступок.
    */
   

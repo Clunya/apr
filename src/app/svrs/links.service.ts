@@ -9,22 +9,22 @@ import { SedService } from './sed.service';
 export class LinksService {
 
   /**
-   * Ссылка на текущий день Минеи (Сий день)
+   * Ссылка на текущий день Минеи (Сий день).
    */
   linkToPageOfTheDay: string;
 
   /**
-   * Ссылка на текущие чтения Апракоса (Апрáкосъ)
+   * Ссылка на текущие чтения Апракоса (Апрáкосъ).
    */
   linkTheApracosDay: string;
 
   /**
-   *  число текущего дня
+   *  число текущего дня.
   */ 
   td: number;
 
   /**
-   * Ссылка на #id страницы stvol.html
+   * Ссылка на #id страницы `stvol.html`.
    */
   idLink: string;
 
@@ -39,7 +39,7 @@ export class LinksService {
 
 
  /**
-     * Функция инициализирует переменную linkToPageOfTheDay ссылкой на страницу дня, в соответствии с Минеей (Сий день)
+     * Функция инициализирует переменную `linkToPageOfTheDay` ссылкой на страницу дня, в соответствии с Минеей (Сий день).
      */
     pathToPageDay() {
 
@@ -80,24 +80,24 @@ export class LinksService {
   
     
   
-      /**
-       * Функция инициализирует переменную pathToPageApracosDay
-       * 
-       */
-  
+    
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  
+    
     // STOP:START date: 30/11/2019, time: 22:45
     // note: в этой функции требуется код генерации ссылки для перехода на страницу Апракоса С УЧЕТОМ всех преступок и промежуточных седмиц.
-  
+    
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
+    
+    /**
+     * Функция инициализирует переменную `pathToPageApracosDay`.
+     * 
+     */
     pathToPageApracosDay() {
       this.linkTheApracosDay = ("../APRACOS/" + this._sedSevice.currentWeek + "/" + (this._sedSevice._datesService.timeBox.getDay()+1) + ".html")
     }
   
   /**
-   * Функция инициализирует переменную `idLink` ссылкой на странице stvol.html.
+   * Функция инициализирует переменную `idLink` ссылкой на странице `stvol.html`.
    * Ссылка ведет на текущую седмицу БЕЗ УЧЕТА отступок и преступок.
    */
   
