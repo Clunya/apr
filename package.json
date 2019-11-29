@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compodoc": "npx compodoc -p tsconfig.app.json  -y ./src/assets/ystmcss --theme Postmark --hideGenerator --name 'ДОКУМЕНТАЦИЯ АПРАКОСЪ' --toggleMenuItems -d, --output ./docs --includes docs/numberdocs --includesName 'Маркированные объекты' --customFavicon docs/numberdocs/favicon.ico  -w -s "
+    "compodoc": "npx compodoc -p tsconfig.app.json  -y ./docs/ystmcss --theme Postmark --hideGenerator --name 'ДОКУМЕНТАЦИЯ АПРАКОСЪ' --toggleMenuItems -d, --output ./docs --includes docs/numberdocs --includesName 'Маркированные объекты' --customFavicon docs/numberdocs/favicon.ico  -w -s "
   },
   "private": true,
   "dependencies": {
