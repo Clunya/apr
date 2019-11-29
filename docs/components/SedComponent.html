@@ -129,6 +129,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#_linksServise">_linksServise</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#_sedService">_sedService</a>
                             </li>
                             <li>
@@ -153,12 +157,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_sedService: <a href="../injectables/SedService.html">SedService</a>)</code>
+<code>constructor(_sedService: <a href="../injectables/SedService.html">SedService</a>, _linksServise: <a href="../injectables/LinksService.html">LinksService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/sed/sed.component.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/sed/sed.component.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -180,6 +184,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/SedService.html" target="_self" >SedService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_linksServise</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LinksService.html" target="_self" >LinksService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -210,6 +226,34 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="_linksServise"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _linksServise</b>
+                            <a href="#_linksServise"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/LinksService.html" target="_self" >LinksService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/sed/sed.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="_sedService"></a>
                         <span class="name">
                             <b>
@@ -227,7 +271,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/sed/sed.component.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/sed/sed.component.ts:52</a></div>
                             </td>
                         </tr>
 
@@ -263,7 +307,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/sed/sed.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/sed/sed.component.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -301,6 +345,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input, Injectable } from &#x27;@angular/core&#x27;;
 import { SedService } from &#x27;../svrs/sed.service&#x27;;
+import { LinksService } from &#x27;../svrs/links.service&#x27;;
 
 
 @Component({
@@ -349,7 +394,7 @@ export class SedComponent {
   // v_year: boolean;
   // stupka: string;
 
-  constructor(public _sedService: SedService) {
+  constructor(public _sedService: SedService, public _linksServise: LinksService) {
   }
 
 }
@@ -370,7 +415,7 @@ export class SedComponent {
     &lt;div class&#x3D;&quot;123&quot;&gt;
         &lt;span class&#x3D;&quot;dugpre&quot;
             title&#x3D;&quot;СЕМЬ ПОСЛЕДОВАТЕЛЬНЫХ ДНЕЙ. ПЕРВЫМ ДНЁМ В CЕДМИЦЕ ОБЪЯВЛЯЕТСЯ ДЕНЬ ПОД НАЗВАНИЕМ – НЕДЕЛЯ, ИНАЧЕ НАЗЫВАЕМЫЙ – ВОСКРЕСЕНИЕМ.&quot;&gt;Седмица по Пасхе&lt;/span&gt;
-        &lt;span id&#x3D;&quot;date2&quot; class&#x3D;&quot;dug&quot;&gt; {{ _sedService.currentWeek }} &lt;/span&gt;
+        &lt;span id&#x3D;&quot;date2&quot; class&#x3D;&quot;dug&quot;&gt;&lt;a [href]&#x3D;&quot;_linksServise.idLink&quot;&gt;{{ _sedService.currentWeek }}&lt;/a&gt;&lt;/span&gt;
     &lt;/div&gt;
     &lt;div *ngIf&#x3D;&quot;weekAfterPyatidesyatnica&quot;&gt;
         &lt;span id&#x3D;&quot;date3&quot; class&#x3D;&quot;dugpre&quot;
@@ -437,7 +482,7 @@ export class SedComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- <ng-content select=\'code\'></ng-content> --><!-- =-=-=-=-=-=-===-=-sed.component=-=-===-=-=-=-=-=-=-=-=-=-===- --><div id="date" class="date" style="text-indent: 0px; padding-left: 12px"    title="Числа седмиц Православного Церковного года">Зачала всего лета по Пасхе.    <br>    <div class="123">        <span class="dugpre"            title="СЕМЬ ПОСЛЕДОВАТЕЛЬНЫХ ДНЕЙ. ПЕРВЫМ ДНЁМ В CЕДМИЦЕ ОБЪЯВЛЯЕТСЯ ДЕНЬ ПОД НАЗВАНИЕМ – НЕДЕЛЯ, ИНАЧЕ НАЗЫВАЕМЫЙ – ВОСКРЕСЕНИЕМ.">Седмица по Пасхе</span>        <span id="date2" class="dug"> {{ _sedService.currentWeek }} </span>    </div>    <div *ngIf="weekAfterPyatidesyatnica">        <span id="date3" class="dugpre"            title="ПОКАЗЫВАЕТ ЧИСЛО СЕДМИЦЫ СЧИТАЯ ОТ ПРАЗДНИКА ПЯТИДЕСЯТНИЦЫ, НАЧИНАЯ С ВОСКРЕСЕНЬЯ">По Пятьдесятнице        </span>        <span id="date4" class="dug ">{{ _sedService.weekAfterPyatidesyatnica }} </span>    </div>    <div id="date5" class="123" style="text-indent: 0px; padding-left: 12px; font-weight: unset; color: #5e5e5e"        title="ГЛАС ТЕКУЩЕЙ СЕДМИЦЫ">Глас Октоиха - <b>{{ _sedService.glas }}</b></div></div><hr class="hr-1"><br><!-- =-=-=-=-=-=-===-=-=-=-===-=-=-=-=-=-=-=-=-=-===- --><div style="font-size: 1.2em" class="rrr">    <!-- конвертирование миллисекунд в дату    <b>Пасха бывшая - </b>{{ datesEasterYear.lastEaster | date }}     <br>    <b>Пасха грядущая </b>- {{ datesEasterYear.nextEaster | date }} -->    <p>Богослужебный год составляет в седмицах: {{ _sedService.sumWeeks }}.</p>    <p>Воздвиженская <strong>{{_sedService.stupka}}</strong> составляет в седмицах: {{ _sedService.otstupkaV }}.</p>    <p *ngIf="weekAfterPyatidesyatnica">Текущая седмица по Пятидесятнице: {{_sedService.weekAfterPyatidesyatnica }}</p>    <p>        Глас седмицы: {{_sedService.glas}}        <!-- <input [(ngModel)]="glas"> -->    </p>    <!-- <input #box placeholder="{{r}}" (keyup.enter)="onKey(box.value)"><p>{{r}}</p> -->    <p>Количество промежуточных седмиц: {{_sedService.betweenWeeks}} </p>    <p [ngStyle]="sedStyle">{{ mif | date }} Дата Мытаря и Фарисея:  {{_sedService.mifRussianDate}}</p></div></div>'
+        var COMPONENT_TEMPLATE = '<div><!-- <ng-content select=\'code\'></ng-content> --><!-- =-=-=-=-=-=-===-=-sed.component=-=-===-=-=-=-=-=-=-=-=-=-===- --><div id="date" class="date" style="text-indent: 0px; padding-left: 12px"    title="Числа седмиц Православного Церковного года">Зачала всего лета по Пасхе.    <br>    <div class="123">        <span class="dugpre"            title="СЕМЬ ПОСЛЕДОВАТЕЛЬНЫХ ДНЕЙ. ПЕРВЫМ ДНЁМ В CЕДМИЦЕ ОБЪЯВЛЯЕТСЯ ДЕНЬ ПОД НАЗВАНИЕМ – НЕДЕЛЯ, ИНАЧЕ НАЗЫВАЕМЫЙ – ВОСКРЕСЕНИЕМ.">Седмица по Пасхе</span>        <span id="date2" class="dug"><a [href]="_linksServise.idLink">{{ _sedService.currentWeek }}</a></span>    </div>    <div *ngIf="weekAfterPyatidesyatnica">        <span id="date3" class="dugpre"            title="ПОКАЗЫВАЕТ ЧИСЛО СЕДМИЦЫ СЧИТАЯ ОТ ПРАЗДНИКА ПЯТИДЕСЯТНИЦЫ, НАЧИНАЯ С ВОСКРЕСЕНЬЯ">По Пятьдесятнице        </span>        <span id="date4" class="dug ">{{ _sedService.weekAfterPyatidesyatnica }} </span>    </div>    <div id="date5" class="123" style="text-indent: 0px; padding-left: 12px; font-weight: unset; color: #5e5e5e"        title="ГЛАС ТЕКУЩЕЙ СЕДМИЦЫ">Глас Октоиха - <b>{{ _sedService.glas }}</b></div></div><hr class="hr-1"><br><!-- =-=-=-=-=-=-===-=-=-=-===-=-=-=-=-=-=-=-=-=-===- --><div style="font-size: 1.2em" class="rrr">    <!-- конвертирование миллисекунд в дату    <b>Пасха бывшая - </b>{{ datesEasterYear.lastEaster | date }}     <br>    <b>Пасха грядущая </b>- {{ datesEasterYear.nextEaster | date }} -->    <p>Богослужебный год составляет в седмицах: {{ _sedService.sumWeeks }}.</p>    <p>Воздвиженская <strong>{{_sedService.stupka}}</strong> составляет в седмицах: {{ _sedService.otstupkaV }}.</p>    <p *ngIf="weekAfterPyatidesyatnica">Текущая седмица по Пятидесятнице: {{_sedService.weekAfterPyatidesyatnica }}</p>    <p>        Глас седмицы: {{_sedService.glas}}        <!-- <input [(ngModel)]="glas"> -->    </p>    <!-- <input #box placeholder="{{r}}" (keyup.enter)="onKey(box.value)"><p>{{r}}</p> -->    <p>Количество промежуточных седмиц: {{_sedService.betweenWeeks}} </p>    <p [ngStyle]="sedStyle">{{ mif | date }} Дата Мытаря и Фарисея:  {{_sedService.mifRussianDate}}</p></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ComponentTestingComponent', 'selector': 'app-component-testing'},{'name': 'PaskhaComponent', 'selector': 'app-paskha'},{'name': 'SedComponent', 'selector': 'app-sed'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SedComponent'};

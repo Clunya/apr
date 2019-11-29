@@ -6,10 +6,6 @@
 @import "./compodoc.css";
 @import "./tablesort.css";
 
-body {
-    /* font-size: 190%; */
-}
-
 p {
     font-size: larger;
 }
