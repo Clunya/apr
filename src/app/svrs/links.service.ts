@@ -79,21 +79,24 @@ export class LinksService {
     }
   
     
-  
+      // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     
-    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+      // STOP:START date: 31/12/2019, time: 00:03
+      // note: Добавить описание номеров в документацию (numberdocs)
     
-    // STOP:START date: 30/11/2019, time: 22:45
-    // note: в этой функции требуется код генерации ссылки для перехода на страницу Апракоса С УЧЕТОМ всех преступок и промежуточных седмиц.
+      // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     
-    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-    
-    /**
+    /** 009.
      * Функция инициализирует переменную `pathToPageApracosDay`.
      * 
+     * @var correctingLinkToReadAprakos корректировка ссылки на чтение Апракоса с учетом всех отступок и преступок по Пасхе.
      */
-    pathToPageApracosDay() {
-      this.linkTheApracosDay = ("../APRACOS/" + this._sedSevice.currentWeek + "/" + (this._sedSevice._datesService.timeBox.getDay()+1) + ".html")
+  pathToPageApracosDay() {
+
+    var correctingLinkToReadAprakos = this._sedSevice.currentWeek > 40 ? this._sedSevice.betweenWeeks : 0
+    
+    this.linkTheApracosDay = ("../APRACOS/" + (this._sedSevice.currentWeek - correctingLinkToReadAprakos) + "/" + (this._sedSevice._datesService.timeBox.getDay() + 1) + ".html")
+    
     }
   
   /**

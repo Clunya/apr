@@ -89,7 +89,7 @@ export class SedService implements OnInit {
   betweenWeeks: number;
 
   /**
-   * Конвертированная дата МиФ.
+   * Конвертированная дата МиФb.
    */
   mifRussianDate?: string;
 
@@ -102,6 +102,7 @@ export class SedService implements OnInit {
    * Переменная для вывода русского слова в шаблоне html (преступка или отступка).
    */
   stupka: string;
+
 
   public constructor(public _datesService: DateService) {
 
@@ -122,6 +123,8 @@ export class SedService implements OnInit {
 
   /**
    * Проверяет гражданский год грядущей Пасхи на високосность.
+   * 
+   * @return true or false
    */
   vg(): boolean {
 
@@ -130,7 +133,7 @@ export class SedService implements OnInit {
 
   }
 
-  /**
+  /** 003.
    * Вычисление `разницы` между текущем временем и датой прошедшей Пасхи.
    * Обрезка значения до целого.
    * Вычисление текущей седмицы.
@@ -151,6 +154,7 @@ export class SedService implements OnInit {
 
     /** 004.
      *  Вычисление даты для Недели Мытаря и Фарисея и количества промежуточных седмиц с учетом високосного года.
+     * 6047999999 - это десять седмиц в миллисекундах.
      */
     this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999);
     this.mifRussianDate = this.mif.getDate() + " " + this._datesService.monthsRU[this.mif.getMonth()];
@@ -171,7 +175,7 @@ export class SedService implements OnInit {
   }
 
   /**
-   * Возвращает кол-во седмиц отступпки или преступки для праздника Воздвижения Креста.
+   * Возвращает кол-во седмиц отступки или преступки для праздника Воздвижения Креста.
    * @param return количество седмиц.
    */
   private otstupkaVozdvijjenie() {
@@ -229,10 +233,15 @@ export class SedService implements OnInit {
 
   /**
    * Функция вычисляет промежуточные седмицы от 34 Недели (Воскресенья) по Пятьдесятнице до Недели Мытаря и Фарисея.
+   * 
+   * @returns количество седмиц
    */
   private promWeeks() {
-    this.betweenWeeks = this.sumWeeks - (17 + 33);
-    console.log("Промежуточных седмиц: ", this.betweenWeeks);
+
+      this.betweenWeeks = this.sumWeeks - (17 + 33);
+      console.log("Промежуточных седмиц: ", this.betweenWeeks);
+
+
   }
 
 }

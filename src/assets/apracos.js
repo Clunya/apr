@@ -102,19 +102,20 @@ var allSedmica = (Math.trunc((dataPashiNext - dataPashi) / DMS / 7)) + 1;
 function otstupkaVozdvijjenie() {
     timeBoxVozdvijjenie = new Date(timeBox.getFullYear(), 8, 27);
     sedmicaVozdvijjenie = (Math.trunc((timeBoxVozdvijjenie - dataPashi) / DMS / 7) -6);
-    console.warn("=-=-=-=-=-=-=-=",sedmicaVozdvijjenie)
+    console.warn("=-=-=-=-=-=-=-=", sedmicaVozdvijjenie)
+    
     /**
      * Значение переменной `otstupkaV` получает число, которое равно количеству седмиц превыщающих число 17. 
-     * Чтения Евангелия после Пасхи расчитано на 17-седмиц и далее должно быть начато Евангелие от Луки, в первую Неделю (воскресение), после праздника Воздвижения Креста. Переменная `otstupkaV` показывает превышение числа 17. Этот аргумент и будет отступкой для повторных чтений до праздника Воздвижения.
+     * Чтения Евангелия после Пасхи расчитано на 17-седмиц и далее должно быть начато Евангелие от Луки, в первую Неделю (Воскресенье), после праздника Воздвижения Креста. Переменная `otstupkaV` показывает превышение числа 17. Это превышение и будет отступкой для повторных чтений до праздника Воздвижения.
      * 
      */
     var otstupkaV = sedmica - (sedmicaVozdvijjenie - 17);
     var prestupkaV = sedmica;
-    var norm = sedmicaVozdvijjenie + (17 - sedmicaVozdvijjenie);
+    // var norm = sedmicaVozdvijjenie + (17 - sedmicaVozdvijjenie);
 
 
     /**
-     * 
+     * Проверка текущей седмицы относительно праздника Воздвижения Креста. Какое значение имеет текущая седмица по отношению к числу 17.
      * 
      */
     if (timeBox >= timeBoxVozdvijjenie & sedmica > sedmicaVozdvijjenie & sedmica > 17) {
@@ -130,7 +131,8 @@ function otstupkaVozdvijjenie() {
         // console.log(prestupkaV + timeBoxVozdvijjenie + "\n Воздвиженье еще будет на " + sedmicaVozdvijjenie + " седмице: " + timeBoxVozdvijjenie);
     }
 
-    else return console.log("!!! ВОЗДВИЖЕНИЯ ЕЩЕ НЕ БЫЛО !!!" + timeBoxVozdvijjenie + sedmicaVozdvijjenie);
+    else return 0
+    // console.log("!!! ВОЗДВИЖЕНИЯ ЕЩЕ НЕ БЫЛО !!!" + timeBoxVozdvijjenie + sedmicaVozdvijjenie);
 
     // return sedmica;
 }
