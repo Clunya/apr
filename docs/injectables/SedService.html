@@ -261,8 +261,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="220"
-                            class="link-to-prism">src/app/svrs/sed.service.ts:220</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="224"
+                            class="link-to-prism">src/app/svrs/sed.service.ts:224</a></div>
                 </td>
             </tr>
 
@@ -339,8 +339,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="119"
-                            class="link-to-prism">src/app/svrs/sed.service.ts:119</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/app/svrs/sed.service.ts:120</a></div>
                 </td>
             </tr>
 
@@ -380,15 +380,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="139"
-                            class="link-to-prism">src/app/svrs/sed.service.ts:139</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">src/app/svrs/sed.service.ts:142</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Вычисление <code>разницы</code> между текущем временем и датой прошедшей Пасхи.
+                    <div class="io-description"><p>003.
+Вычисление <code>разницы</code> между текущем временем и датой прошедшей Пасхи.
 Обрезка значения до целого.
 Вычисление текущей седмицы.
 Вычисление седмицы по Пятьдесятнице</p>
@@ -426,15 +427,15 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="177"
-                            class="link-to-prism">src/app/svrs/sed.service.ts:177</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="181"
+                            class="link-to-prism">src/app/svrs/sed.service.ts:181</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Возвращает кол-во седмиц отступпки или преступки для праздника Воздвижения Креста.</p>
+                    <div class="io-description"><p>Возвращает кол-во седмиц отступки или преступки для праздника Воздвижения Креста.</p>
 </div>
 
                     <div class="io-description">
@@ -469,8 +470,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="233"
-                            class="link-to-prism">src/app/svrs/sed.service.ts:233</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="239"
+                            class="link-to-prism">src/app/svrs/sed.service.ts:239</a></div>
                 </td>
             </tr>
 
@@ -480,8 +481,14 @@
                     <div class="io-description"><p>Функция вычисляет промежуточные седмицы от 34 Недели (Воскресенья) по Пятьдесятнице до Недели Мытаря и Фарисея.</p>
 </div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>количество седмиц</p>
 
                     </div>
                 </td>
@@ -510,8 +517,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="126"
-                            class="link-to-prism">src/app/svrs/sed.service.ts:126</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">src/app/svrs/sed.service.ts:129</a></div>
                 </td>
             </tr>
 
@@ -521,8 +528,14 @@
                     <div class="io-description"><p>Проверяет гражданский год грядущей Пасхи на високосность.</p>
 </div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>true or false</p>
 
                     </div>
                 </td>
@@ -556,7 +569,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/svrs/sed.service.ts:106</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/svrs/sed.service.ts:107</a></div>
                             </td>
                         </tr>
 
@@ -1251,6 +1264,7 @@ export class SedService implements OnInit {
    */
   stupka: string;
 
+
   public constructor(public _datesService: DateService) {
 
     this.v_year &#x3D; this.vg();
@@ -1270,6 +1284,8 @@ export class SedService implements OnInit {
 
   /**
    * Проверяет гражданский год грядущей Пасхи на високосность.
+   * 
+   * @return true or false
    */
   vg(): boolean {
 
@@ -1278,7 +1294,7 @@ export class SedService implements OnInit {
 
   }
 
-  /**
+  /** 003.
    * Вычисление &#x60;разницы&#x60; между текущем временем и датой прошедшей Пасхи.
    * Обрезка значения до целого.
    * Вычисление текущей седмицы.
@@ -1299,6 +1315,7 @@ export class SedService implements OnInit {
 
     /** 004.
      *  Вычисление даты для Недели Мытаря и Фарисея и количества промежуточных седмиц с учетом високосного года.
+     * 
      */
     this.mif &#x3D; new Date(this._datesService.datesEasterYear.nextEaster - 6047999999);
     this.mifRussianDate &#x3D; this.mif.getDate() + &quot; &quot; + this._datesService.monthsRU[this.mif.getMonth()];
@@ -1319,7 +1336,7 @@ export class SedService implements OnInit {
   }
 
   /**
-   * Возвращает кол-во седмиц отступпки или преступки для праздника Воздвижения Креста.
+   * Возвращает кол-во седмиц отступки или преступки для праздника Воздвижения Креста.
    * @param return количество седмиц.
    */
   private otstupkaVozdvijjenie() {
@@ -1377,10 +1394,15 @@ export class SedService implements OnInit {
 
   /**
    * Функция вычисляет промежуточные седмицы от 34 Недели (Воскресенья) по Пятьдесятнице до Недели Мытаря и Фарисея.
+   * 
+   * @returns количество седмиц
    */
   private promWeeks() {
-    this.betweenWeeks &#x3D; this.sumWeeks - (17 + 33);
-    console.log(&quot;Промежуточных седмиц: &quot;, this.betweenWeeks);
+
+      this.betweenWeeks &#x3D; this.sumWeeks - (17 + 33);
+      console.log(&quot;Промежуточных седмиц: &quot;, this.betweenWeeks);
+
+
   }
 
 }
@@ -1417,7 +1439,7 @@ export class SedService implements OnInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = '007.html';
+            var COMPODOC_CURRENT_PAGE_URL = '009.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

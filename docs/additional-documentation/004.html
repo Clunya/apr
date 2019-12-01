@@ -49,36 +49,19 @@
 
 
 
-<p><img src="https://3.bp.blogspot.com/-HDKF6GDcMD8/Xc6QlUbBDzI/AAAAAAAAElo/M3yn9nHMQ8ISeoisPgXeJOnqq9vKf1cNgCK4BGAYYCw/s400/apr.png" alt="img" class="img-responsive"></p>
-<h1 id="маркировка-объектов"><strong>Маркировка объектов</strong></h1>
-<h3 id="маркировка-объектов--это-идентификатор-объекта-в-описании-документации-в-файлах-исходниках-например-чтобы-получить-более-подробную-информацию-об-объекте-нужно-просто-перейти-на-страницу-под-номером-указанном-в-описаннии-этого-объекта">Маркировка объектов – это идентификатор объекта в описании документации в файлах исходниках. Например, чтобы получить более подробную информацию об объекте, нужно просто перейти на страницу под номером указанном в описаннии этого объекта.</h3>
+<p><img src="https://1.bp.blogspot.com/-QTH19_Xqemw/Xc6iUycqJUI/AAAAAAAAEpM/Y1c2OpzlZOMJXXqQduH3IcqgwtIMGkM3ACLcBGAsYHQ/s320/004.png" alt="img" class="img-responsive" title="004"></p>
+<h1 id="mif-date"><code>mif: Date</code></h1>
+<h3 id="переменная-содержит-значение---дату-воскресения-на-которое-приходится-поминовение-притчи-о-мытаре-и-фарисее-этой-неделей-воскресеньем-начинается-великопостный-размер-состоящий-из-10-седмиц-пред-пасхой">Переменная, содержит значение - дату Воскресения, на которое приходится поминовение притчи о Мытаре и Фарисее. Этой Неделей (Воскресеньем) начинается Великопостный размер, состоящий из 10 седмиц пред Пасхой:</h3>
+<ol>
+<li>Три подготовительные.</li>
+<li>Шесть седмиц Великой Четыредесятницы.</li>
+<li>Страстная Седмица.</li>
+</ol>
 <hr>
-<p>Допустим у нас код:</p>
-<div><pre class="line-numbers"><code class="language-ts">     /** 007.md
-     *  функция, которая в зависимости от входящего ключа-нгода формирует две даты Пасх
-     */
-  keyNewYear(keyYear: number) {
-    console.log(keyYear, &quot; -- keyYear&quot;);
-
-    // объект для экспортирования в другой компонент
-    this.datesEasterYear =
-    {
-      &quot;lastEaster&quot;:
-      new Date(this.keyYear - 1, PASKHALIA[this.keyYear - 1][0],
-        PASKHALIA[this.keyYear -1][1]).getTime(),
-        // возращаае тип number в миллисекундах
-        &quot;nextEaster&quot;:
-        new Date(this.keyYear, PASKHALIA[this.keyYear][0],
-          PASKHALIA[this.keyYear][1]).getTime()
-    }
-
-
-    // return console.log(typeof(this.datesEasterYear.nextEaster));
-
-  }
-</code></pre></div><p>Так вот, в первой строке коментария к данной функции указан номер страницы для данного мануала, где и можно <strong>подробнее</strong> узнать о данном объекте <a href="007.html">007</a>.</p>
-<hr>
-<p><a href="001.html">далее</a></p>
+<p>Для вычисления дня <code>МиФ</code> из Пасхалии берется дата предстоящей Пасхи.
+От данной даты вычитается десять седмиц. </p>
+<div><pre class="line-numbers"><code class="language-none">6047999999 - это десять седмиц в миллисекундах. </code></pre></div><hr>
+<p><a href="005.html">далее</a></p>
 
                    </div><div class="search-results">
     <div class="has-results">
@@ -97,7 +80,7 @@
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
-            var COMPODOC_CURRENT_PAGE_URL = 'маркировка.html';
+            var COMPODOC_CURRENT_PAGE_URL = '004.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

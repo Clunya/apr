@@ -49,36 +49,17 @@
 
 
 
-<p><img src="https://3.bp.blogspot.com/-HDKF6GDcMD8/Xc6QlUbBDzI/AAAAAAAAElo/M3yn9nHMQ8ISeoisPgXeJOnqq9vKf1cNgCK4BGAYYCw/s400/apr.png" alt="img" class="img-responsive"></p>
-<h1 id="маркировка-объектов"><strong>Маркировка объектов</strong></h1>
-<h3 id="маркировка-объектов--это-идентификатор-объекта-в-описании-документации-в-файлах-исходниках-например-чтобы-получить-более-подробную-информацию-об-объекте-нужно-просто-перейти-на-страницу-под-номером-указанном-в-описаннии-этого-объекта">Маркировка объектов – это идентификатор объекта в описании документации в файлах исходниках. Например, чтобы получить более подробную информацию об объекте, нужно просто перейти на страницу под номером указанном в описаннии этого объекта.</h3>
+<p><img src="https://1.bp.blogspot.com/-Mo-AjudcuiE/Xc6iWXQlJTI/AAAAAAAAEpg/UXt6nP9K4eYS6aw8v-x4Am-mK7hcWfE7QCLcBGAsYHQ/s320/009.png" alt="img" class="img-responsive" title="009"></p>
+<h1 id="pathtopageapracosday"><code>pathToPageApracosDay()</code></h1>
+<h3 id="функция-генерерирует-url-на-чтения-апракоса-текущего-дня-с-учетом-всех-отступок-для-данной-седмицы-богослужебного-года">Функция генерерирует <code>URL</code> на чтения Апракоса текущего дня с учетом всех отступок для данной седмицы Богослужебного года.</h3>
 <hr>
-<p>Допустим у нас код:</p>
-<div><pre class="line-numbers"><code class="language-ts">     /** 007.md
-     *  функция, которая в зависимости от входящего ключа-нгода формирует две даты Пасх
-     */
-  keyNewYear(keyYear: number) {
-    console.log(keyYear, &quot; -- keyYear&quot;);
-
-    // объект для экспортирования в другой компонент
-    this.datesEasterYear =
-    {
-      &quot;lastEaster&quot;:
-      new Date(this.keyYear - 1, PASKHALIA[this.keyYear - 1][0],
-        PASKHALIA[this.keyYear -1][1]).getTime(),
-        // возращаае тип number в миллисекундах
-        &quot;nextEaster&quot;:
-        new Date(this.keyYear, PASKHALIA[this.keyYear][0],
-          PASKHALIA[this.keyYear][1]).getTime()
-    }
-
-
-    // return console.log(typeof(this.datesEasterYear.nextEaster));
-
-  }
-</code></pre></div><p>Так вот, в первой строке коментария к данной функции указан номер страницы для данного мануала, где и можно <strong>подробнее</strong> узнать о данном объекте <a href="007.html">007</a>.</p>
+<p>Переменная <code>correctingLinkToReadAprakos</code> содержит результат проверки тернарного оператора. Оператор проверяет число текущей седмицы и если седмица по Пасхе более <strong>сороковой</strong>, тогда к вычислению ГКД добавляется число отступки промежуточных седмиц. </p>
+<p>Число промежуточных седмиц, это число, которое получается при вычислении разницы между количеством седмиц Богослужебного года и числом <code>50</code>.</p>
+<p>Число <code>50</code>, это количество седмиц уставного Богослужебного года. То есть, это <code>50</code> седмиц, на которые распределены все зачала для полного прочтения Евангелия и Апостола.</p>
+<p>Говоря проще: </p>
+<p><code>50</code> - это стандарт Апракоса.</p>
 <hr>
-<p><a href="001.html">далее</a></p>
+<p><a href="010.!html">далее</a></p>
 
                    </div><div class="search-results">
     <div class="has-results">
@@ -97,7 +78,7 @@
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
-            var COMPODOC_CURRENT_PAGE_URL = 'маркировка.html';
+            var COMPODOC_CURRENT_PAGE_URL = '009.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

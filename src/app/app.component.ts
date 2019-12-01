@@ -27,8 +27,6 @@ export default class AppComponent implements OnInit {
    * ???
    */
   public timeOut: string = "classOFF";
-
-  public linkTo
   
 
   constructor(public _linksService: LinksService) { }

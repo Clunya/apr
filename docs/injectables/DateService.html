@@ -235,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="134"
-                            class="link-to-prism">src/app/svrs/date.service.ts:134</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">src/app/svrs/date.service.ts:132</a></div>
                 </td>
             </tr>
 
@@ -276,8 +276,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="127"
-                            class="link-to-prism">src/app/svrs/date.service.ts:127</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">src/app/svrs/date.service.ts:125</a></div>
                 </td>
             </tr>
 
@@ -310,7 +310,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>keyNewYear(per: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>keyNewYear()</code>
                 </td>
             </tr>
 
@@ -330,44 +330,8 @@
 </div>
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>per</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>– номер текущего года</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -875,12 +839,10 @@ export class DateService implements OnInit, Easter {
      * Функция, которая в зависимости от входящего ключа-года формирует две даты Пасх.
      * @param {number} per – номер текущего года
      */
-  keyNewYear(per: number) {
+  keyNewYear() {
     
-    // объект для экспортирования в другой компонент
-    /**
-     * Колекция содержит две даты Пасх (last and next)
-     */
+    // Колекция содержит две даты Пасх (last and next)
+  
     this.datesEasterYear &#x3D;
       {
 
@@ -957,7 +919,7 @@ export class DateService implements OnInit, Easter {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = '007.html';
+            var COMPODOC_CURRENT_PAGE_URL = '009.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

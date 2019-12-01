@@ -62,10 +62,25 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <a href="additional-documentation/маркировка.html" data-type="entity-link" data-context-id="additional">Маркировка</a>
                                     </li>
                                     <li class="link ">
+                                        <a href="additional-documentation/001.html" data-type="entity-link" data-context-id="additional">001</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/002.html" data-type="entity-link" data-context-id="additional">002</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/003.html" data-type="entity-link" data-context-id="additional">003</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/004.html" data-type="entity-link" data-context-id="additional">004</a>
+                                    </li>
+                                    <li class="link ">
                                         <a href="additional-documentation/006.html" data-type="entity-link" data-context-id="additional">006</a>
                                     </li>
                                     <li class="link ">
                                         <a href="additional-documentation/007.html" data-type="entity-link" data-context-id="additional">007</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/009.html" data-type="entity-link" data-context-id="additional">009</a>
                                     </li>
                         </ul>
                     </li>

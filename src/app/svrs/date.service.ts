@@ -63,6 +63,7 @@ export class DateService implements OnInit, Easter {
     this.timeBox = new Date();
     this.currentYear = this.timeBox.getFullYear();
     this.paskhaCurrentYear = new Date(this.currentYear, PASKHALIA[this.currentYear][0], PASKHALIA[this.currentYear][1]);
+    
     // prb1 (problema 1, смотри видео prb-1.mov)
     this.dateDeference = this.paskhaCurrentYear.getTime() -this.timeBox.getTime();
         if (this.dateDeference < 0){
@@ -70,7 +71,7 @@ export class DateService implements OnInit, Easter {
           // если НГ не был в текущем Пасхальном году
           this.keyYear = this.currentYear + 1;
           // ---------------------------
-          this.keyNewYear(this.keyYear);
+          this.keyNewYear();
           this.keyNewYearKey = "0";
         }
         else {
@@ -79,7 +80,7 @@ export class DateService implements OnInit, Easter {
           this.keyYear = this.currentYear;
           this.keyNewYearKey = "1";
           // ---------------------------
-          this.keyNewYear(this.keyYear);
+          this.keyNewYear();
         }
   }
 
@@ -91,12 +92,10 @@ export class DateService implements OnInit, Easter {
      * Функция, которая в зависимости от входящего ключа-года формирует две даты Пасх.
      * @param {number} per – номер текущего года
      */
-  keyNewYear(per: number) {
+  keyNewYear() {
     
-    // объект для экспортирования в другой компонент
-    /**
-     * Колекция содержит две даты Пасх (last and next)
-     */
+    // Колекция содержит две даты Пасх (last and next)
+  
     this.datesEasterYear =
       {
 

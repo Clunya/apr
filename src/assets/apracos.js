@@ -241,4 +241,3 @@ function seedPyatidesyatnica() {
         document.getElementById("date4").className += "blockOFF";
     }
 }
-

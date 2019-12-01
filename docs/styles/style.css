@@ -13,3 +13,13 @@ p {
 .content {
     background-color: #e6e6e6;
 }
+
+
+h3 {
+    line-height: 1.3;
+    color: #696969;
+}
+
+.code-toolbar {
+    padding-bottom: 4%;
+}

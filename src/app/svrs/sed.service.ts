@@ -154,7 +154,7 @@ export class SedService implements OnInit {
 
     /** 004.
      *  Вычисление даты для Недели Мытаря и Фарисея и количества промежуточных седмиц с учетом високосного года.
-     * 6047999999 - это десять седмиц в миллисекундах.
+     * 
      */
     this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999);
     this.mifRussianDate = this.mif.getDate() + " " + this._datesService.monthsRU[this.mif.getMonth()];
