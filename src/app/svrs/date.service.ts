@@ -26,7 +26,7 @@ export class DateService implements OnInit, Easter {
   timeBox: Date;
   paskhaCurrentYear: Date;
   currentYear: number;
-  keyNewYearKey: string;
+
   paskhaliaJSON: object;
   datesEasterYear: any;
 
@@ -72,13 +72,13 @@ export class DateService implements OnInit, Easter {
           this.keyYear = this.currentYear + 1;
           // ---------------------------
           this.keyNewYear();
-          this.keyNewYearKey = "0";
+          
         }
         else {
           // ---------------------------
           // если НГ был в текущем Пасхальном году
           this.keyYear = this.currentYear;
-          this.keyNewYearKey = "1";
+          
           // ---------------------------
           this.keyNewYear();
         }
