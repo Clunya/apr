@@ -8,25 +8,28 @@ import { SedService } from './sed.service';
   
 export class LinksService {
 
-  /**
-   * Ссылка на текущий день Минеи (Сий день).
+  /** 001.
+   * Переменная удерживает html-ссылку на Главную страницу дня. Далее ссылка парсится компонентом.
    */
   linkToPageOfTheDay: string;
 
-  /**
-   * Ссылка на текущие чтения Апракоса (Апрáкосъ).
+  /** 002.
+   * Переменная удерживает html-ссылку на страницу чтения Апракоса.
    */
   linkTheApracosDay: string;
+
 
   /**
    *  число текущего дня.
   */ 
   td: number;
+  gd: string; // для приведения в строку числа с начальным нолем – 01
 
   /**
    * Ссылка на #id страницы `stvol.html`.
    */
   idLink: string;
+
 
   constructor(public _sedSevice: SedService) {
 
@@ -38,9 +41,9 @@ export class LinksService {
    }
 
 
- /**
-     * Функция инициализирует переменную `linkToPageOfTheDay` ссылкой на страницу дня, в соответствии с Минеей (Сий день).
-     */
+/**
+    * Функция инициализирует переменную `linkToPageOfTheDay` ссылкой на страницу дня, в соответствии с Минеей (Сий день).
+    */
     pathToPageDay() {
 
       let mn = new Array('JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC');
@@ -52,8 +55,9 @@ export class LinksService {
       let d = new Date();
       this.td = d.getDate();
       if (this.td < 10) {
-        this.td = Number("0" + this.td);
+        this.gd = "0" + this.td;
       }
+
       let tm = d.getMonth();
       let ty = d.getFullYear();
       let marr = ((ty % 4) == 0) ? mnl : mnn;
@@ -71,20 +75,10 @@ export class LinksService {
   
       if (ss < 10) { var dd = '0' + ss; } else { dd = String(ss); }
   
-      this.linkToPageOfTheDay = (mn[mm] + "/" + dd + this.td + "/" + "index.html");
-      // console.log(this.linkToPageOfTheDay);
-  
-      //  перенаправление на директорию текущего дня
-      // location.replace(mn[mm] + "/" + dd + this.td + "/" + "index.html");
+      this.linkToPageOfTheDay = (mn[mm] + "/" + dd + this.gd + "/" + "index.html");
+
     }
   
-    
-      // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-    
-      // STOP:START date: 31/12/2019, time: 00:03
-      // note: Добавить описание номеров в документацию (numberdocs)
-    
-      // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     
     /** 009.
      * Функция инициализирует переменную `pathToPageApracosDay`.
@@ -101,7 +95,7 @@ export class LinksService {
   
   /**
    * Функция инициализирует переменную `idLink` ссылкой на странице `stvol.html`.
-   * Ссылка ведет на текущую седмицу БЕЗ УЧЕТА отступок и преступок.
+   * Ссылка (#id) на текущую седмицу текущей страницы БЕЗ УЧЕТА отступок и преступок.
    */
   
   idLinksToSed() {

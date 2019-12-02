@@ -11,32 +11,6 @@ import { LinksService } from '../svrs/links.service';
 
 export class SedComponent {
 
-  // @Input()
-  // datesEasterYear: any;
-
-
-  // keyNewYearKey: number;
-  // monthsArray: string[];
-  // sumWeeks: number;
-  // currentWeek: number;
-  // weekAfterPyatidesyatnica: number;
-  // glas: string;
-
-  // timeBoxVozdvijjenie: number;
-  // sumWeeksAfterVozdvijjenie: number;
-  // timeBox = new Date().getTime();
-  // numberVozdvijjenie: number;
-
-  // yearLastEaster: Date;
-  // yearNextEaster: Date;
-
-  // otstupkaV: number;
-  // prestupkaV: number;
-
-  // mif: Date;
-  // betweenWeeks: number;
-  // mifRussianDate?: string;
-
   /**
    * CSS седмицы 
    */
@@ -46,15 +20,9 @@ export class SedComponent {
     "font-size": "1.5em"
   };
 
-  // v_year: boolean;
-  // stupka: string;
-
   constructor(public _sedService: SedService, public _linksServise: LinksService) {
+                //----------
   }
 
 }
 
-
-
-// С седмицами окончено.
-// Продолжение в расширениях этого класса

@@ -4,9 +4,7 @@
 */
 import { Component, Injectable, OnInit } from '@angular/core';
 import { DateService } from '../svrs/date.service';
-import { Easter } from '../intrfc/interfaces';
 import { LinksService } from '../svrs/links.service';
-import { SedService } from '../svrs/sed.service';
 
 
 @Injectable()
@@ -23,21 +21,8 @@ import { SedService } from '../svrs/sed.service';
 })
 
 
-export class PaskhaComponent implements OnInit {
+export class PaskhaComponent {
 
-  keyYear: number; // Главный ключ
-  timeBox: Date;
-  paskhaCurrentYear: Date;
-  currentYear: number;
-  keyNewYearKey: string;
-  PASKHALIA: object;
-  paskhaliaJSON: object;
-  datesEasterYear: any;
-  dateDeference: number;
-
-  ruDateLastEaster: string;
-
-  
   constructor (public _datesService: DateService, public _linksService: LinksService) {
 
     // this._datesService.getPaskhaliaFromJSON().subscribe(data => this.paskhaliaJSON = data); // инициализация переменной paskhaliaJSON значениями из файла paskhalia.json 
@@ -45,6 +30,7 @@ export class PaskhaComponent implements OnInit {
   }
   
   ngOnInit() {
+
     // инициализация интефейса компонента
     // console.log(this.timeBox);
   

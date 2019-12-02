@@ -19,10 +19,11 @@ import { Easter } from '../intrfc/interfaces';
 
 export class DateService implements OnInit, Easter {
   
-  linkToPageOfTheDay: string;
-  linkTheApracosDay: string;
-
+  /** 008.
+   * 
+   */
   keyYear: number; // Главный ключ
+  
   timeBox: Date;
   paskhaCurrentYear: Date;
   currentYear: number;
@@ -39,9 +40,9 @@ export class DateService implements OnInit, Easter {
    */
   dateDeference: number;
 
-    /** 
-   *  Массив для конвертации месяцев в русский язык
-*/
+/**
+ *  Массив для конвертации месяцев в русский язык
+ */
   monthsRU = [
     "января", "февраля", "марта", "апреля", "мая", "июня", "июля",
     "августа", "сентября", "октября", "ноября", "декабря"
@@ -56,6 +57,7 @@ export class DateService implements OnInit, Easter {
      * свойство для работы с протоколом http
      */
   constructor(private http: HttpClient) {
+
 
     this.paskhaliaJSON = PASKHALIA;
     // this.PASKHALIAJSON2 = this.getPaskhaliaFromJSON().subscribe(data => this.PASKHALIAJSON2 = data); 
@@ -85,7 +87,7 @@ export class DateService implements OnInit, Easter {
   }
 
   ngOnInit() {
-
+   
   }
 
      /** 007.md
@@ -111,13 +113,9 @@ export class DateService implements OnInit, Easter {
             PASKHALIA[this.keyYear][1]).getTime(),
 
         "nextEasterRU":   PASKHALIA[this.keyYear][1]+" "+
-          this.monthsRU[PASKHALIA[this.keyYear][0]] +" "+ (this.keyYear)
+          this.monthsRU[PASKHALIA[this.keyYear][0]] + " " + (this.keyYear)
         
       }
-
-
-    // return console.log(typeof(this.datesEasterYear.nextEaster));
-
   }
   
 /**
@@ -131,11 +129,10 @@ export class DateService implements OnInit, Easter {
   
 
   getPaskhaliaArray() {
+
     return PASKHALIA
   }
 
-  
 
-// --
 
 }

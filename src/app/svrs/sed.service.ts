@@ -27,8 +27,6 @@ const GLASSEDMIC = {
 
 export class SedService implements OnInit {
 
-  keyNewYearKey: number;
-
   /**
    * Массив строк который находится в `_datesService` по умолчанию.
    * 
@@ -59,7 +57,7 @@ export class SedService implements OnInit {
   /**
    * Сумма седмиц от Пасхи до Воздвижения.
    */
-  sumWeeksAfterVozdvijjenie: number;
+  sumWeeksBeforeVozdvijjenie: number;
 
 
   timeBox = new Date().getTime();
@@ -94,11 +92,6 @@ export class SedService implements OnInit {
   mifRussianDate?: string;
 
   /**
-   * Високосный год.
-   */
-  v_year: boolean;
-
-  /**
    * Переменная для вывода русского слова в шаблоне html (преступка или отступка).
    */
   stupka: string;
@@ -106,9 +99,11 @@ export class SedService implements OnInit {
 
   public constructor(public _datesService: DateService) {
 
-    this.v_year = this.vg();
+    console.warn("Грядущая Православная Пасха: ", this._datesService.datesEasterYear.nextEasterRU)
+
     this.numberOfWeeks();
     this.otstupkaVozdvijjenie();
+    console.log("Воздвиженская " + this.stupka + ": ", this.otstupkaV);
     this.promWeeks();
 
 
@@ -120,18 +115,6 @@ export class SedService implements OnInit {
   ngOnInit() {
   }
 
-
-  /**
-   * Проверяет гражданский год грядущей Пасхи на високосность.
-   * 
-   * @return true or false
-   */
-  vg(): boolean {
-
-    var year2 = this._datesService.datesEasterYear.nextEaster;
-    return ((year2 % 4 == 0) && (year2 % 100 != 0)) || (year2 % 400 == 0);
-
-  }
 
   /** 003.
    * Вычисление `разницы` между текущем временем и датой прошедшей Пасхи.
@@ -159,62 +142,52 @@ export class SedService implements OnInit {
     this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999);
     this.mifRussianDate = this.mif.getDate() + " " + this._datesService.monthsRU[this.mif.getMonth()];
 
-    if (this.v_year) {
-
-      console.log("Дата МиФ для високосного года – ", this.mifRussianDate);
-    }
-
-    else {
-
-      console.log("Дата Мытаря и Фарисея – ", this.mifRussianDate);
-
-    }
-
-    console.log("Текущая седмица", this.currentWeek);
+    console.log("Текущая седмица по Пятьдесятнице: ", this.currentWeek);
     console.log("Кол-во седмиц в Пасхальном году (между Пасхами): ", this.sumWeeks);
   }
 
   /**
    * Возвращает кол-во седмиц отступки или преступки для праздника Воздвижения Креста.
-   * @param return количество седмиц.
+   * @return количество седмиц.
    */
   private otstupkaVozdvijjenie() {
     this.yearLastEaster = new Date(this._datesService.datesEasterYear.lastEaster);
     this.numberVozdvijjenie = this.yearLastEaster.getFullYear();
     this.timeBoxVozdvijjenie = new Date(this.numberVozdvijjenie, 8, 27).getTime();
-    this.sumWeeksAfterVozdvijjenie = (Math.trunc((this.timeBoxVozdvijjenie - this._datesService.datesEasterYear.lastEaster) / DMS / 7) - 6);
-    console.warn("Количество седмиц от Пятидесятницы до Воздвижения Креста: ", this.sumWeeksAfterVozdvijjenie + ".\nОт Пасхи же: " + (this.sumWeeksAfterVozdvijjenie+6));
+    this.sumWeeksBeforeVozdvijjenie = (Math.trunc((this.timeBoxVozdvijjenie - this._datesService.datesEasterYear.lastEaster) / DMS / 7) - 6);
 
-    if (this.sumWeeksAfterVozdvijjenie > 17) {
-      this.otstupkaV = this.sumWeeksAfterVozdvijjenie - 17;
+    console.log("От Пятьдесятницы до Воздвижения Креста: ", this.sumWeeksBeforeVozdvijjenie);
+    
+    if (this.sumWeeksBeforeVozdvijjenie > 17) {
+      this.otstupkaV = this.sumWeeksBeforeVozdvijjenie - 17;
       this.stupka = "отступка"
     }
-    else this.otstupkaV = 17 - this.sumWeeksAfterVozdvijjenie;
+    else this.otstupkaV = 17 - this.sumWeeksBeforeVozdvijjenie;
     this.stupka = "преступка"
-
+    
     /**
      * В данном операторе `if` проверяется было ли Воздвижение и превышает ли кол-во седмиц число 17. Если да, то возвращается разность (otstupkaV), на которую больше прошло седмиц.
      * 
      */
-    if (this.timeBox >= this.timeBoxVozdvijjenie && this.sumWeeks > this.sumWeeksAfterVozdvijjenie && this.sumWeeks > 17) {
+    if (this.timeBox >= this.timeBoxVozdvijjenie && this.sumWeeks > this.sumWeeksBeforeVozdvijjenie && this.sumWeeks > 17) {
       return ("Отступка по Воздвижении в седмицах: " + this.otstupkaV);
     }
-
+    
     /**
      * В данном `if` возвращается нехватка до семнадцати седмиц если праздник Воздвижения случился ранее 17 седмицы после Пасхи.
      * 
      */
-    else if (this.timeBox >= this.timeBoxVozdvijjenie && this.sumWeeks < this.sumWeeksAfterVozdvijjenie && this.sumWeeks > 17) {
+    else if (this.timeBox >= this.timeBoxVozdvijjenie && this.sumWeeks < this.sumWeeksBeforeVozdvijjenie && this.sumWeeks > 17) {
       var clog = 'Преступка ' + this.prestupkaV
       return (clog);
-
+      
     }
-
+    
     else
-      console.log("До Воздвижения осталось седмиц: ", (this.sumWeeksAfterVozdvijjenie - this.currentWeek));
-
+    console.log("До Воздвижения осталось седмиц: ", (this.sumWeeksBeforeVozdvijjenie - this.currentWeek));
+    
   }
-
+  
   /**
    * Возвращает глас Октоиха по номеру седмицы случившейся после Пасхи, но не по Пятьдесятнице.
    *  
