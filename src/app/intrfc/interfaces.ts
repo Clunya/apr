@@ -5,7 +5,7 @@ export interface Easter {
   keyYear: number; // Главный ключ
 
   /**
-   * Тукущая дата для вычисления других дат
+   * Тeкущая Дата для вычисления других дат
    */
   timeBox: Date;
 
@@ -20,7 +20,7 @@ export interface Easter {
   currentYear: any;
 
   /**
-   * Пасхалия как объект 
+   * Пасхалия как объект.
    */
   // PASKHALIA: any;
 

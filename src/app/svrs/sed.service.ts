@@ -100,10 +100,12 @@ export class SedService implements OnInit {
   public constructor(public _datesService: DateService) {
 
     console.warn("Грядущая Православная Пасха: ", this._datesService.datesEasterYear.nextEasterRU)
+    
 
     this.numberOfWeeks();
     this.otstupkaVozdvijjenie();
-    console.log("Воздвиженская " + this.stupka + ": ", this.otstupkaV);
+    console.log(`Воздвиженская ${this.stupka} : ${this.otstupkaV}`);
+    
     this.promWeeks();
 
 
@@ -142,8 +144,8 @@ export class SedService implements OnInit {
     this.mif = new Date(this._datesService.datesEasterYear.nextEaster - 6047999999);
     this.mifRussianDate = this.mif.getDate() + " " + this._datesService.monthsRU[this.mif.getMonth()];
 
-    console.log("Текущая седмица по Пятьдесятнице: ", this.currentWeek);
-    console.log("Кол-во седмиц в Пасхальном году (между Пасхами): ", this.sumWeeks);
+    console.log(`Текущая седмица по Пятьдесятнице: ${this.currentWeek}`)
+    console.log(`Кол-во седмиц в Пасхальном году (между Пасхами): ${this.sumWeeks}`);
   }
 
   /**
@@ -154,9 +156,9 @@ export class SedService implements OnInit {
     this.yearLastEaster = new Date(this._datesService.datesEasterYear.lastEaster);
     this.numberVozdvijjenie = this.yearLastEaster.getFullYear();
     this.timeBoxVozdvijjenie = new Date(this.numberVozdvijjenie, 8, 27).getTime();
-    this.sumWeeksBeforeVozdvijjenie = (Math.trunc((this.timeBoxVozdvijjenie - this._datesService.datesEasterYear.lastEaster) / DMS / 7) - 6);
+    this.sumWeeksBeforeVozdvijjenie = (Math.trunc((this.timeBoxVozdvijjenie - this._datesService.datesEasterYear.lastEaster) / DMS / 7) - 6); // 6 - это число седмиц до Пятьдесятницы
 
-    console.log("От Пятьдесятницы до Воздвижения Креста: ", this.sumWeeksBeforeVozdvijjenie);
+    console.log(`От Пятьдесятницы до Воздвижения Креста: ${this.sumWeeksBeforeVozdvijjenie}`)
     
     if (this.sumWeeksBeforeVozdvijjenie > 17) {
       this.otstupkaV = this.sumWeeksBeforeVozdvijjenie - 17;
@@ -179,9 +181,7 @@ export class SedService implements OnInit {
      */
     else if (this.timeBox >= this.timeBoxVozdvijjenie && this.sumWeeks < this.sumWeeksBeforeVozdvijjenie && this.sumWeeks > 17) {
       var clog = 'Преступка ' + this.prestupkaV
-      return (clog);
-      
-    }
+      return (clog); }
     
     else
     console.log("До Воздвижения осталось седмиц: ", (this.sumWeeksBeforeVozdvijjenie - this.currentWeek));
@@ -212,7 +212,7 @@ export class SedService implements OnInit {
   private promWeeks() {
 
       this.betweenWeeks = this.sumWeeks - (17 + 33);
-      console.log("Промежуточных седмиц: ", this.betweenWeeks);
+      console.log(`Промежуточных седмиц: ${this.betweenWeeks} `)
 
 
   }
