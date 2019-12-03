@@ -226,8 +226,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="131"
-                            class="link-to-prism">src/app/svrs/date.service.ts:131</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">src/app/svrs/date.service.ts:129</a></div>
                 </td>
             </tr>
 
@@ -267,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">src/app/svrs/date.service.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">src/app/svrs/date.service.ts:122</a></div>
                 </td>
             </tr>
 
@@ -316,8 +316,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>007.md
-Функция, которая в зависимости от входящего ключа-года формирует две даты Пасх.</p>
+                    <div class="io-description"><p>007
+Функция, которая в зависимости от ключа-года <code>keyYear</code> устанавливает в коллекцию две даты Пасх.</p>
 </div>
 
                     <div class="io-description">
@@ -686,7 +686,7 @@ export class DateService implements OnInit, Easter {
   /** 008.
    * 
    */
-  keyYear: number; // Главный ключ
+  keyYear: number; // Главный ключ полугодия
   
   timeBox: Date;
   paskhaCurrentYear: Date;
@@ -734,7 +734,7 @@ export class DateService implements OnInit, Easter {
     this.dateDeference &#x3D; this.paskhaCurrentYear.getTime() -this.timeBox.getTime();
         if (this.dateDeference &lt; 0){
           // ---------------------------
-          // если НГ не был в текущем Пасхальном году
+          // если  ГНГ не наступил в текущем Пасхальном году
           this.keyYear &#x3D; this.currentYear + 1;
           // ---------------------------
           this.keyNewYear();
@@ -742,7 +742,7 @@ export class DateService implements OnInit, Easter {
         }
         else {
           // ---------------------------
-          // если НГ был в текущем Пасхальном году
+          // если ГНГ наступил в текущем Пасхальном году
           this.keyYear &#x3D; this.currentYear;
           
           // ---------------------------
@@ -754,14 +754,12 @@ export class DateService implements OnInit, Easter {
    
   }
 
-     /** 007.md
-     * Функция, которая в зависимости от входящего ключа-года формирует две даты Пасх.
-     * @param {number} per – номер текущего года
+     /** 007
+     * Функция, которая в зависимости от ключа-года &#x60;keyYear&#x60; устанавливает в коллекцию две даты Пасх.
+     * 
      */
   keyNewYear() {
     
-    // Колекция содержит две даты Пасх (last and next)
-  
     this.datesEasterYear &#x3D;
       {
 
@@ -833,7 +831,7 @@ export class DateService implements OnInit, Easter {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'DateService.html';
+            var COMPODOC_CURRENT_PAGE_URL = '009.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
