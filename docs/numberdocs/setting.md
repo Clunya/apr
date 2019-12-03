@@ -30,7 +30,7 @@ ng version
 
 Этот файл можно скопировать из пробной установки `node-module`.
 
-Для установки `node-module` в `dev/aprakos` введя в терминале: 
+Для установки `node-module` в `dev/aprakos` введите в терминале: 
 
 ```bash
 npm install ~/dev/aprakos/apr
@@ -48,18 +48,18 @@ ng s -o
 
 ## **Сборка компонентов**
 
-Генерация нового компонента 
+Генерация нового компонента.
 
 ```bash
 ng generate component component-name
 ```
-Вы можете дополнительно использовать команды и дерективы 
+Вы можете дополнительно использовать команды и дерективы.
 
 ```bash
 ng generate directive|pipe|service|class|guard|interface|enum|module
 ```
 
-## **Сборка проекта**
+## **Сборка проекта**.
 
 Выполните в консоли:
 
@@ -69,7 +69,7 @@ ng build
 
 для сборки проекта. Проект будет сохранен в директории `dist/`. Используйте флаг `--prod` для окончательного варианта публикации.
 
-## **Запуск юнит тестов**
+## **Запуск юнит тестов**.
 
 Выполните:
 
@@ -78,7 +78,7 @@ ng test
 ```
 to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## **Запуск end-to-end тестов**
+## **Запуск end-to-end тестов**.
 
 Выполните:
 
@@ -88,9 +88,9 @@ ng e2e
 
 to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Дополнительная информация
+## Дополнительная информация.
 
-To get more help on the Angular CLI use 
+To get more help on the Angular CLI use.
 
 ```bash
 ng help
@@ -100,7 +100,7 @@ or go check out the [Angular CLI README](https://github.com/angular/angular-cli/
 
 ---
 
-## **Сборка документации программой `Compodoc`**
+## **Сборка документации программой `Compodoc`**.
 
 *Папка /documentation может быть скрыта в проводнике редактора кода. Смотри настройки VSCode*.
 
@@ -120,6 +120,7 @@ npm run compodoc
 Дополнительные настройки тем *compodoca* и др. - смотреть в файле `package.json`.
 
 ---
+
 [маркировка](маркировка.html)
 
 <br>

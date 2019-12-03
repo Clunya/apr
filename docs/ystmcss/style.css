@@ -5,6 +5,7 @@
 @import "./ionicons.min.css";
 @import "./compodoc.css";
 @import "./tablesort.css";
+@import "./postmark.css";
 
 p {
     font-size: larger;

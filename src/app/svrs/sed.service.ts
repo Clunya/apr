@@ -60,8 +60,14 @@ export class SedService implements OnInit {
   sumWeeksBeforeVozdvijjenie: number;
 
 
+  /**
+   * Текущая дата
+   */
   timeBox = new Date().getTime();
-
+  
+  /**
+   * Чмсло праздника Воздвижения на текущий БГ
+   */
   numberVozdvijjenie: number;
 
   /**
@@ -77,7 +83,7 @@ export class SedService implements OnInit {
   prestupkaV: number;
 
   /**
-   * Переменная даты Недели Мытаря и Фарисея.
+   * Дата Недели Мытаря и Фарисея.
    */
   mif: Date;
 
@@ -87,7 +93,7 @@ export class SedService implements OnInit {
   betweenWeeks: number;
 
   /**
-   * Конвертированная дата МиФb.
+   * Конвертированная дата МиФ.
    */
   mifRussianDate?: string;
 
