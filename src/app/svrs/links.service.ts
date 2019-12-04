@@ -21,7 +21,7 @@ export class LinksService {
 
   /**
    *  число текущего дня.
-  */ 
+  */
   td: number;
   gd: string; // для приведения в строку числа с начальным нолем – 01
 
@@ -38,36 +38,44 @@ export class LinksService {
     this.pathToPageApracosDay();
     this.idLinksToSed();
 
-   }
+  }
 
 
-/**
-    * Функция инициализирует переменную `linkToPageOfTheDay` ссылкой на страницу дня, в соответствии с Минеей (Сий день).
-    */
-    pathToPageDay() {
+  /**
+      * Функция инициализирует переменную `linkToPageOfTheDay` ссылкой на страницу дня, в соответствии с Минеей (Сий день).
+      */
+  pathToPageDay() {
 
-      let mn = new Array('JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC');
-      // дней в месяцах
-      let mnn = new Array('31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31');
-      // високос
-      let mnl = new Array('31', '29', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31');
-  
-      let d = new Date();
+    let months = new Array('JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC');
+    // дней в месяцах
+    let notVisokos = new Array('31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31');
+    // високос
+    let visokos = new Array('31', '29', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31');
+
+
+      let d = new Date
       this.td = d.getDate();
+  
+      //-=-=-=-=-=-=-=-=-=-=-
+      console.warn(this.td)
+      //-=-=-=-=-=-=-=-=-=-=-
+
       if (this.td < 10) {
         this.gd = "0" + this.td;
+      } else {
+        this.gd = String(this.td)
       }
 
       let tm = d.getMonth();
       let ty = d.getFullYear();
-      let marr = ((ty % 4) == 0) ? mnl : mnn;
+      let visekt = ((ty % 4) == 0) ? visokos : notVisokos;
   
       if (tm == 0 && this.td <= 13) {
         var mm = 11;
-        var ss = Number(marr[mm]) - (13 - this.td);
+        var ss = Number(visekt[mm]) - (13 - this.td);
       } else if (tm > 0 && this.td <= 13) {
         mm = tm - 1;
-        ss = Number(marr[mm]) - (13 - this.td);
+        ss = Number(visekt[mm]) - (13 - this.td);
       } else {
         mm = tm;
         ss = (this.td - 13);
@@ -75,7 +83,7 @@ export class LinksService {
   
       if (ss < 10) { var dd = '0' + ss; } else { dd = String(ss); }
   
-      this.linkToPageOfTheDay = (mn[mm] + "/" + dd + this.gd + "/" + "index.html");
+      this.linkToPageOfTheDay = (months[mm] + "/" + dd + this.CorrectingMonthNumbersDay( months[mm], this.gd) + "/" + "index.html");
 
     }
   
@@ -97,9 +105,38 @@ export class LinksService {
    * Функция инициализирует переменную `idLink` ссылкой на странице `stvol.html`.
    * Ссылка (#id) на текущую седмицу текущей страницы БЕЗ УЧЕТА отступок и преступок.
    */
-  
   idLinksToSed() {
     this.idLink = ("#seed" + this._sedSevice.currentWeek)
-    }
-}
+  }
+  
+  /** 005.
+   * Функция увеличивает Юлианскую дату в високосном году, в дапазоне от 29 февраля до 16 марта на единицу.
+   * 
+   * @param month принимает один из двух месяцев (Февраль или Март).
+   * @param gd принимает Юлианскую дату.
+   * @return Юлианскую дату.
+   */
+  CorrectingMonthNumbersDay(month: String, gd: String ): String {
+    let n = Number(gd)
 
+    if ( month === "FEB" && n === 29  ) {
+      return "01"
+    }
+    if (n < 16 && month === "MAR") {
+
+      if (n < 10) {
+        
+        return "0" + (n + 1)
+        
+      } else {
+
+        return String(n + 1)
+        
+      }
+      
+    }
+    
+    return gd
+
+  }
+}

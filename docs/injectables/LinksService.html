@@ -110,6 +110,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#CorrectingMonthNumbersDay">CorrectingMonthNumbersDay</a>
+                            </li>
+                            <li>
                                 <a href="#idLinksToSed">idLinksToSed</a>
                             </li>
                             <li>
@@ -188,6 +191,101 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="CorrectingMonthNumbersDay"></a>
+                    <span class="name">
+                        <b>
+                            CorrectingMonthNumbersDay
+                        </b>
+                        <a href="#CorrectingMonthNumbersDay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>CorrectingMonthNumbersDay(month: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">String</a>, gd: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">String</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">src/app/svrs/links.service.ts:119</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>005.
+Функция увеличивает Юлианскую дату в високосном году, в дапазоне от 29 февраля до 16 марта на единицу.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>month</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>принимает один из двух месяцев (Февраль или Март).</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>gd</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>принимает Юлианскую дату.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Юлианскую дату.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="idLinksToSed"></a>
                     <span class="name">
                         <b>
@@ -206,8 +304,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">src/app/svrs/links.service.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">src/app/svrs/links.service.ts:108</a></div>
                 </td>
             </tr>
 
@@ -248,8 +346,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">src/app/svrs/links.service.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/app/svrs/links.service.ts:96</a></div>
                 </td>
             </tr>
 
@@ -538,7 +636,7 @@ export class LinksService {
 
   /**
    *  число текущего дня.
-  */ 
+  */
   td: number;
   gd: string; // для приведения в строку числа с начальным нолем – 01
 
@@ -555,36 +653,44 @@ export class LinksService {
     this.pathToPageApracosDay();
     this.idLinksToSed();
 
-   }
+  }
 
 
-/**
-    * Функция инициализирует переменную &#x60;linkToPageOfTheDay&#x60; ссылкой на страницу дня, в соответствии с Минеей (Сий день).
-    */
-    pathToPageDay() {
+  /**
+      * Функция инициализирует переменную &#x60;linkToPageOfTheDay&#x60; ссылкой на страницу дня, в соответствии с Минеей (Сий день).
+      */
+  pathToPageDay() {
 
-      let mn &#x3D; new Array(&#x27;JAN&#x27;, &#x27;FEB&#x27;, &#x27;MAR&#x27;, &#x27;APR&#x27;, &#x27;MAY&#x27;, &#x27;JUN&#x27;, &#x27;JUL&#x27;, &#x27;AUG&#x27;, &#x27;SEP&#x27;, &#x27;OCT&#x27;, &#x27;NOV&#x27;, &#x27;DEC&#x27;);
-      // дней в месяцах
-      let mnn &#x3D; new Array(&#x27;31&#x27;, &#x27;28&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;);
-      // високос
-      let mnl &#x3D; new Array(&#x27;31&#x27;, &#x27;29&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;);
-  
-      let d &#x3D; new Date();
+    let months &#x3D; new Array(&#x27;JAN&#x27;, &#x27;FEB&#x27;, &#x27;MAR&#x27;, &#x27;APR&#x27;, &#x27;MAY&#x27;, &#x27;JUN&#x27;, &#x27;JUL&#x27;, &#x27;AUG&#x27;, &#x27;SEP&#x27;, &#x27;OCT&#x27;, &#x27;NOV&#x27;, &#x27;DEC&#x27;);
+    // дней в месяцах
+    let notVisokos &#x3D; new Array(&#x27;31&#x27;, &#x27;28&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;);
+    // високос
+    let visokos &#x3D; new Array(&#x27;31&#x27;, &#x27;29&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;);
+
+
+      let d &#x3D; new Date
       this.td &#x3D; d.getDate();
+  
+      //-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-
+      console.warn(this.td)
+      //-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-
+
       if (this.td &lt; 10) {
         this.gd &#x3D; &quot;0&quot; + this.td;
+      } else {
+        this.gd &#x3D; String(this.td)
       }
 
       let tm &#x3D; d.getMonth();
       let ty &#x3D; d.getFullYear();
-      let marr &#x3D; ((ty % 4) &#x3D;&#x3D; 0) ? mnl : mnn;
+      let visekt &#x3D; ((ty % 4) &#x3D;&#x3D; 0) ? visokos : notVisokos;
   
       if (tm &#x3D;&#x3D; 0 &amp;&amp; this.td &lt;&#x3D; 13) {
         var mm &#x3D; 11;
-        var ss &#x3D; Number(marr[mm]) - (13 - this.td);
+        var ss &#x3D; Number(visekt[mm]) - (13 - this.td);
       } else if (tm &gt; 0 &amp;&amp; this.td &lt;&#x3D; 13) {
         mm &#x3D; tm - 1;
-        ss &#x3D; Number(marr[mm]) - (13 - this.td);
+        ss &#x3D; Number(visekt[mm]) - (13 - this.td);
       } else {
         mm &#x3D; tm;
         ss &#x3D; (this.td - 13);
@@ -592,7 +698,7 @@ export class LinksService {
   
       if (ss &lt; 10) { var dd &#x3D; &#x27;0&#x27; + ss; } else { dd &#x3D; String(ss); }
   
-      this.linkToPageOfTheDay &#x3D; (mn[mm] + &quot;/&quot; + dd + this.gd + &quot;/&quot; + &quot;index.html&quot;);
+      this.linkToPageOfTheDay &#x3D; (months[mm] + &quot;/&quot; + dd + this.CorrectingMonthNumbersDay( months[mm], this.gd) + &quot;/&quot; + &quot;index.html&quot;);
 
     }
   
@@ -614,12 +720,41 @@ export class LinksService {
    * Функция инициализирует переменную &#x60;idLink&#x60; ссылкой на странице &#x60;stvol.html&#x60;.
    * Ссылка (#id) на текущую седмицу текущей страницы БЕЗ УЧЕТА отступок и преступок.
    */
-  
   idLinksToSed() {
     this.idLink &#x3D; (&quot;#seed&quot; + this._sedSevice.currentWeek)
-    }
-}
+  }
+  
+  /** 005.
+   * Функция увеличивает Юлианскую дату в високосном году, в дапазоне от 29 февраля до 16 марта на единицу.
+   * 
+   * @param month принимает один из двух месяцев (Февраль или Март).
+   * @param gd принимает Юлианскую дату.
+   * @return Юлианскую дату.
+   */
+  CorrectingMonthNumbersDay(month: String, gd: String ): String {
+    let n &#x3D; Number(gd)
 
+    if ( month &#x3D;&#x3D;&#x3D; &quot;FEB&quot; &amp;&amp; n &#x3D;&#x3D;&#x3D; 29  ) {
+      return &quot;01&quot;
+    }
+    if (n &lt; 16 &amp;&amp; month &#x3D;&#x3D;&#x3D; &quot;MAR&quot;) {
+
+      if (n &lt; 10) {
+        
+        return &quot;0&quot; + (n + 1)
+        
+      } else {
+
+        return String(n + 1)
+        
+      }
+      
+    }
+    
+    return gd
+
+  }
+}
 </code></pre>
     </div>
 
