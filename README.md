@@ -6,7 +6,7 @@
 
 ## [Смотреть документацию здесь](https://clunya.github.io/apr)
 
-Приложение верстается на Angular CLI.
+Приложение верстается на Angular CLI 8 и выше.
 
 1. [Установка и настройка](additional-documentation/настройка-проекта.html)
 1. [Введение и дальнейшее толкование](additional-documentation/введение.html)
