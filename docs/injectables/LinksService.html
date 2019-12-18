@@ -202,7 +202,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>CorrectingMonthNumbersDay(month: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">String</a>, gd: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">String</a>)</code>
+<code>CorrectingMonthNumbersDay(visekt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">String</a>, gd: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">String</a>)</code>
                 </td>
             </tr>
 
@@ -234,7 +234,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>month</td>
+                                    <td>visekt</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
                                     </td>
@@ -245,8 +245,6 @@
 
 
                                     <td>
-                                        <p>принимает один из двух месяцев (Февраль или Март).</p>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -668,7 +666,7 @@ export class LinksService {
     let visokos &#x3D; new Array(&#x27;31&#x27;, &#x27;29&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;, &#x27;30&#x27;, &#x27;31&#x27;);
 
 
-      let d &#x3D; new Date
+      let d &#x3D; new Date()
       this.td &#x3D; d.getDate();
   
       //-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-
@@ -698,7 +696,7 @@ export class LinksService {
   
       if (ss &lt; 10) { var dd &#x3D; &#x27;0&#x27; + ss; } else { dd &#x3D; String(ss); }
   
-      this.linkToPageOfTheDay &#x3D; (months[mm] + &quot;/&quot; + dd + this.CorrectingMonthNumbersDay( months[mm], this.gd) + &quot;/&quot; + &quot;index.html&quot;);
+      this.linkToPageOfTheDay &#x3D; (months[mm] + &quot;/&quot; + dd + this.CorrectingMonthNumbersDay( visekt[1], this.gd) + &quot;/&quot; + &quot;index.html&quot;);
 
     }
   
@@ -731,24 +729,12 @@ export class LinksService {
    * @param gd принимает Юлианскую дату.
    * @return Юлианскую дату.
    */
-  CorrectingMonthNumbersDay(month: String, gd: String ): String {
+  CorrectingMonthNumbersDay(visekt: String, gd: String): String {
+
     let n &#x3D; Number(gd)
 
-    if ( month &#x3D;&#x3D;&#x3D; &quot;FEB&quot; &amp;&amp; n &#x3D;&#x3D;&#x3D; 29  ) {
-      return &quot;01&quot;
-    }
-    if (n &lt; 16 &amp;&amp; month &#x3D;&#x3D;&#x3D; &quot;MAR&quot;) {
-
-      if (n &lt; 10) {
-        
-        return &quot;0&quot; + (n + 1)
-        
-      } else {
-
-        return String(n + 1)
-        
-      }
-      
+    if (visekt &#x3D;&#x3D;&#x3D; &quot;29&quot; &amp;&amp; n &#x3D;&#x3D;&#x3D; 29) {
+      return &quot;00visekt&quot;
     }
     
     return gd

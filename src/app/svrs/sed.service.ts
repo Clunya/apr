@@ -100,18 +100,18 @@ export class SedService implements OnInit {
   /**
    * Переменная для вывода русского слова в шаблоне html (преступка или отступка).
    */
+
   stupka: string;
 
 
   public constructor(public _datesService: DateService) {
 
     console.warn("Грядущая Православная Пасха: ", this._datesService.datesEasterYear.nextEasterRU)
-    
+
 
     this.numberOfWeeks();
     this.otstupkaVozdvijjenie();
     console.log(`Воздвиженская ${this.stupka} : ${this.otstupkaV}`);
-    
     this.promWeeks();
 
 
@@ -198,8 +198,8 @@ export class SedService implements OnInit {
    * Возвращает глас Октоиха по номеру седмицы случившейся после Пасхи, но не по Пятьдесятнице.
    *  
    * @param {string} sedmica принимает строку.
-   * @returns возвращает номер гласа для текущей седмицы.
-   */
+    * @returns возвращает номер гласа для текущей седмицы.
+    */
   protected glasSed(sedmica: string | number) {
 
     if (sedmica) {

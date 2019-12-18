@@ -11,10 +11,8 @@ import { Easter } from '../intrfc/interfaces';
 
  };
 
-@Injectable({
-  providedIn: 'root'
-})
 
+@Injectable()
 
 
 export class DateService implements OnInit, Easter {
@@ -42,6 +40,7 @@ export class DateService implements OnInit, Easter {
 
 /**
  *  Массив для конвертации месяцев в русский язык
+ *
  */
   monthsRU = [
     "января", "февраля", "марта", "апреля", "мая", "июня", "июля",
@@ -60,8 +59,7 @@ export class DateService implements OnInit, Easter {
 
 
     this.paskhaliaJSON = PASKHALIA;
-    // this.PASKHALIAJSON2 = this.getPaskhaliaFromJSON().subscribe(data => this.PASKHALIAJSON2 = data); 
-    // инициализация переменной paskhalia значениями из файла paskhalia.json
+ 
     this.timeBox = new Date();
     this.currentYear = this.timeBox.getFullYear();
     this.paskhaCurrentYear = new Date(this.currentYear, PASKHALIA[this.currentYear][0], PASKHALIA[this.currentYear][1]);
@@ -121,8 +119,10 @@ export class DateService implements OnInit, Easter {
  */
   public getPaskhaliaFromJSON(){
     // Возвращает Пасхалию
-    return this.http.get<any>('./assets/paskhalia.json');
-    
+    return this.http.get<any>('./assets/paskhalia.json')
+
+    // подписка для компонета
+    // .subscribe(paskhaliaJSON => this.paskhaliaJSON = paskhaliaJSON);
   }
   
 

@@ -29,7 +29,7 @@ import { LinksService } from './svrs/links.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
 
   /**

@@ -53,7 +53,7 @@ export class LinksService {
     let visokos = new Array('31', '29', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31');
 
 
-      let d = new Date
+      let d = new Date()
       this.td = d.getDate();
   
       //-=-=-=-=-=-=-=-=-=-=-
@@ -83,7 +83,7 @@ export class LinksService {
   
       if (ss < 10) { var dd = '0' + ss; } else { dd = String(ss); }
   
-      this.linkToPageOfTheDay = (months[mm] + "/" + dd + this.CorrectingMonthNumbersDay( months[mm], this.gd) + "/" + "index.html");
+      this.linkToPageOfTheDay = (months[mm] + "/" + dd + this.CorrectingMonthNumbersDay( visekt[1], this.gd) + "/" + "index.html");
 
     }
   
@@ -116,24 +116,12 @@ export class LinksService {
    * @param gd принимает Юлианскую дату.
    * @return Юлианскую дату.
    */
-  CorrectingMonthNumbersDay(month: String, gd: String ): String {
+  CorrectingMonthNumbersDay(visekt: String, gd: String): String {
+
     let n = Number(gd)
 
-    if ( month === "FEB" && n === 29  ) {
-      return "01"
-    }
-    if (n < 16 && month === "MAR") {
-
-      if (n < 10) {
-        
-        return "0" + (n + 1)
-        
-      } else {
-
-        return String(n + 1)
-        
-      }
-      
+    if (visekt === "29" && n === 29) {
+      return "00visekt"
     }
     
     return gd

@@ -1,13 +1,7 @@
-/**
-* Компонент вычисляющий прошедшую и грядущую Пасхи.
-*
-*/
 import { Component, Injectable, OnInit } from '@angular/core';
 import { DateService } from '../svrs/date.service';
 import { LinksService } from '../svrs/links.service';
 
-
-@Injectable()
 
 @Component({
   selector: 'app-paskha',

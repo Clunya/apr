@@ -1,6 +1,8 @@
+
 import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { SedService } from '../svrs/sed.service';
 import { LinksService } from '../svrs/links.service';
+
 
 
 @Component({

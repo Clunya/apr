@@ -185,7 +185,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/svrs/sed.service.ts:103</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/svrs/sed.service.ts:104</a></div>
                             </td>
                         </tr>
 
@@ -519,7 +519,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/svrs/sed.service.ts:106</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/svrs/sed.service.ts:107</a></div>
                             </td>
                         </tr>
 
@@ -833,7 +833,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/svrs/sed.service.ts:103</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/svrs/sed.service.ts:104</a></div>
                             </td>
                         </tr>
 
@@ -1163,18 +1163,18 @@ export class SedService implements OnInit {
   /**
    * Переменная для вывода русского слова в шаблоне html (преступка или отступка).
    */
+
   stupka: string;
 
 
   public constructor(public _datesService: DateService) {
 
     console.warn(&quot;Грядущая Православная Пасха: &quot;, this._datesService.datesEasterYear.nextEasterRU)
-    
+
 
     this.numberOfWeeks();
     this.otstupkaVozdvijjenie();
     console.log(&#x60;Воздвиженская ${this.stupka} : ${this.otstupkaV}&#x60;);
-    
     this.promWeeks();
 
 
@@ -1261,8 +1261,8 @@ export class SedService implements OnInit {
    * Возвращает глас Октоиха по номеру седмицы случившейся после Пасхи, но не по Пятьдесятнице.
    *  
    * @param {string} sedmica принимает строку.
-   * @returns возвращает номер гласа для текущей седмицы.
-   */
+    * @returns возвращает номер гласа для текущей седмицы.
+    */
   protected glasSed(sedmica: string | number) {
 
     if (sedmica) {
